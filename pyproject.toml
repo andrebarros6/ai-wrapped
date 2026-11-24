@@ -16,7 +16,7 @@ select = ["E", "F", "W", "I", "B", "UP"]
 [tool.mypy]
 strict = true
 python_version = "3.10"
-files = ["scripts/wrapped.py", "scripts/make_fixtures.py", "tests"]
+files = ["scripts/wrapped.py", "scripts/make_fixtures.py", "scripts/build_prompts.py", "tests"]
 exclude = ["scripts/legacy/"]
 
 [tool.pytest.ini_options]

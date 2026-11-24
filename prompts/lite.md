@@ -1,24 +1,40 @@
-# AI Wrapped — Lite prompt (30 seconds, estimates)
+# AI Wrapped 2026: lite prompt (30 seconds, estimates)
 
-Works in Claude or ChatGPT with chat history search turned on. It only sees a sample of chats (Claude: not inside Projects), so numbers are estimates. For exact numbers use the export.
+No export needed. Works in Claude or ChatGPT with chat-history search (memory) turned on.
+It only sees part of your history (in Claude, not chats inside Projects), so the numbers are
+**estimates**, and your cards will say so. For exact numbers, use the export or `full.md`.
+
+Paste the JSON it replies with at **barrosbuilds.com/wrapped/import**.
+
+## Prompt
 
 ```
-Look back through my past chats from this year using your chat history. Build my "AI Wrapped" and reply ONLY with this JSON:
+Look back through my past chats from 2026 using your chat history. Estimate my year and reply ONLY
+with this JSON in one code block, filling in every value:
+
 {
- "version": 1, "source": "lite-prompt",
- "platform": "Claude or ChatGPT",
- "chats_estimate": 0,
- "busiest_month": "",
- "top_themes": ["", "", ""],
- "club": "one of: Researchers, Builders, Coders, Night Shift, Polyglots, Talkers",
- "club_why": "one sentence",
- "night_share_estimate": 0.0,
- "languages": 0,
- "opener": "my year in one sentence",
- "prediction": "a playful one-line prediction for next year",
- "funniest_ask": "short and safe to post"
+  "version": 1,
+  "source": "lite-prompt",
+  "platform": "Claude or ChatGPT",
+  "chats": 0,
+  "your_messages": 0,
+  "active_days": 0,
+  "web_searches": 0,
+  "projects_total": 0,
+  "night_share": 0.0,
+  "languages": 1,
+  "club": "one of: Researchers, Builders, Coders, Night Shift, Polyglots, Talkers",
+  "opener": "my 2026 in one sentence, under 140 characters",
+  "prediction": ["one playful line about my 2027", "another", "another"]
 }
-Rules: everything must be safe to post publicly. No names, health, money, legal, family or job-rejection topics. Where you can't count exactly, give your best estimate.
-```
 
-Paste the JSON at barrosbuilds.com/wrapped/import.
+Definitions: chats = conversations I started in 2026; your_messages = messages I sent;
+night_share = share of my messages sent between 22:00 and 05:00 (0 to 1); languages = how many
+languages I chatted in; club = the one that fits me best (Researchers: most web searches,
+Builders: most files and artifacts, Coders: most code runs, Night Shift: most messages after 10pm,
+Polyglots: 3+ languages, Talkers: longest chats).
+
+Rules: everything must be safe to post publicly. No names of people, companies or places that
+could identify me or anyone else, and no health, money, legal, family or job-rejection topics.
+Where you can't count exactly, give your best estimate.
+```
