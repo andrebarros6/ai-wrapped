@@ -181,6 +181,23 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 - Smoke test against production passes (`npm run test:live`): real stats equal the golden files, story, 1080×1350 PNG, and all 58 requests go to the site's own origin.
 - Main site: PR andrebarros6/barrosbuilds#2 adds the `/wrapped` rewrites. Tested locally through `next dev`: the full flow works with 62 requests, all to the main site's origin, and the main site's 46 tests pass. The Vercel preview built.
 - Performance: landing JS cut from 604 KB to 497 KB raw. Blocking time on first load at 4× CPU went from about 710 ms to about 270 ms, and repeat visits are 0. Local Lighthouse, mobile: accessibility 100, best practices 96–100, SEO 100. Performance is unreliable on this machine (59–83, depending on its CPU benchmark). **Still to do: a PageSpeed Insights run** (the API quota was exhausted).
+- **Pre-launch test pass (`test-app`, 2026-11-24).** Found and fixed:
+  - shared links could reverse text with bidi overrides, or push unbroken words off or over the cards;
+  - ZIP bombs were inflated in full, with no size cap;
+  - malformed exports showed raw DuckDB errors;
+  - an engine file that failed to download caused an endless spinner.
+
+  Verified clean:
+  - XSS payloads, prototype pollution, bombs and junk in links;
+  - fake ZIPs, 10k-entry ZIPs and hostile pastes;
+  - a 153 MB / 9,000-chat export (12 s);
+  - Firefox and WebKit (all core flows, in CI too);
+  - no server surface; headers live (CSP, HSTS with preload, nosniff, no-referrer);
+  - no secrets, and none of the 382 real titles in git history or the build;
+  - 0 known vulnerabilities (npm, pip);
+  - load: a 400-request burst and a 2-minute sustained run with 0 errors and a flat p50 of about 77 ms.
+
+  Open: commit author emails are your personal Gmail (your main site repo is already public with the same); PageSpeed Insights still to run.
 - Still to do: merge PR #2, then run `LIVE_URL=https://www.barrosbuilds.com/wrapped/ npm run test:live` and check where analytics page views land; run the `test-app` pass; polish the README; make the repo public (Wall joining needs it).
 
 - Vercel project for `ai-wrapped` (static output) with Analytics page views on.
