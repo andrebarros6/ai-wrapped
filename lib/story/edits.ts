@@ -15,9 +15,20 @@ export interface StoryEdits {
 
 export const LIMITS = { display_name: 32, tag: 24, opener: 140, prediction: 60, chattiest_day_example: 90 } as const;
 
+// Invisible characters that can disguise text on a public card: bidi overrides/isolates (which can
+// reverse a whole line), zero-width spaces and marks, BOM. U+200D (zero-width joiner) is kept, since
+// emoji like 👩‍💻 need it.
+const INVISIBLE_CODEPOINTS = [
+  0x200b, 0x200c, 0x200e, 0x200f, 0x202a, 0x202b, 0x202c, 0x202d, 0x202e, 0x2060, 0x2061, 0x2062, 0x2063,
+  0x2064, 0x2066, 0x2067, 0x2068, 0x2069, 0xfeff,
+];
+const INVISIBLE = new RegExp(`[${String.fromCodePoint(...INVISIBLE_CODEPOINTS)}]`, "g");
+
+export const stripInvisible = (s: string): string => s.replace(INVISIBLE, "");
+
 const clean = (s: unknown, max: number): string =>
   typeof s === "string"
-    ? s
+    ? stripInvisible(s)
         .replace(/[\u0000-\u001f\u007f]/g, " ")
         .replace(/\s+/g, " ")
         .trim()

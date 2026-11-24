@@ -32,7 +32,7 @@ export function SharedStory() {
   return (
     <>
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2" data-testid="shared-banner">
-        <h1 className="font-display text-2xl font-extrabold">{owner} AI Wrapped 2026</h1>
+        <h1 className="font-display text-2xl font-extrabold [overflow-wrap:anywhere]">{owner} AI Wrapped 2026</h1>
         <Link href="/" className="font-mono text-sm">
           Make yours →
         </Link>

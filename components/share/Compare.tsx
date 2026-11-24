@@ -28,7 +28,7 @@ export function Compare() {
     scoreA === scoreB ? "It's a draw." : `${scoreA > scoreB ? nameA : nameB} wins ${Math.max(scoreA, scoreB)}–${Math.min(scoreA, scoreB)}.`;
 
   return (
-    <section data-testid="compare" className="flex flex-col gap-8">
+    <section data-testid="compare" className="flex flex-col gap-8 [overflow-wrap:anywhere]">
       <header className="flex flex-col gap-2">
         <p className="font-mono text-sm tracking-[0.25em] text-amber">PROVE IT · AI WRAPPED 2026</p>
         <h1 className="font-display text-4xl font-extrabold sm:text-6xl" data-testid="compare-verdict">
@@ -43,8 +43,8 @@ export function Compare() {
         <thead>
           <tr className="text-left text-muted">
             <th className="py-2 font-normal">Stat</th>
-            <th className="py-2 text-right font-normal">{nameA}</th>
-            <th className="py-2 text-right font-normal">{nameB}</th>
+            <th className="py-2 text-right font-normal [overflow-wrap:anywhere]">{nameA}</th>
+            <th className="py-2 text-right font-normal [overflow-wrap:anywhere]">{nameB}</th>
           </tr>
         </thead>
         <tbody>

@@ -16,7 +16,7 @@ import {
   workHeadline,
   workTiles,
 } from "./derive";
-import { cleanTag, defaultEdits, LIMITS, sanitizeEdits } from "./edits";
+import { cleanTag, defaultEdits, LIMITS, sanitizeEdits, stripInvisible } from "./edits";
 import { isSafeTitle, safeTitles } from "./safety";
 import { toCardStats } from "./schema";
 
@@ -153,6 +153,21 @@ describe("edits", () => {
     expect(out.chattiest_day_example).toBe("line break");
     expect(out.theme).toBe("brand");
     expect(sanitizeEdits(null, s)).toEqual(defaultEdits(s));
+  });
+});
+
+describe("invisible characters", () => {
+  it("strips bidi overrides and zero-width characters but keeps emoji joiners", () => {
+    const rlo = String.fromCodePoint(0x202e);
+    const zwsp = String.fromCodePoint(0x200b);
+    const coder = "👩" + String.fromCodePoint(0x200d) + "💻";
+    expect(stripInvisible(`${rlo}evil${zwsp}name`)).toBe("evilname");
+    expect(stripInvisible(coder)).toBe(coder);
+    const s = toCardStats({ chats: 1 });
+    expect(sanitizeEdits({ display_name: `${rlo}Ana`, opener: `hi${zwsp}there` }, s)).toMatchObject({
+      display_name: "Ana",
+      opener: "hithere",
+    });
   });
 });
 

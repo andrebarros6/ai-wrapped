@@ -51,6 +51,9 @@ const mono = (t: CardTheme, size: number, extra: CSSProperties = {}): CSSPropert
 });
 
 /** Shrink long hero text so it stays inside the card. */
+/** Very long words (e.g. from a crafted link) wrap letter by letter: give them a smaller size. */
+const longestWord = (text: string): number => Math.max(0, ...text.split(/\s+/).map((w) => w.length));
+
 const fit = (text: string, base: number, steps: [number, number][]): number => {
   for (const [len, size] of steps) if (text.length > len) return size;
   return base;
@@ -67,7 +70,15 @@ export const CARDS: CardDef[] = [
         <span style={mono(t, 26, { color: t.accent })}>
           {e.display_name ? `${e.display_name.toUpperCase()}'S 2026 IN ONE SENTENCE` : "YOUR 2026 IN ONE SENTENCE"}
         </span>
-        <span style={{ fontSize: fit(e.opener, 72, [[110, 60]]), fontWeight: 800, lineHeight: 1.05 }}>{e.opener}</span>
+        <span
+          style={{
+            fontSize: longestWord(e.opener) > 15 ? 48 : fit(e.opener, 72, [[110, 60]]),
+            fontWeight: 800,
+            lineHeight: 1.05,
+          }}
+        >
+          {e.opener}
+        </span>
       </>
     ),
   },
@@ -268,7 +279,16 @@ export const CARDS: CardDef[] = [
     Body: ({ e, t }) => (
       <>
         <span style={mono(t, 30, { color: t.accent })}>IN 2027, YOU WILL…</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: 28, fontSize: 52, fontWeight: 800, lineHeight: 1.1 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 28,
+            fontSize: e.prediction.some((l) => longestWord(l) > 15) ? 40 : 52,
+            fontWeight: 800,
+            lineHeight: 1.1,
+          }}
+        >
           {e.prediction.map((line, i) => (
             <span key={i}>{line}</span>
           ))}

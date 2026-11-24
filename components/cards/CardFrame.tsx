@@ -77,6 +77,9 @@ export function CardFrame({ n, total, estimated, label, cta, tag, t, variant = "
         padding: "56px 80px 64px",
         gap: 32,
         overflow: "hidden",
+        // Inherited by every line: an unbroken word (e.g. from a crafted link) wraps instead of
+        // running off the card.
+        overflowWrap: "anywhere",
       }}
     >
       <div style={{ display: "flex", gap: 10 }}>{Array.from({ length: total }, (_, i) => segment(i))}</div>
@@ -95,7 +98,19 @@ export function CardFrame({ n, total, estimated, label, cta, tag, t, variant = "
           {n} / {total} · {label.toUpperCase()}
         </span>
       </div>
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 28, minHeight: 0 }}>
+      {/* Clipped, so even absurd text can never cover the header or the "Get yours" line. */}
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: 28,
+          minHeight: 0,
+          overflow: "hidden",
+        }}
+        data-card-body
+      >
         {children}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
