@@ -1,0 +1,26 @@
+name: guard-private-data
+
+# Fails if anything that looks like a real Claude export's private files is committed.
+# light_metadata holds email, phone and login IPs; it must never be in this repo.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Block private export files
+        run: |
+          set -euo pipefail
+          hits=$(git ls-files | grep -iE '(^|/)(light_metadata[^/]*|users\.json|login_history\.json)(/|$)' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Private export files must never be committed:"
+            echo "$hits"
+            exit 1
+          fi
+          echo "No private export files found."
