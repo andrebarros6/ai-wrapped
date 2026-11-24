@@ -11,6 +11,7 @@ import { EditPanel } from "./EditPanel";
 import { QueryPanel } from "./QueryPanel";
 import { ScaledCard } from "./ScaledCard";
 import { SharePanel } from "./SharePanel";
+import { WallPanel } from "@/components/wall/WallPanel";
 
 const DURATION_MS = 6000;
 const HOLD_MS = 220;
@@ -23,7 +24,7 @@ const subscribeMotion = (cb: () => void) => {
   return () => mq.removeEventListener("change", cb);
 };
 
-type Panel = "none" | "edit" | "query" | "share";
+type Panel = "none" | "edit" | "query" | "share" | "wall";
 
 interface Props {
   stats: CardStats;
@@ -172,6 +173,11 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
               Edit
             </PanelTab>
           )}
+          {!readOnly && (
+            <PanelTab active={panel === "wall"} onClick={() => setPanel(panel === "wall" ? "none" : "wall")} testId="wall-toggle">
+              Wall
+            </PanelTab>
+          )}
           <PanelTab
             active={panel === "query"}
             onClick={() => setPanel(panel === "query" ? "none" : "query")}
@@ -190,6 +196,7 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
         )}
         {panel === "query" && <QueryPanel files={card.sql} />}
         {panel === "share" && <SharePanel stats={stats} edits={edits} deck={deck} index={index} />}
+        {panel === "wall" && <WallPanel stats={stats} edits={edits} canJoin={persist} />}
         {panel === "none" && (
           <p className="text-sm text-muted">
             Tap the right side of a card for the next one, the left side to go back, or hold to pause. Arrow keys and
