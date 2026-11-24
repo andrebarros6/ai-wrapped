@@ -37,3 +37,4 @@ playwright-report/
 public/duckdb/
 lib/engine/sql.generated.ts
 lib/prompts.generated.ts
+lib/engine/duckdb-assets.generated.ts

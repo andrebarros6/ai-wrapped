@@ -2,13 +2,16 @@
 // never makes a third-party request at runtime (DuckDB would otherwise fetch extensions from
 // extensions.duckdb.org). Extensions are pinned by SHA-256: a changed file fails the build.
 import { createHash } from "node:crypto";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "node_modules", "@duckdb", "duckdb-wasm", "dist");
-const out = join(root, "public", "duckdb");
+// Versioned folder, so the files can be cached forever (see vercel.json) and a version bump changes the URL.
+const PKG_VERSION = JSON.parse(readFileSync(join(root, "node_modules", "@duckdb", "duckdb-wasm", "package.json"), "utf8")).version;
+const publicDir = join(root, "public", "duckdb");
+const out = join(publicDir, PKG_VERSION);
 
 // Engine version bundled by @duckdb/duckdb-wasm (pinned in package.json); must match the
 // Python duckdb version in requirements.txt so the browser and CLI run the same engine.
@@ -21,6 +24,9 @@ const EXTENSIONS = {
 const sha256 = (buf) => createHash("sha256").update(buf).digest("hex");
 
 mkdirSync(out, { recursive: true });
+for (const old of existsSync(publicDir) ? readdirSync(publicDir) : []) {
+  if (old !== PKG_VERSION) rmSync(join(publicDir, old), { recursive: true, force: true });
+}
 for (const f of ["duckdb-eh.wasm", "duckdb-browser-eh.worker.js"]) {
   copyFileSync(join(dist, f), join(out, f));
 }
@@ -38,4 +44,4 @@ for (const [name, hash] of Object.entries(EXTENSIONS)) {
   if (got !== hash) throw new Error(`checksum mismatch for ${name}: expected ${hash}, got ${got}`);
   writeFileSync(file, buf);
 }
-console.log(`duckdb vendored to public/duckdb (engine ${ENGINE_VERSION})`);
+console.log(`duckdb ${PKG_VERSION} vendored to public/duckdb/${PKG_VERSION} (engine ${ENGINE_VERSION})`);

@@ -3,6 +3,7 @@
 import type { AsyncDuckDB, AsyncDuckDBConnection } from "@duckdb/duckdb-wasm";
 
 import { withBase } from "../site";
+import { DUCKDB_DIR } from "./duckdb-assets.generated";
 import { render, YEAR } from "./render";
 import { LOAD_SQL, METRICS } from "./sql.generated";
 import type { FullStats } from "./stats";
@@ -59,12 +60,12 @@ export class WrappedEngine {
     const duckdb = await import("@duckdb/duckdb-wasm");
     const features = await duckdb.getPlatformFeatures();
     if (!features.wasmExceptions) throw new UnsupportedBrowserError("browser too old for WebAssembly exceptions");
-    const worker = new Worker(withBase("/duckdb/duckdb-browser-eh.worker.js"));
+    const worker = new Worker(withBase(`${DUCKDB_DIR}/duckdb-browser-eh.worker.js`));
     const db = new duckdb.AsyncDuckDB(new duckdb.VoidLogger(), worker);
-    await db.instantiate(withBase("/duckdb/duckdb-eh.wasm"));
+    await db.instantiate(withBase(`${DUCKDB_DIR}/duckdb-eh.wasm`));
     const conn = await db.connect();
     // Extensions come from our own origin, never from extensions.duckdb.org.
-    const repo = `${location.origin}${withBase("/duckdb/ext")}`.replace(/'/g, "");
+    const repo = `${location.origin}${withBase(`${DUCKDB_DIR}/ext`)}`.replace(/'/g, "");
     await conn.query(`SET custom_extension_repository = '${repo}'`);
     await conn.query(`SET autoinstall_extension_repository = '${repo}'`);
     await conn.query("LOAD json");
