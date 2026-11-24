@@ -1,0 +1,27 @@
+# deps / build
+node_modules/
+.next/
+out/
+coverage/
+.vercel/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.pyc
+.venv/
+
+# env
+.env*
+
+# never commit real exports or zips (fixtures are zipped at test time)
+*.zip
+**/export/
+**/light_metadata*
+**/users.json
+**/login_history.json
+
+# os/editor
+.DS_Store
+Thumbs.db
+.claude/settings.local.json

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Player Card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#C6F432}a:hover{color:#E4FF8A}
+</style>
+</helmet>
+<div style="width: 1080px; height: 1350px; box-sizing: border-box; background: #0E0F13; color: #F4F4F0; font-family: 'Bricolage Grotesque', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 64px 80px; gap: 40px">
+<div style="width: 100%; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 3px; color: #9A9C93">
+<span>AI WRAPPED 2026</span>
+<span>CLAUDE</span>
+</div>
+<div style="width: 800px; height: 940px; box-sizing: border-box; background: {{accent}}; color: #0E0F13; border-radius: 48px 48px 160px 160px; padding: 56px 56px 72px; display: flex; flex-direction: column; gap: 28px; position: relative">
+<div style="display: flex; justify-content: space-between; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 148px; font-weight: 800; line-height: 0.9">{{ovr}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 30px; font-weight: 700; letter-spacing: 2px">BLDR</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; text-align: right">
+<span>EN · PT · FR · ES</span>
+<span>405 CHATS</span>
+<span>229 ACTIVE DAYS</span>
+</div>
+</div>
+<div style="height: 2px; background: #0E0F13; opacity: 0.25"></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 72px; font-weight: 800; line-height: 1">André</span>
+<span style="font-size: 32px; font-weight: 500; line-height: 1.2">The Border-Hopping Fixer</span>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px 40px"><div style="display: flex; gap: 18px; align-items: center"><b style="font-size: 56px; font-weight: 800; line-height: 1; min-width: 72px">94</b><div style="display: flex; flex-direction: column"><span style="font-size: 32px; font-weight: 800; line-height: 1.1">Researcher</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.3">1,151 web searches</span></div></div><div style="display: flex; gap: 18px; align-items: center"><b style="font-size: 56px; font-weight: 800; line-height: 1; min-width: 72px">88</b><div style="display: flex; flex-direction: column"><span style="font-size: 32px; font-weight: 800; line-height: 1.1">Polyglot</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.3">4 languages</span></div></div><div style="display: flex; gap: 18px; align-items: center"><b style="font-size: 56px; font-weight: 800; line-height: 1; min-width: 72px">86</b><div style="display: flex; flex-direction: column"><span style="font-size: 32px; font-weight: 800; line-height: 1.1">Builder</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.3">355 files & artifacts</span></div></div><div style="display: flex; gap: 18px; align-items: center"><b style="font-size: 56px; font-weight: 800; line-height: 1; min-width: 72px">85</b><div style="display: flex; flex-direction: column"><span style="font-size: 32px; font-weight: 800; line-height: 1.1">Grinder</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.3">17-day streak</span></div></div><div style="display: flex; gap: 18px; align-items: center"><b style="font-size: 56px; font-weight: 800; line-height: 1; min-width: 72px">81</b><div style="display: flex; flex-direction: column"><span style="font-size: 32px; font-weight: 800; line-height: 1.1">Coder</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.3">442 code runs</span></div></div><div style="display: flex; gap: 18px; align-items: center"><b style="font-size: 56px; font-weight: 800; line-height: 1; min-width: 72px">58</b><div style="display: flex; flex-direction: column"><span style="font-size: 32px; font-weight: 800; line-height: 1.1">Night owl</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.3">11% after 10pm</span></div></div></div>
+<div style="margin-top: auto; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 20px; letter-spacing: 1px">OVERALL = AVERAGE OF THE SIX</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<span style="font-size: 34px; font-weight: 800">Think you'd rate higher? Prove it.</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 24px; color: {{accent}}">Get yours → wrapped.barrosbuilds.com · {{tag}}</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C6F432"},"ovr":{"editor":"text","default":"86"},"tag":{"editor":"text","default":"#barrosbuilds"},"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#C6F432', ovr: this.props.ovr ?? '86', tag: this.props.tag ?? '#barrosbuilds' };
+}
+}
+</script>
+</body>
+</html>

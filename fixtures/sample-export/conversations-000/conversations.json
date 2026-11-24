@@ -1,0 +1,5070 @@
+[
+ {
+  "uuid": "392d6bd0-94d1-424e-a895-21a8c84dfcb6",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-03-10T08:00:00+00:00",
+  "updated_at": "2026-03-10T08:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "5a17198f-fcb3-48cb-897a-9d3eb5937dea",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-10T08:00:00+00:00",
+    "updated_at": "2026-03-10T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "f6f36578-2d69-4766-8e37-e246cbfced62",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-10T08:00:30+00:00",
+    "updated_at": "2026-03-10T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5a17198f-fcb3-48cb-897a-9d3eb5937dea"
+   },
+   {
+    "uuid": "9752cbf6-0996-47ed-9eef-5763134f7c15",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-10T08:05:00+00:00",
+    "updated_at": "2026-03-10T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f6f36578-2d69-4766-8e37-e246cbfced62"
+   },
+   {
+    "uuid": "2d611054-9630-4562-a89a-df32a2b66e44",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-10T08:05:30+00:00",
+    "updated_at": "2026-03-10T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "9752cbf6-0996-47ed-9eef-5763134f7c15"
+   },
+   {
+    "uuid": "dc8bda43-089c-4be5-8ae3-f7384dec2e3a",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-10T08:10:00+00:00",
+    "updated_at": "2026-03-10T08:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "2d611054-9630-4562-a89a-df32a2b66e44"
+   },
+   {
+    "uuid": "24ff86a9-263b-4527-829a-49bcaf34f633",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-10T08:10:30+00:00",
+    "updated_at": "2026-03-10T08:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "dc8bda43-089c-4be5-8ae3-f7384dec2e3a"
+   }
+  ]
+ },
+ {
+  "uuid": "f1a23862-dbc3-458d-9ca0-6743dec65eee",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-07-19T19:00:00+00:00",
+  "updated_at": "2026-07-19T19:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "bf28f75d-f388-4736-ad6e-267f9b23173b",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-19T19:00:00+00:00",
+    "updated_at": "2026-07-19T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "044c6eed-c89f-49b5-84d7-be80829981bd",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-19T19:00:30+00:00",
+    "updated_at": "2026-07-19T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "bf28f75d-f388-4736-ad6e-267f9b23173b"
+   },
+   {
+    "uuid": "eb7b0985-77b6-4e74-8fa6-0a4e3d2f8372",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-19T19:05:00+00:00",
+    "updated_at": "2026-07-19T19:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "044c6eed-c89f-49b5-84d7-be80829981bd"
+   },
+   {
+    "uuid": "6f62ea77-f344-4dea-ae25-449f86bafeee",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-19T19:05:30+00:00",
+    "updated_at": "2026-07-19T19:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "eb7b0985-77b6-4e74-8fa6-0a4e3d2f8372"
+   },
+   {
+    "uuid": "12a2b5a0-9b9e-4a06-bcb7-48f2fd78a247",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-19T19:10:00+00:00",
+    "updated_at": "2026-07-19T19:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6f62ea77-f344-4dea-ae25-449f86bafeee"
+   },
+   {
+    "uuid": "36fd4dbe-7630-4538-9e11-92ae5514b998",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-19T19:10:30+00:00",
+    "updated_at": "2026-07-19T19:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "12a2b5a0-9b9e-4a06-bcb7-48f2fd78a247"
+   },
+   {
+    "uuid": "4221077a-3bba-47af-b043-a5b08f9d7409",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-19T19:15:00+00:00",
+    "updated_at": "2026-07-19T19:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "36fd4dbe-7630-4538-9e11-92ae5514b998"
+   },
+   {
+    "uuid": "5c703d3f-fab9-4aa5-904f-463ee92abdf5",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-19T19:15:30+00:00",
+    "updated_at": "2026-07-19T19:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4221077a-3bba-47af-b043-a5b08f9d7409"
+   },
+   {
+    "uuid": "a6db48f1-5e0c-427e-b24b-2f1719c22464",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-19T19:20:00+00:00",
+    "updated_at": "2026-07-19T19:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5c703d3f-fab9-4aa5-904f-463ee92abdf5"
+   },
+   {
+    "uuid": "507b20a6-b1ad-4014-9814-d01d7f2fd78f",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-19T19:20:30+00:00",
+    "updated_at": "2026-07-19T19:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a6db48f1-5e0c-427e-b24b-2f1719c22464"
+   }
+  ]
+ },
+ {
+  "uuid": "62eea2ea-fc0c-4a0c-b0ad-b032905f5cd9",
+  "name": "Explain transformers",
+  "summary": "",
+  "created_at": "2026-01-05T18:00:00+00:00",
+  "updated_at": "2026-01-05T18:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "4db0f19d-b335-499c-9cfd-20ce0ab3dd1f",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-05T18:00:00+00:00",
+    "updated_at": "2026-01-05T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "21fde2e2-9214-4816-843b-b631d8a2d569",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-05T18:00:30+00:00",
+    "updated_at": "2026-01-05T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4db0f19d-b335-499c-9cfd-20ce0ab3dd1f"
+   },
+   {
+    "uuid": "cb444792-3a15-495e-9992-66714d61d0de",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-05T18:05:00+00:00",
+    "updated_at": "2026-01-05T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "21fde2e2-9214-4816-843b-b631d8a2d569"
+   },
+   {
+    "uuid": "1df45839-d544-46b4-ae84-920db53ad686",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-05T18:05:30+00:00",
+    "updated_at": "2026-01-05T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cb444792-3a15-495e-9992-66714d61d0de"
+   },
+   {
+    "uuid": "c84706c4-61d1-4fe9-a6a7-bd69689bebea",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-05T18:10:00+00:00",
+    "updated_at": "2026-01-05T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1df45839-d544-46b4-ae84-920db53ad686"
+   },
+   {
+    "uuid": "1c2bd2b8-e7d3-4416-95bf-79b16dee8a1e",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-05T18:10:30+00:00",
+    "updated_at": "2026-01-05T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "c84706c4-61d1-4fe9-a6a7-bd69689bebea"
+   },
+   {
+    "uuid": "dc5755cd-13d9-4bfb-a3cd-543cc4076a01",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-05T18:15:00+00:00",
+    "updated_at": "2026-01-05T18:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1c2bd2b8-e7d3-4416-95bf-79b16dee8a1e"
+   },
+   {
+    "uuid": "c208f6fc-4e41-402a-a5b1-92267e38ac2b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-05T18:15:30+00:00",
+    "updated_at": "2026-01-05T18:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "dc5755cd-13d9-4bfb-a3cd-543cc4076a01"
+   },
+   {
+    "uuid": "60648af1-96d7-40ee-87c9-0fdf0947942b",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-05T18:20:00+00:00",
+    "updated_at": "2026-01-05T18:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "c208f6fc-4e41-402a-a5b1-92267e38ac2b"
+   },
+   {
+    "uuid": "6ac31c48-ced5-485f-9434-51e898019c5c",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-05T18:20:30+00:00",
+    "updated_at": "2026-01-05T18:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "60648af1-96d7-40ee-87c9-0fdf0947942b"
+   },
+   {
+    "uuid": "f9b4ca4a-4390-4e1c-aea1-25560e938292",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-05T18:25:00+00:00",
+    "updated_at": "2026-01-05T18:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6ac31c48-ced5-485f-9434-51e898019c5c"
+   },
+   {
+    "uuid": "c7828e09-78e9-4ce6-9245-387962f165ae",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-05T18:25:30+00:00",
+    "updated_at": "2026-01-05T18:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f9b4ca4a-4390-4e1c-aea1-25560e938292"
+   }
+  ]
+ },
+ {
+  "uuid": "adfad3bf-5664-4fb3-97ce-cceebb85e670",
+  "name": "Trouver un appartement",
+  "summary": "",
+  "created_at": "2026-10-12T09:00:00+00:00",
+  "updated_at": "2026-10-12T09:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "14386257-b014-4296-94c7-2e4c82629682",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-12T09:00:00+00:00",
+    "updated_at": "2026-10-12T09:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "f0300196-0d60-43c2-ba3c-cb7c07404ae7",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-12T09:00:30+00:00",
+    "updated_at": "2026-10-12T09:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "14386257-b014-4296-94c7-2e4c82629682"
+   },
+   {
+    "uuid": "4885ce31-67fd-4a47-acf9-d9a9fc603080",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-12T09:05:00+00:00",
+    "updated_at": "2026-10-12T09:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f0300196-0d60-43c2-ba3c-cb7c07404ae7"
+   },
+   {
+    "uuid": "23a806ea-02f7-4914-8688-e130cd62f2f6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-12T09:05:30+00:00",
+    "updated_at": "2026-10-12T09:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4885ce31-67fd-4a47-acf9-d9a9fc603080"
+   }
+  ]
+ },
+ {
+  "uuid": "80ad1f8f-a652-42b1-9416-ea394a4e43bd",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-04-08T15:00:00+00:00",
+  "updated_at": "2026-04-08T15:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "466743a0-f5d5-4d93-afda-8df6e89ea59e",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-08T15:00:00+00:00",
+    "updated_at": "2026-04-08T15:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "eb765b5c-11ac-4be4-a8b0-ba99ae5337da",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-08T15:00:30+00:00",
+    "updated_at": "2026-04-08T15:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "466743a0-f5d5-4d93-afda-8df6e89ea59e"
+   },
+   {
+    "uuid": "2ddb3a98-24ee-412f-8f0b-6440e39886df",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-08T15:05:00+00:00",
+    "updated_at": "2026-04-08T15:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "eb765b5c-11ac-4be4-a8b0-ba99ae5337da"
+   },
+   {
+    "uuid": "e860eddb-5338-4420-9bb9-4083783efab2",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-08T15:05:30+00:00",
+    "updated_at": "2026-04-08T15:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "2ddb3a98-24ee-412f-8f0b-6440e39886df"
+   },
+   {
+    "uuid": "f1e91add-9629-499b-9d99-aa8f877dfa0c",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-08T15:10:00+00:00",
+    "updated_at": "2026-04-08T15:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e860eddb-5338-4420-9bb9-4083783efab2"
+   },
+   {
+    "uuid": "8b88b09d-d9c9-46e1-8bb8-db665d55a002",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-08T15:10:30+00:00",
+    "updated_at": "2026-04-08T15:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f1e91add-9629-499b-9d99-aa8f877dfa0c"
+   }
+  ]
+ },
+ {
+  "uuid": "53b3006c-5fbd-4e63-8c13-b1684c1c126c",
+  "name": "Fix my SQL query",
+  "summary": "",
+  "created_at": "2026-07-26T19:00:00+00:00",
+  "updated_at": "2026-07-26T19:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "bd270f5f-5b64-4ebb-b902-f174881c7df9",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-26T19:00:00+00:00",
+    "updated_at": "2026-07-26T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "ff3d48cf-51ff-49b3-b49e-859ef92fba5a",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-26T19:00:30+00:00",
+    "updated_at": "2026-07-26T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "bd270f5f-5b64-4ebb-b902-f174881c7df9"
+   },
+   {
+    "uuid": "81645f29-80dd-4e84-bf0b-89ebdeacb57d",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-26T19:05:00+00:00",
+    "updated_at": "2026-07-26T19:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ff3d48cf-51ff-49b3-b49e-859ef92fba5a"
+   },
+   {
+    "uuid": "554bcd55-a9b5-4906-93ba-6429e1a71cf6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-26T19:05:30+00:00",
+    "updated_at": "2026-07-26T19:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "81645f29-80dd-4e84-bf0b-89ebdeacb57d"
+   },
+   {
+    "uuid": "78986a1e-4fda-4831-8897-ab3f52972336",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-26T19:10:00+00:00",
+    "updated_at": "2026-07-26T19:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "554bcd55-a9b5-4906-93ba-6429e1a71cf6"
+   },
+   {
+    "uuid": "a97fd895-cbed-4692-a991-0033525de4cb",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-26T19:10:30+00:00",
+    "updated_at": "2026-07-26T19:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "78986a1e-4fda-4831-8897-ab3f52972336"
+   },
+   {
+    "uuid": "11ac9474-72a7-426e-93f7-392cce485893",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-26T19:15:00+00:00",
+    "updated_at": "2026-07-26T19:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a97fd895-cbed-4692-a991-0033525de4cb"
+   },
+   {
+    "uuid": "8e8eb6ee-3850-4860-8900-971e6471df67",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-26T19:15:30+00:00",
+    "updated_at": "2026-07-26T19:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "11ac9474-72a7-426e-93f7-392cce485893"
+   },
+   {
+    "uuid": "0125f5ed-a87d-4138-bb3b-6c7e80857740",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-26T19:20:00+00:00",
+    "updated_at": "2026-07-26T19:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8e8eb6ee-3850-4860-8900-971e6471df67"
+   },
+   {
+    "uuid": "d16ea8d2-1feb-40fb-bd72-ed07d4a9bf48",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-26T19:20:30+00:00",
+    "updated_at": "2026-07-26T19:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0125f5ed-a87d-4138-bb3b-6c7e80857740"
+   },
+   {
+    "uuid": "5e332df5-105c-4b57-9ad7-514dc2cf018f",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-26T19:25:00+00:00",
+    "updated_at": "2026-07-26T19:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d16ea8d2-1feb-40fb-bd72-ed07d4a9bf48"
+   },
+   {
+    "uuid": "ff2efb04-5c84-4ca4-8f25-3b8d715253fd",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-26T19:25:30+00:00",
+    "updated_at": "2026-07-26T19:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5e332df5-105c-4b57-9ad7-514dc2cf018f"
+   }
+  ]
+ },
+ {
+  "uuid": "8358c491-6f9c-469d-a0c2-9eff2831d9b3",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-09-15T13:00:00+00:00",
+  "updated_at": "2026-09-15T13:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "5b2ad469-3b51-4f0e-b81e-da9128e22b54",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-15T13:00:00+00:00",
+    "updated_at": "2026-09-15T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "13bff6b4-e130-428c-b191-daee903e7b7a",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-15T13:00:30+00:00",
+    "updated_at": "2026-09-15T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5b2ad469-3b51-4f0e-b81e-da9128e22b54"
+   }
+  ]
+ },
+ {
+  "uuid": "ca40ee89-65ce-411b-85e1-3c4d3f27c0ad",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-10-08T13:00:00+00:00",
+  "updated_at": "2026-10-08T13:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ce15f724-98ab-42b7-8c52-1418d61d3cc8",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-08T13:00:00+00:00",
+    "updated_at": "2026-10-08T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "cf0ac714-387c-4b73-acf1-a60f5ab8ef25",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-08T13:00:30+00:00",
+    "updated_at": "2026-10-08T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ce15f724-98ab-42b7-8c52-1418d61d3cc8"
+   },
+   {
+    "uuid": "a650f313-b6ce-430c-84ba-eccffbb07533",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-08T13:05:00+00:00",
+    "updated_at": "2026-10-08T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cf0ac714-387c-4b73-acf1-a60f5ab8ef25"
+   },
+   {
+    "uuid": "14b980ea-df50-46af-a422-1f14a1944159",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-08T13:05:30+00:00",
+    "updated_at": "2026-10-08T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a650f313-b6ce-430c-84ba-eccffbb07533"
+   },
+   {
+    "uuid": "a26de1b9-dad5-4252-bd78-b7c4ecec1585",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-08T13:10:00+00:00",
+    "updated_at": "2026-10-08T13:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "14b980ea-df50-46af-a422-1f14a1944159"
+   },
+   {
+    "uuid": "137747f5-d265-456f-b188-fd59351ef5e6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-08T13:10:30+00:00",
+    "updated_at": "2026-10-08T13:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a26de1b9-dad5-4252-bd78-b7c4ecec1585"
+   },
+   {
+    "uuid": "0a6b101c-3334-4fdb-863a-c8ee7e59d3ce",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-08T13:15:00+00:00",
+    "updated_at": "2026-10-08T13:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "137747f5-d265-456f-b188-fd59351ef5e6"
+   },
+   {
+    "uuid": "ed0e3f93-178d-45ef-aba6-5972f12733ac",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-08T13:15:30+00:00",
+    "updated_at": "2026-10-08T13:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0a6b101c-3334-4fdb-863a-c8ee7e59d3ce"
+   }
+  ]
+ },
+ {
+  "uuid": "7ad98df4-3ed4-4fce-955f-ae70c55e70e6",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-04-16T19:00:00+00:00",
+  "updated_at": "2026-04-16T19:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "986192c1-a9e1-4d3f-8a4c-80248b0b8bed",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-16T19:00:00+00:00",
+    "updated_at": "2026-04-16T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "b238039d-d5f2-4aca-b127-b81431c519ea",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-16T19:00:30+00:00",
+    "updated_at": "2026-04-16T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "986192c1-a9e1-4d3f-8a4c-80248b0b8bed"
+   }
+  ]
+ },
+ {
+  "uuid": "19101a1b-c251-4b92-afa9-c4c174265970",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-10-11T12:00:00+00:00",
+  "updated_at": "2026-10-11T12:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "e4675fea-a85c-4f81-8574-25fdfab1dc91",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-11T12:00:00+00:00",
+    "updated_at": "2026-10-11T12:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "5ef705e5-4f16-4c1a-8058-45441946ba34",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-11T12:00:30+00:00",
+    "updated_at": "2026-10-11T12:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e4675fea-a85c-4f81-8574-25fdfab1dc91"
+   },
+   {
+    "uuid": "775043c3-a3b9-4e15-ab1f-5cb3d6ddd99b",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-11T12:05:00+00:00",
+    "updated_at": "2026-10-11T12:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5ef705e5-4f16-4c1a-8058-45441946ba34"
+   },
+   {
+    "uuid": "119edee3-cfc3-4761-806f-16ec2fcb5a21",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-11T12:05:30+00:00",
+    "updated_at": "2026-10-11T12:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "775043c3-a3b9-4e15-ab1f-5cb3d6ddd99b"
+   },
+   {
+    "uuid": "fa780cd3-5e72-4b9a-ae48-4f35d6fc478f",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-11T12:10:00+00:00",
+    "updated_at": "2026-10-11T12:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "119edee3-cfc3-4761-806f-16ec2fcb5a21"
+   },
+   {
+    "uuid": "ce408b78-83e6-44c0-a2e5-6878f8a05b9d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-11T12:10:30+00:00",
+    "updated_at": "2026-10-11T12:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "fa780cd3-5e72-4b9a-ae48-4f35d6fc478f"
+   },
+   {
+    "uuid": "22bd8448-94a6-42df-a3e3-26909d2310fb",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-11T12:15:00+00:00",
+    "updated_at": "2026-10-11T12:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ce408b78-83e6-44c0-a2e5-6878f8a05b9d"
+   },
+   {
+    "uuid": "35984772-19f7-4ebd-ac22-4f304dc1d194",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-11T12:15:30+00:00",
+    "updated_at": "2026-10-11T12:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "22bd8448-94a6-42df-a3e3-26909d2310fb"
+   },
+   {
+    "uuid": "7f797218-14fb-4449-b92d-fbd30295e407",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-11T12:20:00+00:00",
+    "updated_at": "2026-10-11T12:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "35984772-19f7-4ebd-ac22-4f304dc1d194"
+   },
+   {
+    "uuid": "30012cdd-511c-49b3-848a-d09a76699805",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-11T12:20:30+00:00",
+    "updated_at": "2026-10-11T12:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "7f797218-14fb-4449-b92d-fbd30295e407"
+   }
+  ]
+ },
+ {
+  "uuid": "4dd03de2-6d24-4019-92ff-7bd11f9f02fa",
+  "name": "Explain transformers",
+  "summary": "",
+  "created_at": "2026-10-10T14:00:00+00:00",
+  "updated_at": "2026-10-10T14:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "f25bfa2e-c17b-405c-ab6e-7b84eb1c91f8",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-10T14:00:00+00:00",
+    "updated_at": "2026-10-10T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "a748155c-b20f-40aa-8daa-8d5a33b7ce75",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-10T14:00:30+00:00",
+    "updated_at": "2026-10-10T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f25bfa2e-c17b-405c-ab6e-7b84eb1c91f8"
+   }
+  ]
+ },
+ {
+  "uuid": "9c72e6d0-95ed-483c-a776-9d60a7741de7",
+  "name": "Fix my SQL query",
+  "summary": "",
+  "created_at": "2026-01-08T14:00:00+00:00",
+  "updated_at": "2026-01-08T14:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "0767aa80-4106-466b-ae95-0a0d568ea35f",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-08T14:00:00+00:00",
+    "updated_at": "2026-01-08T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "b476a309-09bd-4310-9e5f-70be3514fb46",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-08T14:00:30+00:00",
+    "updated_at": "2026-01-08T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0767aa80-4106-466b-ae95-0a0d568ea35f"
+   },
+   {
+    "uuid": "bf8624b8-04d1-4a1c-ba5d-0e3967bea104",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-08T14:05:00+00:00",
+    "updated_at": "2026-01-08T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b476a309-09bd-4310-9e5f-70be3514fb46"
+   },
+   {
+    "uuid": "9f0954da-4e42-4b8d-b0f4-9bad12c7ef76",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-08T14:05:30+00:00",
+    "updated_at": "2026-01-08T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "bf8624b8-04d1-4a1c-ba5d-0e3967bea104"
+   }
+  ]
+ },
+ {
+  "uuid": "5c2a3a15-ca4e-46ad-b64b-e2cdb50961a4",
+  "name": "Trouver un appartement",
+  "summary": "",
+  "created_at": "2026-03-23T14:00:00+00:00",
+  "updated_at": "2026-03-23T14:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "90f206bc-81ba-4f86-ad69-571446960f20",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-23T14:00:00+00:00",
+    "updated_at": "2026-03-23T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "73f27995-cdc4-4822-900a-fc551169e0c8",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-23T14:00:30+00:00",
+    "updated_at": "2026-03-23T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "90f206bc-81ba-4f86-ad69-571446960f20"
+   },
+   {
+    "uuid": "f5b41a67-5203-44fb-b642-ccb724af6227",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-23T14:05:00+00:00",
+    "updated_at": "2026-03-23T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "73f27995-cdc4-4822-900a-fc551169e0c8"
+   },
+   {
+    "uuid": "ef6105b9-a379-4ed0-a05f-34a9aa882ab4",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-23T14:05:30+00:00",
+    "updated_at": "2026-03-23T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f5b41a67-5203-44fb-b642-ccb724af6227"
+   },
+   {
+    "uuid": "3966e292-17cd-4d25-8c38-0f32906a0704",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-23T14:10:00+00:00",
+    "updated_at": "2026-03-23T14:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ef6105b9-a379-4ed0-a05f-34a9aa882ab4"
+   },
+   {
+    "uuid": "91dda6e6-a48a-4e12-bffa-60eb76c7d544",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-23T14:10:30+00:00",
+    "updated_at": "2026-03-23T14:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "3966e292-17cd-4d25-8c38-0f32906a0704"
+   },
+   {
+    "uuid": "462f89b4-4a80-46b1-81dd-5c40dd8f0cff",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-23T14:15:00+00:00",
+    "updated_at": "2026-03-23T14:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "91dda6e6-a48a-4e12-bffa-60eb76c7d544"
+   },
+   {
+    "uuid": "e0326b10-ec88-476f-afa2-09e8abd23415",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-23T14:15:30+00:00",
+    "updated_at": "2026-03-23T14:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "462f89b4-4a80-46b1-81dd-5c40dd8f0cff"
+   },
+   {
+    "uuid": "556f4aab-7b76-4ec0-9429-99375a0d8111",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-23T14:20:00+00:00",
+    "updated_at": "2026-03-23T14:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e0326b10-ec88-476f-afa2-09e8abd23415"
+   },
+   {
+    "uuid": "1b4c4e01-d52f-4453-b919-72651ded1314",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-23T14:20:30+00:00",
+    "updated_at": "2026-03-23T14:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "556f4aab-7b76-4ec0-9429-99375a0d8111"
+   }
+  ]
+ },
+ {
+  "uuid": "404ee188-3a2f-470d-8a30-f219fa22c014",
+  "name": "Fix my SQL query",
+  "summary": "",
+  "created_at": "2026-09-19T12:00:00+00:00",
+  "updated_at": "2026-09-19T12:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "29da2c94-e2b0-4615-a783-c5370fd8460f",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-19T12:00:00+00:00",
+    "updated_at": "2026-09-19T12:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "9b3d17a4-efab-4095-b8c5-1026d4dc51cb",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-19T12:00:30+00:00",
+    "updated_at": "2026-09-19T12:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "29da2c94-e2b0-4615-a783-c5370fd8460f"
+   },
+   {
+    "uuid": "8563e209-b86b-4a27-82ee-f94838ad8244",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-19T12:05:00+00:00",
+    "updated_at": "2026-09-19T12:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "9b3d17a4-efab-4095-b8c5-1026d4dc51cb"
+   },
+   {
+    "uuid": "daa2d585-3880-4e8e-92aa-e3aac5f30a33",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-19T12:05:30+00:00",
+    "updated_at": "2026-09-19T12:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8563e209-b86b-4a27-82ee-f94838ad8244"
+   },
+   {
+    "uuid": "837a1b4d-71a7-4541-b8a6-076c91a9abc4",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-19T12:10:00+00:00",
+    "updated_at": "2026-09-19T12:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "daa2d585-3880-4e8e-92aa-e3aac5f30a33"
+   },
+   {
+    "uuid": "da8330ba-71e4-44c2-abe6-5cc767f5d114",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-19T12:10:30+00:00",
+    "updated_at": "2026-09-19T12:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "837a1b4d-71a7-4541-b8a6-076c91a9abc4"
+   },
+   {
+    "uuid": "33eae6de-db73-44ec-803e-bba6713edf49",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-19T12:15:00+00:00",
+    "updated_at": "2026-09-19T12:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "da8330ba-71e4-44c2-abe6-5cc767f5d114"
+   },
+   {
+    "uuid": "633a475e-fc20-421c-a212-ef6159afa099",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-19T12:15:30+00:00",
+    "updated_at": "2026-09-19T12:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "33eae6de-db73-44ec-803e-bba6713edf49"
+   },
+   {
+    "uuid": "d85bca78-d129-45b2-b464-edf69572a45b",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-19T12:20:00+00:00",
+    "updated_at": "2026-09-19T12:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "633a475e-fc20-421c-a212-ef6159afa099"
+   },
+   {
+    "uuid": "c4129d5a-c3d6-4657-ba0e-26446de4daa5",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-19T12:20:30+00:00",
+    "updated_at": "2026-09-19T12:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d85bca78-d129-45b2-b464-edf69572a45b"
+   }
+  ]
+ },
+ {
+  "uuid": "c8d2282d-a7fb-44da-83da-372a00e08192",
+  "name": "Explain transformers",
+  "summary": "",
+  "created_at": "2026-09-22T20:00:00+00:00",
+  "updated_at": "2026-09-22T20:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "4b38fcba-ee99-4336-8a83-f7460eb39116",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-22T20:00:00+00:00",
+    "updated_at": "2026-09-22T20:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "df17a40e-81e6-40a5-b13b-5e03ab66ffdc",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-22T20:00:30+00:00",
+    "updated_at": "2026-09-22T20:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4b38fcba-ee99-4336-8a83-f7460eb39116"
+   },
+   {
+    "uuid": "99b10e13-91c2-433c-b1e8-ffc4a578ed14",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-22T20:05:00+00:00",
+    "updated_at": "2026-09-22T20:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "df17a40e-81e6-40a5-b13b-5e03ab66ffdc"
+   },
+   {
+    "uuid": "c787a6f2-2463-4a87-b07c-5c39648e2cc7",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-22T20:05:30+00:00",
+    "updated_at": "2026-09-22T20:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "99b10e13-91c2-433c-b1e8-ffc4a578ed14"
+   }
+  ]
+ },
+ {
+  "uuid": "8e2e7903-4b76-4fde-87fe-49c510f268d8",
+  "name": "Write a cover letter",
+  "summary": "",
+  "created_at": "2026-01-31T15:00:00+00:00",
+  "updated_at": "2026-01-31T15:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "77228c64-0d37-4309-9a99-032fc5d3b960",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-31T15:00:00+00:00",
+    "updated_at": "2026-01-31T15:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "d269858c-3968-49b2-930a-ff792e52f411",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-31T15:00:30+00:00",
+    "updated_at": "2026-01-31T15:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "77228c64-0d37-4309-9a99-032fc5d3b960"
+   },
+   {
+    "uuid": "d070f61a-c855-441f-82a7-af219fa7ce09",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-01-31T15:05:00+00:00",
+    "updated_at": "2026-01-31T15:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d269858c-3968-49b2-930a-ff792e52f411"
+   },
+   {
+    "uuid": "af58ddf9-9579-4420-ab98-7695d6cd6c54",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-01-31T15:05:30+00:00",
+    "updated_at": "2026-01-31T15:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d070f61a-c855-441f-82a7-af219fa7ce09"
+   }
+  ]
+ },
+ {
+  "uuid": "d0a06c19-207d-41a9-96b5-94e4506a7755",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-06-02T11:00:00+00:00",
+  "updated_at": "2026-06-02T11:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "91addfe7-3f90-4a46-a24d-9598365c1229",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-02T11:00:00+00:00",
+    "updated_at": "2026-06-02T11:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "2aefd475-39aa-40b5-b1b8-c43719184d7a",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-02T11:00:30+00:00",
+    "updated_at": "2026-06-02T11:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "91addfe7-3f90-4a46-a24d-9598365c1229"
+   },
+   {
+    "uuid": "b122b5c0-cf7b-4d49-a0f7-440b1fdd2e56",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-02T11:05:00+00:00",
+    "updated_at": "2026-06-02T11:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "2aefd475-39aa-40b5-b1b8-c43719184d7a"
+   },
+   {
+    "uuid": "b5bd30f0-09e9-4202-98c4-fd0cd8555a4f",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-02T11:05:30+00:00",
+    "updated_at": "2026-06-02T11:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b122b5c0-cf7b-4d49-a0f7-440b1fdd2e56"
+   },
+   {
+    "uuid": "f8da6092-c42e-4a69-81c3-0b2a2629acd5",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-02T11:10:00+00:00",
+    "updated_at": "2026-06-02T11:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b5bd30f0-09e9-4202-98c4-fd0cd8555a4f"
+   },
+   {
+    "uuid": "d8018349-1c32-44d0-b557-6623f35bb45d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-02T11:10:30+00:00",
+    "updated_at": "2026-06-02T11:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f8da6092-c42e-4a69-81c3-0b2a2629acd5"
+   },
+   {
+    "uuid": "7c84655e-2f70-418e-954a-a351b2b363ba",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-02T11:15:00+00:00",
+    "updated_at": "2026-06-02T11:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d8018349-1c32-44d0-b557-6623f35bb45d"
+   },
+   {
+    "uuid": "bd30d580-1b61-4609-a2e8-a37715e89e56",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-02T11:15:30+00:00",
+    "updated_at": "2026-06-02T11:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "7c84655e-2f70-418e-954a-a351b2b363ba"
+   }
+  ]
+ },
+ {
+  "uuid": "639410ff-dc68-47fb-80cd-7e4a8bd14f39",
+  "name": "Plan a trip to Lisbon",
+  "summary": "",
+  "created_at": "2026-09-18T07:00:00+00:00",
+  "updated_at": "2026-09-18T07:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "07b55271-e622-45c8-91eb-225dd78adeb2",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-18T07:00:00+00:00",
+    "updated_at": "2026-09-18T07:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "b4dd7889-b474-4076-8d58-d4bc9ebabc83",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-18T07:00:30+00:00",
+    "updated_at": "2026-09-18T07:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "07b55271-e622-45c8-91eb-225dd78adeb2"
+   },
+   {
+    "uuid": "954a5436-f18c-4b94-a1d8-86e1d36e8b64",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-18T07:05:00+00:00",
+    "updated_at": "2026-09-18T07:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b4dd7889-b474-4076-8d58-d4bc9ebabc83"
+   },
+   {
+    "uuid": "5f2ce49d-1643-4136-935e-eedc68b3662b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-18T07:05:30+00:00",
+    "updated_at": "2026-09-18T07:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "954a5436-f18c-4b94-a1d8-86e1d36e8b64"
+   },
+   {
+    "uuid": "6b5d4e33-e27d-4610-9840-465d55d42564",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-18T07:10:00+00:00",
+    "updated_at": "2026-09-18T07:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5f2ce49d-1643-4136-935e-eedc68b3662b"
+   },
+   {
+    "uuid": "cd49ac01-f2b2-481e-9330-cfa12ffc7de0",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-18T07:10:30+00:00",
+    "updated_at": "2026-09-18T07:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6b5d4e33-e27d-4610-9840-465d55d42564"
+   },
+   {
+    "uuid": "efd29d55-a959-4a2c-8bd8-24a4fdca7ffb",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-09-18T07:15:00+00:00",
+    "updated_at": "2026-09-18T07:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cd49ac01-f2b2-481e-9330-cfa12ffc7de0"
+   },
+   {
+    "uuid": "816b41a9-6ec5-45ab-a06f-a3561d39221a",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-09-18T07:15:30+00:00",
+    "updated_at": "2026-09-18T07:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "efd29d55-a959-4a2c-8bd8-24a4fdca7ffb"
+   }
+  ]
+ },
+ {
+  "uuid": "faef5ece-11f1-476b-9a0f-e258bd5fc137",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-06-16T18:00:00+00:00",
+  "updated_at": "2026-06-16T18:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "d70a1ece-beb9-45f9-8d79-1447dce433a5",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-16T18:00:00+00:00",
+    "updated_at": "2026-06-16T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "776cc98d-1468-4e6f-b620-38c6b3894374",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-16T18:00:30+00:00",
+    "updated_at": "2026-06-16T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d70a1ece-beb9-45f9-8d79-1447dce433a5"
+   },
+   {
+    "uuid": "0827281c-0f8f-423b-a7f9-8cee4b2335a4",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-16T18:05:00+00:00",
+    "updated_at": "2026-06-16T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "776cc98d-1468-4e6f-b620-38c6b3894374"
+   },
+   {
+    "uuid": "42d3bf8f-af99-4dd3-911c-ffda2fe1150b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-16T18:05:30+00:00",
+    "updated_at": "2026-06-16T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0827281c-0f8f-423b-a7f9-8cee4b2335a4"
+   },
+   {
+    "uuid": "3f47acd9-e0cf-4346-8453-4a8c85d8fbd3",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-16T18:10:00+00:00",
+    "updated_at": "2026-06-16T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "42d3bf8f-af99-4dd3-911c-ffda2fe1150b"
+   },
+   {
+    "uuid": "282173ab-0aaf-4749-ac38-7092e2abf30d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-16T18:10:30+00:00",
+    "updated_at": "2026-06-16T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "3f47acd9-e0cf-4346-8453-4a8c85d8fbd3"
+   }
+  ]
+ },
+ {
+  "uuid": "10519e29-4f08-42a8-9eec-eab3f4c964bb",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-07-14T23:00:00+00:00",
+  "updated_at": "2026-07-14T23:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "151f1542-6868-4cbc-8fdf-8cb041a591e8",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-14T23:00:00+00:00",
+    "updated_at": "2026-07-14T23:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "40aae528-840e-4bf2-a271-22403ea0f9af",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-14T23:00:30+00:00",
+    "updated_at": "2026-07-14T23:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "151f1542-6868-4cbc-8fdf-8cb041a591e8"
+   },
+   {
+    "uuid": "f3dbb9aa-140f-47b1-a113-82fd5b722898",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-14T23:05:00+00:00",
+    "updated_at": "2026-07-14T23:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "40aae528-840e-4bf2-a271-22403ea0f9af"
+   },
+   {
+    "uuid": "faf2b35b-c04a-4885-9b6d-bbd671bee099",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-14T23:05:30+00:00",
+    "updated_at": "2026-07-14T23:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f3dbb9aa-140f-47b1-a113-82fd5b722898"
+   },
+   {
+    "uuid": "1676f099-88bd-4e4d-b4f6-ad3e55562232",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-07-14T23:10:00+00:00",
+    "updated_at": "2026-07-14T23:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "faf2b35b-c04a-4885-9b6d-bbd671bee099"
+   },
+   {
+    "uuid": "917d991b-18ff-4699-b813-6ee3726349d6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-07-14T23:10:30+00:00",
+    "updated_at": "2026-07-14T23:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1676f099-88bd-4e4d-b4f6-ad3e55562232"
+   }
+  ]
+ },
+ {
+  "uuid": "92134fe9-87ff-4ee9-8b3b-e79db9a2a1a9",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-04-20T14:00:00+00:00",
+  "updated_at": "2026-04-20T14:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "f3f8c928-c7f7-4667-876f-4de4daba4f34",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-20T14:00:00+00:00",
+    "updated_at": "2026-04-20T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "7d905314-f4c0-4810-86db-1dd7d1f4446c",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-20T14:00:30+00:00",
+    "updated_at": "2026-04-20T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f3f8c928-c7f7-4667-876f-4de4daba4f34"
+   },
+   {
+    "uuid": "65be84c0-6bca-4632-bdf4-8525bf08c209",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-20T14:05:00+00:00",
+    "updated_at": "2026-04-20T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "7d905314-f4c0-4810-86db-1dd7d1f4446c"
+   },
+   {
+    "uuid": "b8792473-e501-4b76-857e-8ed99c3518e4",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-20T14:05:30+00:00",
+    "updated_at": "2026-04-20T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "65be84c0-6bca-4632-bdf4-8525bf08c209"
+   },
+   {
+    "uuid": "b983aee9-7d82-43c5-9e51-ec2e8c1f41af",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-20T14:10:00+00:00",
+    "updated_at": "2026-04-20T14:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b8792473-e501-4b76-857e-8ed99c3518e4"
+   },
+   {
+    "uuid": "f205f8e9-95ff-4133-8801-2a118e7c4cf9",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-20T14:10:30+00:00",
+    "updated_at": "2026-04-20T14:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b983aee9-7d82-43c5-9e51-ec2e8c1f41af"
+   }
+  ]
+ },
+ {
+  "uuid": "700c437e-70f9-439d-b2d7-bf712f9e3df9",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-02-23T16:00:00+00:00",
+  "updated_at": "2026-02-23T16:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "681e34b2-f9d6-46d3-8a56-f5addd80c03f",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-23T16:00:00+00:00",
+    "updated_at": "2026-02-23T16:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "2210c2a2-15df-4f5e-afcd-57fc156f88e2",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-23T16:00:30+00:00",
+    "updated_at": "2026-02-23T16:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "681e34b2-f9d6-46d3-8a56-f5addd80c03f"
+   }
+  ]
+ },
+ {
+  "uuid": "85f30567-0005-4597-9cc0-fb269dc5bbad",
+  "name": "Fix my SQL query",
+  "summary": "",
+  "created_at": "2026-03-06T16:00:00+00:00",
+  "updated_at": "2026-03-06T16:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "c4445458-0709-4c07-92c2-327c262eece4",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-06T16:00:00+00:00",
+    "updated_at": "2026-03-06T16:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "4c461d86-1755-401f-92fc-7011de52e000",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-06T16:00:30+00:00",
+    "updated_at": "2026-03-06T16:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "c4445458-0709-4c07-92c2-327c262eece4"
+   }
+  ]
+ },
+ {
+  "uuid": "c1a0c5ae-0203-4808-ab48-0fcae8753d30",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-10-17T08:00:00+00:00",
+  "updated_at": "2026-10-17T08:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "8811fa5d-6552-4c82-8a33-8a3f256721c0",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-17T08:00:00+00:00",
+    "updated_at": "2026-10-17T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "7887ab24-d6f6-49a3-a07c-13548cd43162",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-17T08:00:30+00:00",
+    "updated_at": "2026-10-17T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8811fa5d-6552-4c82-8a33-8a3f256721c0"
+   },
+   {
+    "uuid": "4eafcf15-491b-478c-9e84-2f433e0f9d6e",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-17T08:05:00+00:00",
+    "updated_at": "2026-10-17T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "7887ab24-d6f6-49a3-a07c-13548cd43162"
+   },
+   {
+    "uuid": "23541fce-75c3-4cd5-adcd-8068401cc192",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-17T08:05:30+00:00",
+    "updated_at": "2026-10-17T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4eafcf15-491b-478c-9e84-2f433e0f9d6e"
+   },
+   {
+    "uuid": "1b2b3ea9-aef9-4791-ae09-c17a1dc54f86",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-17T08:10:00+00:00",
+    "updated_at": "2026-10-17T08:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "23541fce-75c3-4cd5-adcd-8068401cc192"
+   },
+   {
+    "uuid": "40ee1844-72ff-43d7-83fe-ab67337c4b6e",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-17T08:10:30+00:00",
+    "updated_at": "2026-10-17T08:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1b2b3ea9-aef9-4791-ae09-c17a1dc54f86"
+   }
+  ]
+ },
+ {
+  "uuid": "ed8dd4a8-1c6c-4461-ad0e-24514a481b3e",
+  "name": "Plan a trip to Lisbon",
+  "summary": "",
+  "created_at": "2026-06-01T06:00:00+00:00",
+  "updated_at": "2026-06-01T06:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "c694955f-b4c4-433f-83a5-2a33569aceb1",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-01T06:00:00+00:00",
+    "updated_at": "2026-06-01T06:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "fe65d182-2975-468e-80d8-ecddb8814682",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-01T06:00:30+00:00",
+    "updated_at": "2026-06-01T06:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "c694955f-b4c4-433f-83a5-2a33569aceb1"
+   },
+   {
+    "uuid": "8c6bbd8d-c782-448e-aa97-0695bd447d37",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-01T06:05:00+00:00",
+    "updated_at": "2026-06-01T06:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "fe65d182-2975-468e-80d8-ecddb8814682"
+   },
+   {
+    "uuid": "79036520-e321-4795-acbf-d6397585ede8",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-01T06:05:30+00:00",
+    "updated_at": "2026-06-01T06:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8c6bbd8d-c782-448e-aa97-0695bd447d37"
+   },
+   {
+    "uuid": "952d703a-6fc7-4f97-88ad-fbee59d6a921",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-01T06:10:00+00:00",
+    "updated_at": "2026-06-01T06:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "79036520-e321-4795-acbf-d6397585ede8"
+   },
+   {
+    "uuid": "1c25888e-b5b6-4b7d-b1a2-fbd5ccd6fb67",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-01T06:10:30+00:00",
+    "updated_at": "2026-06-01T06:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "952d703a-6fc7-4f97-88ad-fbee59d6a921"
+   },
+   {
+    "uuid": "bf4224d7-534f-4a5e-8431-dfdd1f851514",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-01T06:15:00+00:00",
+    "updated_at": "2026-06-01T06:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1c25888e-b5b6-4b7d-b1a2-fbd5ccd6fb67"
+   },
+   {
+    "uuid": "7640780f-ad5d-426a-a934-bab42b4c4f06",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-01T06:15:30+00:00",
+    "updated_at": "2026-06-01T06:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "bf4224d7-534f-4a5e-8431-dfdd1f851514"
+   },
+   {
+    "uuid": "dc21564a-3564-4538-9918-03f17c539fab",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-01T06:20:00+00:00",
+    "updated_at": "2026-06-01T06:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "7640780f-ad5d-426a-a934-bab42b4c4f06"
+   },
+   {
+    "uuid": "ddb58db3-e871-4630-9f66-0a83a7c4a162",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-01T06:20:30+00:00",
+    "updated_at": "2026-06-01T06:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "dc21564a-3564-4538-9918-03f17c539fab"
+   }
+  ]
+ },
+ {
+  "uuid": "ea99ccb3-3962-44a7-aa24-cb2ed1d0f0e9",
+  "name": "Explain transformers",
+  "summary": "",
+  "created_at": "2026-08-11T18:00:00+00:00",
+  "updated_at": "2026-08-11T18:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "60c9390b-857a-4067-9a99-f414e586bc8e",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-11T18:00:00+00:00",
+    "updated_at": "2026-08-11T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "cfdabcdb-b9ec-419e-9102-3bc477b37994",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-11T18:00:30+00:00",
+    "updated_at": "2026-08-11T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "60c9390b-857a-4067-9a99-f414e586bc8e"
+   },
+   {
+    "uuid": "68875bce-fa68-44a0-86d5-a3e332d73ddf",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-11T18:05:00+00:00",
+    "updated_at": "2026-08-11T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cfdabcdb-b9ec-419e-9102-3bc477b37994"
+   },
+   {
+    "uuid": "c993cbd7-f2a3-4d73-9344-2bd0669a20d6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-11T18:05:30+00:00",
+    "updated_at": "2026-08-11T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "68875bce-fa68-44a0-86d5-a3e332d73ddf"
+   },
+   {
+    "uuid": "0ae3596a-8051-4c26-b7fd-771084a4897f",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-11T18:10:00+00:00",
+    "updated_at": "2026-08-11T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "c993cbd7-f2a3-4d73-9344-2bd0669a20d6"
+   },
+   {
+    "uuid": "39e143e6-17fa-42e3-b613-1d09ace0a2f2",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-11T18:10:30+00:00",
+    "updated_at": "2026-08-11T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0ae3596a-8051-4c26-b7fd-771084a4897f"
+   },
+   {
+    "uuid": "400fde6b-62b1-46a3-9ac3-2aa239557279",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-11T18:15:00+00:00",
+    "updated_at": "2026-08-11T18:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "39e143e6-17fa-42e3-b613-1d09ace0a2f2"
+   },
+   {
+    "uuid": "8ea28889-2fe1-4f1d-8d7c-53f114da42f4",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-11T18:15:30+00:00",
+    "updated_at": "2026-08-11T18:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "400fde6b-62b1-46a3-9ac3-2aa239557279"
+   },
+   {
+    "uuid": "1d0fbe00-e236-45f4-972a-6294e540cc89",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-11T18:20:00+00:00",
+    "updated_at": "2026-08-11T18:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8ea28889-2fe1-4f1d-8d7c-53f114da42f4"
+   },
+   {
+    "uuid": "1044fc19-d2a6-4ce1-940e-455e5eda8df2",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-11T18:20:30+00:00",
+    "updated_at": "2026-08-11T18:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1d0fbe00-e236-45f4-972a-6294e540cc89"
+   }
+  ]
+ },
+ {
+  "uuid": "d5995f92-5a76-4a31-a1b9-ff79cc2a1360",
+  "name": "Write a cover letter",
+  "summary": "",
+  "created_at": "2026-02-02T08:00:00+00:00",
+  "updated_at": "2026-02-02T08:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "0051b52c-7f8d-4c04-94da-541d4efdbf47",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-02T08:00:00+00:00",
+    "updated_at": "2026-02-02T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "148c378d-e459-498b-be15-9fed0ef1cb02",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-02T08:00:30+00:00",
+    "updated_at": "2026-02-02T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0051b52c-7f8d-4c04-94da-541d4efdbf47"
+   },
+   {
+    "uuid": "9ced5c26-b456-41ef-9819-721346398ac5",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-02T08:05:00+00:00",
+    "updated_at": "2026-02-02T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "148c378d-e459-498b-be15-9fed0ef1cb02"
+   },
+   {
+    "uuid": "937fb520-c71b-4419-b75b-fc5cd97d99f2",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-02T08:05:30+00:00",
+    "updated_at": "2026-02-02T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "9ced5c26-b456-41ef-9819-721346398ac5"
+   },
+   {
+    "uuid": "ca4ea3ea-4b89-437b-87af-bcd5dc1f3d12",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-02T08:10:00+00:00",
+    "updated_at": "2026-02-02T08:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "937fb520-c71b-4419-b75b-fc5cd97d99f2"
+   },
+   {
+    "uuid": "068c88de-e84f-4497-9c12-2b943457e71d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-02T08:10:30+00:00",
+    "updated_at": "2026-02-02T08:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ca4ea3ea-4b89-437b-87af-bcd5dc1f3d12"
+   }
+  ]
+ },
+ {
+  "uuid": "b6f248da-d9af-4b8f-b720-97e46dd2811d",
+  "name": "Trouver un appartement",
+  "summary": "",
+  "created_at": "2026-04-12T13:00:00+00:00",
+  "updated_at": "2026-04-12T13:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ec73c81e-c949-41d0-a737-a6fcb8092b79",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-12T13:00:00+00:00",
+    "updated_at": "2026-04-12T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "fd2d9780-49e4-4bdd-8c74-ac908de27be8",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-12T13:00:30+00:00",
+    "updated_at": "2026-04-12T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ec73c81e-c949-41d0-a737-a6fcb8092b79"
+   },
+   {
+    "uuid": "cb578c65-1840-4c47-b9a0-80be9d08f1fe",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-12T13:05:00+00:00",
+    "updated_at": "2026-04-12T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "fd2d9780-49e4-4bdd-8c74-ac908de27be8"
+   },
+   {
+    "uuid": "41e0ac56-dd40-4a88-889e-586b78c0dd31",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-12T13:05:30+00:00",
+    "updated_at": "2026-04-12T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cb578c65-1840-4c47-b9a0-80be9d08f1fe"
+   },
+   {
+    "uuid": "cdcee45f-f8d7-4028-b7ed-31cb9aad6c81",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-04-12T13:10:00+00:00",
+    "updated_at": "2026-04-12T13:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "41e0ac56-dd40-4a88-889e-586b78c0dd31"
+   },
+   {
+    "uuid": "8d1c43ed-a69b-4d38-8483-c102cc215e3d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-04-12T13:10:30+00:00",
+    "updated_at": "2026-04-12T13:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cdcee45f-f8d7-4028-b7ed-31cb9aad6c81"
+   }
+  ]
+ },
+ {
+  "uuid": "3c48d802-6fab-495e-817a-84136fb88b0f",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-06-23T13:00:00+00:00",
+  "updated_at": "2026-06-23T13:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ea3bc825-852c-4e0f-9868-1732f4330601",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-23T13:00:00+00:00",
+    "updated_at": "2026-06-23T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "02760ee8-16a4-4730-ae1f-ccc3835cc672",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-23T13:00:30+00:00",
+    "updated_at": "2026-06-23T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ea3bc825-852c-4e0f-9868-1732f4330601"
+   },
+   {
+    "uuid": "db15adab-5fc6-455f-b62f-49a405f0cbae",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-23T13:05:00+00:00",
+    "updated_at": "2026-06-23T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "02760ee8-16a4-4730-ae1f-ccc3835cc672"
+   },
+   {
+    "uuid": "041dd09c-f54b-4679-a6fe-1e2550f268ac",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-23T13:05:30+00:00",
+    "updated_at": "2026-06-23T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "db15adab-5fc6-455f-b62f-49a405f0cbae"
+   },
+   {
+    "uuid": "fee557ae-6cc1-4750-821f-b08095bb1c65",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-23T13:10:00+00:00",
+    "updated_at": "2026-06-23T13:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "041dd09c-f54b-4679-a6fe-1e2550f268ac"
+   },
+   {
+    "uuid": "9c3462ee-83aa-48b2-8d8e-1238567cf9e6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-23T13:10:30+00:00",
+    "updated_at": "2026-06-23T13:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "fee557ae-6cc1-4750-821f-b08095bb1c65"
+   },
+   {
+    "uuid": "7172c11c-a6e9-4890-a678-2deb5aca72ec",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-23T13:15:00+00:00",
+    "updated_at": "2026-06-23T13:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "9c3462ee-83aa-48b2-8d8e-1238567cf9e6"
+   },
+   {
+    "uuid": "cc099da7-b744-48f0-a901-06e318722712",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-23T13:15:30+00:00",
+    "updated_at": "2026-06-23T13:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "7172c11c-a6e9-4890-a678-2deb5aca72ec"
+   }
+  ]
+ },
+ {
+  "uuid": "daa79e16-bc21-4a5c-9f12-dd65eb5f6a99",
+  "name": "Plan a trip to Lisbon",
+  "summary": "",
+  "created_at": "2026-05-05T18:00:00+00:00",
+  "updated_at": "2026-05-05T18:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "8334df9a-db26-4c67-97f3-e3660f7ff27d",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-05-05T18:00:00+00:00",
+    "updated_at": "2026-05-05T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "dba1de01-43e8-4440-b4a9-d983eef673eb",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-05-05T18:00:30+00:00",
+    "updated_at": "2026-05-05T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8334df9a-db26-4c67-97f3-e3660f7ff27d"
+   }
+  ]
+ },
+ {
+  "uuid": "68e36f35-0ba7-462b-b7d6-9cafd3855739",
+  "name": "Write a cover letter",
+  "summary": "",
+  "created_at": "2026-02-08T06:00:00+00:00",
+  "updated_at": "2026-02-08T06:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "84561dc0-0ac3-4382-bce8-dab711d89c94",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-08T06:00:00+00:00",
+    "updated_at": "2026-02-08T06:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "097b214b-9010-4511-a4be-a560be33ef8f",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-08T06:00:30+00:00",
+    "updated_at": "2026-02-08T06:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "84561dc0-0ac3-4382-bce8-dab711d89c94"
+   },
+   {
+    "uuid": "32a11fa2-3637-420a-8f1e-e955c717fcaf",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-08T06:05:00+00:00",
+    "updated_at": "2026-02-08T06:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "097b214b-9010-4511-a4be-a560be33ef8f"
+   },
+   {
+    "uuid": "18bcd23b-93ed-43ab-ad36-9d0807e0dd99",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-08T06:05:30+00:00",
+    "updated_at": "2026-02-08T06:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "32a11fa2-3637-420a-8f1e-e955c717fcaf"
+   },
+   {
+    "uuid": "dec44bb9-b71e-4d65-a8ea-2cd09d14fdea",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-08T06:10:00+00:00",
+    "updated_at": "2026-02-08T06:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "18bcd23b-93ed-43ab-ad36-9d0807e0dd99"
+   },
+   {
+    "uuid": "9275bdc8-9720-41b1-995b-425baf55f7e5",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-08T06:10:30+00:00",
+    "updated_at": "2026-02-08T06:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "dec44bb9-b71e-4d65-a8ea-2cd09d14fdea"
+   },
+   {
+    "uuid": "8f0dc437-33bc-4156-86f2-538bb623f47f",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-08T06:15:00+00:00",
+    "updated_at": "2026-02-08T06:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "9275bdc8-9720-41b1-995b-425baf55f7e5"
+   },
+   {
+    "uuid": "5e17f308-052f-4918-807c-27977463c658",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-08T06:15:30+00:00",
+    "updated_at": "2026-02-08T06:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "8f0dc437-33bc-4156-86f2-538bb623f47f"
+   },
+   {
+    "uuid": "fc051b64-e627-4b13-b479-53fc2b01dd5e",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-08T06:20:00+00:00",
+    "updated_at": "2026-02-08T06:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "5e17f308-052f-4918-807c-27977463c658"
+   },
+   {
+    "uuid": "afbe79e1-c034-4853-8cad-12e99e69a57d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-08T06:20:30+00:00",
+    "updated_at": "2026-02-08T06:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "fc051b64-e627-4b13-b479-53fc2b01dd5e"
+   },
+   {
+    "uuid": "0ef79a2a-6908-4f98-8286-c3f860570165",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-08T06:25:00+00:00",
+    "updated_at": "2026-02-08T06:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "afbe79e1-c034-4853-8cad-12e99e69a57d"
+   },
+   {
+    "uuid": "144f0fde-ad76-472b-9fce-0d6cafa54c87",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-08T06:25:30+00:00",
+    "updated_at": "2026-02-08T06:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0ef79a2a-6908-4f98-8286-c3f860570165"
+   }
+  ]
+ },
+ {
+  "uuid": "4a20cf7c-8d14-4090-97a1-2f9895b5c164",
+  "name": "Trouver un appartement",
+  "summary": "",
+  "created_at": "2026-06-06T09:00:00+00:00",
+  "updated_at": "2026-06-06T09:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ed90ae7c-8f9d-4ec5-a399-063807fefde5",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-06T09:00:00+00:00",
+    "updated_at": "2026-06-06T09:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "d6ddfb89-9921-484b-a40f-8efbcc8f66be",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-06T09:00:30+00:00",
+    "updated_at": "2026-06-06T09:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ed90ae7c-8f9d-4ec5-a399-063807fefde5"
+   },
+   {
+    "uuid": "3abfb28c-83f6-404c-bff7-4544c6651359",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-06T09:05:00+00:00",
+    "updated_at": "2026-06-06T09:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d6ddfb89-9921-484b-a40f-8efbcc8f66be"
+   },
+   {
+    "uuid": "e27d53f3-0d9f-4419-aff8-c0963371cb67",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-06T09:05:30+00:00",
+    "updated_at": "2026-06-06T09:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "3abfb28c-83f6-404c-bff7-4544c6651359"
+   },
+   {
+    "uuid": "de86c37c-a4e8-4242-a480-a44d249b083f",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-06T09:10:00+00:00",
+    "updated_at": "2026-06-06T09:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e27d53f3-0d9f-4419-aff8-c0963371cb67"
+   },
+   {
+    "uuid": "09d8b8d3-35e2-4648-9b39-4ffaa60f032b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-06T09:10:30+00:00",
+    "updated_at": "2026-06-06T09:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "de86c37c-a4e8-4242-a480-a44d249b083f"
+   },
+   {
+    "uuid": "adac9ed0-f00b-40d4-ac56-3f042fa28568",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-06T09:15:00+00:00",
+    "updated_at": "2026-06-06T09:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "09d8b8d3-35e2-4648-9b39-4ffaa60f032b"
+   },
+   {
+    "uuid": "78c80d58-68d3-455a-8781-612b50f3a620",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-06T09:15:30+00:00",
+    "updated_at": "2026-06-06T09:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "adac9ed0-f00b-40d4-ac56-3f042fa28568"
+   },
+   {
+    "uuid": "a8aeeca9-2c4a-4db5-9679-10d875c01e8e",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-06T09:20:00+00:00",
+    "updated_at": "2026-06-06T09:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "78c80d58-68d3-455a-8781-612b50f3a620"
+   },
+   {
+    "uuid": "b0250814-67ca-4fbb-81cd-29d9da3d57de",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-06T09:20:30+00:00",
+    "updated_at": "2026-06-06T09:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a8aeeca9-2c4a-4db5-9679-10d875c01e8e"
+   },
+   {
+    "uuid": "898b541f-294c-4b19-8ca5-17a7c4231eb6",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-06T09:25:00+00:00",
+    "updated_at": "2026-06-06T09:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b0250814-67ca-4fbb-81cd-29d9da3d57de"
+   },
+   {
+    "uuid": "90af3fa0-c2a3-46fe-a9e5-8b539c3e3067",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-06T09:25:30+00:00",
+    "updated_at": "2026-06-06T09:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "898b541f-294c-4b19-8ca5-17a7c4231eb6"
+   }
+  ]
+ },
+ {
+  "uuid": "e996fdca-a082-450d-a0b6-479a350e6e30",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-08-17T19:00:00+00:00",
+  "updated_at": "2026-08-17T19:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "03433cb2-6a10-4c53-a529-c9ee1b0dd1dd",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-17T19:00:00+00:00",
+    "updated_at": "2026-08-17T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "a1c01a77-7be0-4d76-a807-88180b563a3d",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-17T19:00:30+00:00",
+    "updated_at": "2026-08-17T19:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "03433cb2-6a10-4c53-a529-c9ee1b0dd1dd"
+   },
+   {
+    "uuid": "f31595d6-dfac-4723-9efa-ed06bdd3cfe1",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-17T19:05:00+00:00",
+    "updated_at": "2026-08-17T19:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a1c01a77-7be0-4d76-a807-88180b563a3d"
+   },
+   {
+    "uuid": "4e32b5cd-d9a8-4f7f-a96d-d9c9696e82d6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-17T19:05:30+00:00",
+    "updated_at": "2026-08-17T19:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "f31595d6-dfac-4723-9efa-ed06bdd3cfe1"
+   },
+   {
+    "uuid": "3cb396f4-5052-4800-be5e-bfeb15542559",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-17T19:10:00+00:00",
+    "updated_at": "2026-08-17T19:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4e32b5cd-d9a8-4f7f-a96d-d9c9696e82d6"
+   },
+   {
+    "uuid": "45a63c05-15b3-4ddd-af3f-4fb23568ff75",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-17T19:10:30+00:00",
+    "updated_at": "2026-08-17T19:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "3cb396f4-5052-4800-be5e-bfeb15542559"
+   },
+   {
+    "uuid": "0871a3c7-e181-45e7-987d-3b750724d9be",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-17T19:15:00+00:00",
+    "updated_at": "2026-08-17T19:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "45a63c05-15b3-4ddd-af3f-4fb23568ff75"
+   },
+   {
+    "uuid": "87c2cce7-54c3-441c-a0e5-24c6487b1043",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-17T19:15:30+00:00",
+    "updated_at": "2026-08-17T19:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "0871a3c7-e181-45e7-987d-3b750724d9be"
+   },
+   {
+    "uuid": "51aa29e1-098f-4cb2-a72d-f0c8e2a569cb",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-17T19:20:00+00:00",
+    "updated_at": "2026-08-17T19:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "87c2cce7-54c3-441c-a0e5-24c6487b1043"
+   },
+   {
+    "uuid": "751f9947-2f57-4b61-ba79-96f027b2743b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-17T19:20:30+00:00",
+    "updated_at": "2026-08-17T19:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "51aa29e1-098f-4cb2-a72d-f0c8e2a569cb"
+   }
+  ]
+ },
+ {
+  "uuid": "692b2ae0-441b-442c-a893-c4ee6d48a476",
+  "name": "Fix my SQL query",
+  "summary": "",
+  "created_at": "2026-03-12T10:00:00+00:00",
+  "updated_at": "2026-03-12T10:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "b279c299-ee9e-4808-984e-a139689b58ca",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-12T10:00:00+00:00",
+    "updated_at": "2026-03-12T10:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "670cf591-25df-482c-88cc-4708d861ed30",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-12T10:00:30+00:00",
+    "updated_at": "2026-03-12T10:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b279c299-ee9e-4808-984e-a139689b58ca"
+   },
+   {
+    "uuid": "c7f7f1f1-0227-4c86-b7e8-fcd35d708cd2",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-03-12T10:05:00+00:00",
+    "updated_at": "2026-03-12T10:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "670cf591-25df-482c-88cc-4708d861ed30"
+   },
+   {
+    "uuid": "b3518e83-f6cd-4327-a9af-c1e349f1a27a",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-03-12T10:05:30+00:00",
+    "updated_at": "2026-03-12T10:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "c7f7f1f1-0227-4c86-b7e8-fcd35d708cd2"
+   }
+  ]
+ },
+ {
+  "uuid": "58994777-52cf-4abe-9b30-bba5d609ebff",
+  "name": "Trouver un appartement",
+  "summary": "",
+  "created_at": "2026-11-10T08:00:00+00:00",
+  "updated_at": "2026-11-10T08:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ab939e68-2794-43d8-abd1-5312cde178b6",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-11-10T08:00:00+00:00",
+    "updated_at": "2026-11-10T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "bbf898aa-20de-477b-a66b-abc35a6ffca2",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-11-10T08:00:30+00:00",
+    "updated_at": "2026-11-10T08:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ab939e68-2794-43d8-abd1-5312cde178b6"
+   },
+   {
+    "uuid": "43d6a413-7e8c-4018-8ff3-ff997957b672",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-11-10T08:05:00+00:00",
+    "updated_at": "2026-11-10T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "bbf898aa-20de-477b-a66b-abc35a6ffca2"
+   },
+   {
+    "uuid": "4895377c-1676-4f06-a00d-fae8718fa1df",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-11-10T08:05:30+00:00",
+    "updated_at": "2026-11-10T08:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "43d6a413-7e8c-4018-8ff3-ff997957b672"
+   }
+  ]
+ },
+ {
+  "uuid": "96ef3286-e90f-4572-a628-8cee4eadb7f7",
+  "name": "Write a cover letter",
+  "summary": "",
+  "created_at": "2026-08-13T13:00:00+00:00",
+  "updated_at": "2026-08-13T13:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "939657b4-0165-42dd-b450-9f3594806309",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-13T13:00:00+00:00",
+    "updated_at": "2026-08-13T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "85d5742e-2bf2-43c7-8438-260e5aec225e",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-13T13:00:30+00:00",
+    "updated_at": "2026-08-13T13:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "939657b4-0165-42dd-b450-9f3594806309"
+   },
+   {
+    "uuid": "d2f864f9-8a36-45d3-bc48-f2845ca0ce96",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-08-13T13:05:00+00:00",
+    "updated_at": "2026-08-13T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "85d5742e-2bf2-43c7-8438-260e5aec225e"
+   },
+   {
+    "uuid": "8a4b3301-b5a4-45fe-9cae-cd866fbbfe65",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-08-13T13:05:30+00:00",
+    "updated_at": "2026-08-13T13:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "d2f864f9-8a36-45d3-bc48-f2845ca0ce96"
+   }
+  ]
+ },
+ {
+  "uuid": "ce1ec150-9bbd-44ce-9bcc-23bc87c1e31e",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-10-14T14:00:00+00:00",
+  "updated_at": "2026-10-14T14:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ba7cb9d7-5683-4f9a-bc8e-af74efe12fa1",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-14T14:00:00+00:00",
+    "updated_at": "2026-10-14T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "11d79ff1-ae2a-4151-a4a2-3b3b46b5238f",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-14T14:00:30+00:00",
+    "updated_at": "2026-10-14T14:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ba7cb9d7-5683-4f9a-bc8e-af74efe12fa1"
+   },
+   {
+    "uuid": "6350d95c-96fb-4189-bb40-f28fed6015f1",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-14T14:05:00+00:00",
+    "updated_at": "2026-10-14T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "11d79ff1-ae2a-4151-a4a2-3b3b46b5238f"
+   },
+   {
+    "uuid": "ecf0f24e-9438-4ed3-bbe6-8fe931851fe0",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-14T14:05:30+00:00",
+    "updated_at": "2026-10-14T14:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6350d95c-96fb-4189-bb40-f28fed6015f1"
+   },
+   {
+    "uuid": "6e22b99c-a521-4c3f-a8df-95b42d3f1042",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-14T14:10:00+00:00",
+    "updated_at": "2026-10-14T14:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ecf0f24e-9438-4ed3-bbe6-8fe931851fe0"
+   },
+   {
+    "uuid": "6a34cff7-3482-4c47-b429-736080e73e7e",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-14T14:10:30+00:00",
+    "updated_at": "2026-10-14T14:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6e22b99c-a521-4c3f-a8df-95b42d3f1042"
+   },
+   {
+    "uuid": "625893ee-f8e1-4a94-982f-947aef3f18b2",
+    "text": "no, that is wrong",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-14T14:15:00+00:00",
+    "updated_at": "2026-10-14T14:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6a34cff7-3482-4c47-b429-736080e73e7e"
+   },
+   {
+    "uuid": "6d322c1c-05b8-4f3a-84ac-545e2428aa1b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-14T14:15:30+00:00",
+    "updated_at": "2026-10-14T14:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "625893ee-f8e1-4a94-982f-947aef3f18b2"
+   },
+   {
+    "uuid": "17e02a47-5b48-47f2-84f3-c5a88f8b54ed",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-14T14:20:00+00:00",
+    "updated_at": "2026-10-14T14:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "6d322c1c-05b8-4f3a-84ac-545e2428aa1b"
+   },
+   {
+    "uuid": "da5bcd84-44a2-4f75-9479-26e229208219",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-14T14:20:30+00:00",
+    "updated_at": "2026-10-14T14:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "17e02a47-5b48-47f2-84f3-c5a88f8b54ed"
+   },
+   {
+    "uuid": "b09789e2-9b00-455b-8e2e-1f4806a82e79",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-14T14:25:00+00:00",
+    "updated_at": "2026-10-14T14:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "da5bcd84-44a2-4f75-9479-26e229208219"
+   },
+   {
+    "uuid": "c033cc3e-6e26-4d1b-85a1-c5c51f319b40",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-14T14:25:30+00:00",
+    "updated_at": "2026-10-14T14:25:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b09789e2-9b00-455b-8e2e-1f4806a82e79"
+   }
+  ]
+ },
+ {
+  "uuid": "5c4f94e7-58ee-4cea-9eb0-42b29664c379",
+  "name": "Trouver un appartement",
+  "summary": "",
+  "created_at": "2026-10-20T18:00:00+00:00",
+  "updated_at": "2026-10-20T18:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "e795d7f2-bde4-4d32-bc82-3f113cb93622",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-20T18:00:00+00:00",
+    "updated_at": "2026-10-20T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "9533e6a5-e313-4532-8874-1b4855441d8e",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-20T18:00:30+00:00",
+    "updated_at": "2026-10-20T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e795d7f2-bde4-4d32-bc82-3f113cb93622"
+   },
+   {
+    "uuid": "b232a282-5244-48c1-ac3e-6161898616ab",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-10-20T18:05:00+00:00",
+    "updated_at": "2026-10-20T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "9533e6a5-e313-4532-8874-1b4855441d8e"
+   },
+   {
+    "uuid": "cf7109fc-3146-4cb9-8fa1-bc918e374eb1",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-10-20T18:05:30+00:00",
+    "updated_at": "2026-10-20T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "b232a282-5244-48c1-ac3e-6161898616ab"
+   }
+  ]
+ },
+ {
+  "uuid": "44b4bc7c-be3c-4958-9faa-f42c8f390365",
+  "name": "Budget spreadsheet help",
+  "summary": "",
+  "created_at": "2026-06-28T18:00:00+00:00",
+  "updated_at": "2026-06-28T18:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "ee365c7e-3cc6-4f0c-a7f3-05c15d0c8d01",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-28T18:00:00+00:00",
+    "updated_at": "2026-06-28T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "57c69868-c275-403f-bdde-b5eb51e58660",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-28T18:00:30+00:00",
+    "updated_at": "2026-06-28T18:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "ee365c7e-3cc6-4f0c-a7f3-05c15d0c8d01"
+   },
+   {
+    "uuid": "1336cdf2-3a2c-4014-a407-656f5a795ee5",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-28T18:05:00+00:00",
+    "updated_at": "2026-06-28T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "57c69868-c275-403f-bdde-b5eb51e58660"
+   },
+   {
+    "uuid": "a44f0db2-9ca1-43cb-ac52-e23702a79eb6",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-28T18:05:30+00:00",
+    "updated_at": "2026-06-28T18:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "1336cdf2-3a2c-4014-a407-656f5a795ee5"
+   },
+   {
+    "uuid": "083cdfd8-71d8-48f5-bcc9-b492ab5f1203",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-28T18:10:00+00:00",
+    "updated_at": "2026-06-28T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "a44f0db2-9ca1-43cb-ac52-e23702a79eb6"
+   },
+   {
+    "uuid": "cedede63-3e26-4e25-8822-48f5f5c9077b",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-28T18:10:30+00:00",
+    "updated_at": "2026-06-28T18:10:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "083cdfd8-71d8-48f5-bcc9-b492ab5f1203"
+   },
+   {
+    "uuid": "e38707d5-9baa-4b8e-a655-7657039c8af3",
+    "text": "thanks!",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-28T18:15:00+00:00",
+    "updated_at": "2026-06-28T18:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cedede63-3e26-4e25-8822-48f5f5c9077b"
+   },
+   {
+    "uuid": "e090baf3-6013-4085-95ff-34a34c6f9966",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-28T18:15:30+00:00",
+    "updated_at": "2026-06-28T18:15:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e38707d5-9baa-4b8e-a655-7657039c8af3"
+   },
+   {
+    "uuid": "4aca0097-4b62-48ad-a827-ab9e383a8c7c",
+    "text": "how do I do this?",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-06-28T18:20:00+00:00",
+    "updated_at": "2026-06-28T18:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "e090baf3-6013-4085-95ff-34a34c6f9966"
+   },
+   {
+    "uuid": "fa3852d9-62d1-4b62-b810-2dc9719deb8c",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-06-28T18:20:30+00:00",
+    "updated_at": "2026-06-28T18:20:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "4aca0097-4b62-48ad-a827-ab9e383a8c7c"
+   }
+  ]
+ },
+ {
+  "uuid": "444918e8-d1ca-453a-83f1-34f8c223dc80",
+  "name": "Explain transformers",
+  "summary": "",
+  "created_at": "2026-02-11T20:00:00+00:00",
+  "updated_at": "2026-02-11T20:00:00+00:00",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "62edf254-10b1-4423-99c3-5974fa4dd37f",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-11T20:00:00+00:00",
+    "updated_at": "2026-02-11T20:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+   },
+   {
+    "uuid": "390e3d31-5dcc-4f9f-af7c-e7021fde7e20",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-11T20:00:30+00:00",
+    "updated_at": "2026-02-11T20:00:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "62edf254-10b1-4423-99c3-5974fa4dd37f"
+   },
+   {
+    "uuid": "cf70c000-1599-4ca8-ba92-9b17ba81cc0a",
+    "text": "ok",
+    "content": [
+     {
+      "type": "text",
+      "text": "..."
+     }
+    ],
+    "sender": "human",
+    "created_at": "2026-02-11T20:05:00+00:00",
+    "updated_at": "2026-02-11T20:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "390e3d31-5dcc-4f9f-af7c-e7021fde7e20"
+   },
+   {
+    "uuid": "64beb52c-0bea-4b08-a95b-86b7f1cc8fea",
+    "text": "",
+    "content": [
+     {
+      "type": "text",
+      "text": "Sure \u2014 here you go \u2014 done."
+     },
+     {
+      "type": "tool_use",
+      "name": "bash_tool"
+     }
+    ],
+    "sender": "assistant",
+    "created_at": "2026-02-11T20:05:30+00:00",
+    "updated_at": "2026-02-11T20:05:00+00:00",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "cf70c000-1599-4ca8-ba92-9b17ba81cc0a"
+   }
+  ]
+ }
+]
