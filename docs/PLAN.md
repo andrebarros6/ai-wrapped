@@ -175,7 +175,13 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 - After launch: an `analysis/state-of-claude-2026` notebook built from the open dataset, as LinkedIn and portfolio content.
 
 ## Step 8: Deploy + launch
-**Status (2026-11-24): deployed, waiting on the main-site merge.**
+**Status (2026-11-24): live at https://www.barrosbuilds.com/wrapped.** PR andrebarros6/barrosbuilds#2 was merged. Verified through the main site:
+- all routes, and the apex domain redirects to www;
+- CSP, HSTS and nosniff come through the proxy, and the main site adds X-Frame-Options DENY. Its Referrer-Policy (strict-origin-when-cross-origin) wins over ours, which is harmless because a Referer never includes the URL fragment;
+- the immutable Brotli WASM;
+- the production smoke test: 77 requests, all on www.barrosbuilds.com.
+
+Analytics now uses Vercel's standard insights path, so `/wrapped` views count in the main site's dashboard. The script loads (200); the beacon itself can't be seen from automated browsers.
 - Vercel project `ai-wrapped` (team andres-projects), production at https://ai-wrapped-tau.vercel.app/wrapped, deployed with `vercel deploy --prod` from the CLI. Git auto-deploys need the Vercel GitHub app to be given access to this repo.
 - `vercel.json`: a CSP with `connect-src 'self'` (the browser blocks sending data to any other site; a test proves it), nosniff, no-referrer, a strict Permissions-Policy and `frame-ancestors 'none'`. DuckDB is served from `/duckdb/<version>/` with an immutable cache. The local test server applies the same headers, so all browser tests run under the production policy.
 - Smoke test against production passes (`npm run test:live`): real stats equal the golden files, story, 1080×1350 PNG, and all 58 requests go to the site's own origin.
@@ -198,7 +204,7 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
   - load: a 400-request burst and a 2-minute sustained run with 0 errors and a flat p50 of about 77 ms.
 
   Open: commit author emails are your personal Gmail (your main site repo is already public with the same); PageSpeed Insights still to run.
-- Still to do: merge PR #2, then run `LIVE_URL=https://www.barrosbuilds.com/wrapped/ npm run test:live` and check where analytics page views land; run the `test-app` pass; polish the README; make the repo public (Wall joining needs it).
+- Still to do: confirm page views in the main site's Analytics dashboard; run PageSpeed Insights; give the Vercel GitHub app access to this repo (until then, deploy with `vercel deploy --prod`); polish the README; make the repo public (Wall joining needs it). New commits here use the GitHub no-reply email.
 
 - Vercel project for `ai-wrapped` (static output) with Analytics page views on.
 - In the main site repo (`andrebarros6/barrosbuilds`, `homepage/`):
