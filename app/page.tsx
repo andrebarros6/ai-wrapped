@@ -15,6 +15,9 @@ export default function Home() {
           Drop your Claude export. We count the chats, the 2am questions and the thank-yous, right here in your
           browser. Nothing is uploaded. There&apos;s no server to upload it to.
         </p>
+        <Link href="/story#demo" className="font-mono text-sm">
+          See an example story first →
+        </Link>
       </header>
 
       <section aria-labelledby="how" className="flex flex-col gap-6">

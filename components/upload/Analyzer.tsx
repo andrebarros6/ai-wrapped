@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useId, useRef, useState, useSyncExternalStore } from "react";
 
 import {
@@ -282,9 +283,15 @@ function Summary({ stats }: { stats: SessionStats }) {
         ))}
       </dl>
       <p className="mt-6 text-muted">
-        You&apos;re in the <strong className="text-cream">{String(stats.club)}</strong> club. The full story
-        cards are next.
+        You&apos;re in the <strong className="text-cream">{String(stats.club)}</strong> club.
       </p>
+      <Link
+        href="/story"
+        data-testid="see-story"
+        className="mt-6 inline-block rounded-full bg-amber px-6 py-3 font-display text-lg font-bold text-ink no-underline hover:bg-amber-hi hover:text-ink"
+      >
+        See your story →
+      </Link>
     </section>
   );
 }
