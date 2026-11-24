@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { decoyZips, fixtureZips, SENTINEL, type ZipFile } from "@/e2e/fixtures";
 
-import { classifyEntry, readExport } from "./zip";
+import { classifyEntry, ExportTooBigError, MAX_SMALL_FILE_BYTES, readExport } from "./zip";
 
 const blobs = (files: ZipFile[]) => files.map((f) => ({ name: f.name, blob: new Blob([new Uint8Array(f.buffer)]) }));
 
@@ -43,11 +43,18 @@ describe("readExport", () => {
     vi.spyOn(JSZip, "loadAsync").mockImplementation(async (...args: Parameters<typeof JSZip.loadAsync>) => {
       const zip = await real(...args);
       for (const entry of Object.values(zip.files)) {
+        // Both ways of decompressing an entry are watched.
         const orig = entry.async.bind(entry);
         entry.async = ((type: Parameters<typeof orig>[0]) => {
           opened.push(entry.name);
           return orig(type);
         }) as typeof entry.async;
+        const streaming = entry as unknown as { internalStream: (t: string) => unknown };
+        const origStream = streaming.internalStream.bind(entry);
+        streaming.internalStream = (t: string) => {
+          opened.push(entry.name);
+          return origStream(t);
+        };
       }
       return zip;
     });
@@ -83,6 +90,13 @@ describe("readExport", () => {
     expect(opened.filter((n) => n.startsWith("projects/"))).toHaveLength(3);
     const serialised = JSON.stringify({ ...out, conversations: null });
     expect(serialised).not.toContain(SENTINEL);
+  });
+
+  it("refuses an entry that inflates past the cap, without reading it all", async () => {
+    const zip = new JSZip();
+    zip.file("projects/huge.json", " ".repeat(MAX_SMALL_FILE_BYTES + 1), { compression: "DEFLATE" });
+    const blob = new Blob([new Uint8Array(await zip.generateAsync({ type: "uint8array", compression: "DEFLATE" }))]);
+    await expect(readExport([{ name: "projects-000.zip", blob }])).rejects.toBeInstanceOf(ExportTooBigError);
   });
 
   it("missing categories: no conversations, null scheduled runs", async () => {

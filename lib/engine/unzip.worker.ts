@@ -1,5 +1,5 @@
 // Unzips off the main thread so the page stays responsive on phones.
-import { readExport, type NamedBlob } from "./zip";
+import { ExportTooBigError, readExport, type NamedBlob } from "./zip";
 
 interface WorkerScope {
   onmessage: ((e: MessageEvent<{ files: NamedBlob[] }>) => void) | null;
@@ -13,6 +13,10 @@ ctx.onmessage = async (e) => {
     const transfer = result.conversations ? [result.conversations.buffer as ArrayBuffer] : [];
     ctx.postMessage({ ok: true, result }, transfer);
   } catch (err) {
-    ctx.postMessage({ ok: false, error: err instanceof Error ? err.message : String(err) });
+    ctx.postMessage({
+      ok: false,
+      code: err instanceof ExportTooBigError ? "too-big" : "unreadable",
+      error: err instanceof Error ? err.message : String(err),
+    });
   }
 };

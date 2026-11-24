@@ -11,6 +11,10 @@ import type { ExportInput, NamedBlob } from "./zip";
 
 export class UnsupportedBrowserError extends Error {}
 export class MissingConversationsError extends Error {}
+/** Bigger than a browser should try (see MAX_CONVERSATIONS_BYTES in zip.ts). */
+export class TooBigError extends Error {}
+/** conversations.json exists but isn't in Claude's export format. */
+export class ExportFormatError extends Error {}
 
 export type Stage = "reading" | "engine" | "loading" | "computing";
 
@@ -36,10 +40,11 @@ CREATE OR REPLACE TABLE src_counts AS SELECT artifacts, scheduled_runs FROM src_
 export function readExportInWorker(files: NamedBlob[]): Promise<ExportInput> {
   return new Promise((resolve, reject) => {
     const worker = new Worker(new URL("./unzip.worker.ts", import.meta.url), { type: "module" });
-    worker.onmessage = (e: MessageEvent<{ ok: boolean; result?: ExportInput; error?: string }>) => {
+    worker.onmessage = (e: MessageEvent<{ ok: boolean; result?: ExportInput; code?: string; error?: string }>) => {
       worker.terminate();
       if (e.data.ok && e.data.result) resolve(e.data.result);
-      else reject(new Error(e.data.error ?? "could not read the files"));
+      else if (e.data.code === "too-big") reject(new TooBigError(e.data.error));
+      else reject(new ExportFormatError(e.data.error ?? "could not read the files"));
     };
     worker.onerror = (e) => {
       worker.terminate();
@@ -76,6 +81,7 @@ export class WrappedEngine {
   /** Register the export with DuckDB. Must be called before compute(). */
   async load(input: ExportInput): Promise<void> {
     if (!input.conversations) throw new MissingConversationsError("conversations.json not found");
+    if (input.conversations.byteLength < 2) throw new ExportFormatError("conversations.json is empty");
     await this.db.registerFileBuffer(CONVERSATIONS_FILE, input.conversations);
     await this.db.registerFileText(
       SOURCES_FILE,
@@ -92,7 +98,14 @@ export class WrappedEngine {
   /** Build the model for a timezone and run every metric file. */
   async compute(tz: string, year = YEAR): Promise<FullStats> {
     const params = { conversations: CONVERSATIONS_FILE, tz, year };
-    await this.exec(render(LOAD_SQL, params));
+    try {
+      // Reading the user's file is where a malformed export fails: report it as such, not as
+      // a raw DuckDB error. (The details still go to the console for bug reports.)
+      await this.exec(render(LOAD_SQL, params));
+    } catch (err) {
+      console.error("AI Wrapped: could not load conversations.json", err);
+      throw new ExportFormatError("conversations.json couldn't be read");
+    }
     const out: FullStats = {};
     for (const m of METRICS) {
       const table = await this.conn.query(render(m.sql, params));

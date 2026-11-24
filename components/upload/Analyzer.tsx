@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useCallback, useId, useRef, useState, useSyncExternalStore } from "react";
 
 import {
+  ExportFormatError,
   MissingConversationsError,
+  TooBigError,
   readExportInWorker,
   type Stage,
   UnsupportedBrowserError,
@@ -302,12 +304,19 @@ function errorMessage(err: unknown): string {
   if (err instanceof MissingConversationsError) {
     return "We couldn't find conversations.json. Drop conversations-000.zip (the other ZIPs are optional).";
   }
+  if (err instanceof TooBigError) {
+    return "That export is too big to analyse in a browser (over 600 MB). The command-line version on GitHub has no limit.";
+  }
+  if (err instanceof ExportFormatError) {
+    return "This doesn't look like a Claude export: conversations.json couldn't be read. If it is one, please open an issue on GitHub.";
+  }
   if (err instanceof UnsupportedBrowserError) {
     return "Your browser is too old to run the analysis. Try a recent Chrome, Edge, Firefox or Safari.";
   }
   const msg = err instanceof Error ? err.message : String(err);
+  console.error("AI Wrapped:", err); // details for bug reports, kept out of the page
   if (/memory|allocation/i.test(msg)) {
     return "Your browser ran out of memory. Try a desktop browser, or use the CLI from the GitHub repo.";
   }
-  return `Something went wrong reading your export: ${msg}`;
+  return "Something went wrong reading your export. Please try again, or open an issue on GitHub.";
 }

@@ -80,6 +80,7 @@ export async function readExport(files: NamedBlob[]): Promise<ExportInput> {
     if (lower.endsWith(".json")) {
       const action = classifyEntry(lower);
       if (action.kind === "open" && action.what === "conversations" && !out.conversations) {
+        if (blob.size > MAX_CONVERSATIONS_BYTES) throw new ExportTooBigError(`${name} is too large`);
         out.conversations = new Uint8Array(await blob.arrayBuffer());
         add(out.found, "conversations");
       } else if (action.kind === "ignore") {
@@ -123,6 +124,68 @@ export async function readExport(files: NamedBlob[]): Promise<ExportInput> {
   return out;
 }
 
+/** Real exports are far smaller (a heavy user's year is ~60 MB). Anything bigger is refused. */
+export const MAX_CONVERSATIONS_BYTES = 600 * 1024 * 1024;
+export const MAX_SMALL_FILE_BYTES = 20 * 1024 * 1024;
+
+interface StreamHelper {
+  on(event: "data", cb: (chunk: Uint8Array) => void): StreamHelper;
+  on(event: "error", cb: (err: Error) => void): StreamHelper;
+  on(event: "end", cb: () => void): StreamHelper;
+  pause(): StreamHelper;
+  resume(): StreamHelper;
+}
+
+export class ExportTooBigError extends Error {
+  readonly code = "too-big";
+}
+
+/**
+ * Decompress one entry, stopping as soon as it passes `max` bytes. Streaming (rather than trusting
+ * the sizes a ZIP claims) is what makes a ZIP bomb fail fast instead of exhausting memory.
+ */
+function readCapped(entry: JSZip.JSZipObject, max: number): Promise<Uint8Array> {
+  return new Promise((resolve, reject) => {
+    const chunks: Uint8Array[] = [];
+    let total = 0;
+    let done = false;
+    // internalStream is JSZip's public streaming API, missing from its type definitions.
+    const stream = (entry as unknown as { internalStream(type: "uint8array"): StreamHelper }).internalStream(
+      "uint8array",
+    );
+    stream
+      .on("data", (chunk: Uint8Array) => {
+        if (done) return;
+        total += chunk.length;
+        if (total > max) {
+          done = true;
+          stream.pause();
+          reject(new ExportTooBigError(`${entry.name} is larger than ${Math.round(max / 1024 / 1024)} MB`));
+          return;
+        }
+        chunks.push(chunk);
+      })
+      .on("error", (err: Error) => {
+        if (!done) {
+          done = true;
+          reject(err);
+        }
+      })
+      .on("end", () => {
+        if (done) return;
+        done = true;
+        const out = new Uint8Array(total);
+        let offset = 0;
+        for (const c of chunks) {
+          out.set(c, offset);
+          offset += c.length;
+        }
+        resolve(out);
+      })
+      .resume();
+  });
+}
+
 async function openEntry(
   entry: JSZip.JSZipObject,
   what: "conversations" | "project" | "design_chat" | "routine_runs",
@@ -130,11 +193,11 @@ async function openEntry(
 ): Promise<void> {
   if (what === "conversations") {
     if (out.conversations) return; // first one wins
-    out.conversations = await entry.async("uint8array");
+    out.conversations = await readCapped(entry, MAX_CONVERSATIONS_BYTES);
     add(out.found, "conversations");
     return;
   }
-  const data: unknown = JSON.parse(await entry.async("string"));
+  const data: unknown = JSON.parse(new TextDecoder().decode(await readCapped(entry, MAX_SMALL_FILE_BYTES)));
   const obj = (data ?? {}) as Record<string, unknown>;
   if (what === "project") {
     out.projects.push(typeof obj.created_at === "string" ? obj.created_at : null);
