@@ -1,0 +1,6 @@
+-r requirements.txt
+tzdata
+pytest
+pytest-cov
+ruff
+mypy

@@ -85,6 +85,8 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 7. **Design data bug:** the AI Clock design shows "15h · 223 / 3pm", but 223 is the 16h bucket. The real peak is 4pm (Lisbon). Cards must be computed from the data, never copied from the designs.
 
 ## Step 2: SQL metrics engine (the core data-engineering piece)
+**Status: done (2026-11-24).** 0 differences vs v0 on all 41 keys (2 fixtures × 5 timezones + a real export in 3 timezones). 41 tests, 96% coverage; ruff + strict mypy clean. Found and fixed a spec gap: `longest_chat` titles and `your_top_words` are local-only too (see `docs/DATA.md`).
+
 - `sql/00_load.sql` builds a flat model from the raw export: `chats(uuid, name, created_at)`, `messages(chat_uuid, uuid, parent_uuid, sender, created_at, text, n_files)` and `blocks(message_uuid, type, name, text_len, emdash_count)`. Local-time columns come from a `tz` parameter. The year filter applies here.
 - `sql/metrics/*.sql` holds one file per metric group: volume, time (by_month, by_hour, by_weekday, streak, night/weekend share), words and tokens, tools, languages, chattiest_day, retries, thanks, club. Each file is readable on its own, with a header comment giving the definition. These files replace the definitions in `DATA.md` as the single source of truth.
 - Counts from the other ZIPs (projects, design chats, artifacts, scheduled runs) are computed by the loader. They are passed in as a small `surfaces` table; their contents are never loaded beyond what's needed.

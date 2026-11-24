@@ -1,95 +1,130 @@
-import json,glob,collections,re,sys,os
-from datetime import datetime,timedelta
-from zoneinfo import ZoneInfo
-# Usage: python wrapped.py <folder with unzipped export> [IANA timezone]
-# Reads only conversations, projects, design_chats, frames (count only) and claude_code_cloud. Never reads light_metadata.
-base=sys.argv[1]; TZ=ZoneInfo(sys.argv[2] if len(sys.argv)>2 else 'UTC'); YEAR=2026
-def ts(s): return datetime.fromisoformat(s.replace('Z','+00:00')).astimezone(TZ)
-conv=json.load(open(glob.glob(base+'/*conversations*/conversations.json')[0]))
-conv=[c for c in conv if ts(c['created_at']).year==YEAR]
-months=collections.Counter(); hours=collections.Counter(); wd=collections.Counter(); days=set()
-hmsg=amsg=0; hchars=achars=tchars=0; thinking=0; tools=collections.Counter(); lens=[]
-langs=collections.Counter(); words=collections.Counter(); attach=0
-SW={'pt':{'não','que','para','uma','como','está','você','tens','queres','obrigado','também','isso'},
-    'fr':{'je','est','les','pour','une','pas','avec','vous','mon','dans','merci'},
-    'es':{'que','para','una','pero','estoy','tengo','muy','gracias','también','hola'},
-    'en':{'the','and','you','for','with','this','what','how','can','is','my'}}
-for c in conv:
-    n=0; first=None
-    for m in c['chat_messages']:
-        t=ts(m['created_at']); n+=1
-        attach+=len(m.get('files') or [])+len(m.get('attachments') or [])
-        if m['sender']=='human':
-            hmsg+=1; months[t.month]+=1; hours[t.hour]+=1; wd[t.strftime('%a')]+=1; days.add(t.date())
-            txt=m.get('text') or ''; hchars+=len(txt); first=first or txt
-            if len(txt)<300:
-                for w in re.findall(r"[a-zà-ú']+",txt.lower()): words[w]+=1
-        else: amsg+=1
-        for b in m['content']:
-            if b['type']=='text' and m['sender']!='human': achars+=len(b.get('text') or '')
-            elif b['type']=='thinking': thinking+=1; tchars+=len(b.get('thinking') or '')
-            elif b['type']=='tool_use': tools[b.get('name')]+=1
-    lens.append((n,c['name']))
-    if first:
-        ws=set(re.findall(r"[a-zà-ú]+",first.lower()))
-        sc={k:len(ws&v) for k,v in SW.items()}; 
-        if max(sc.values())>0: langs[max(sc,key=sc.get)]+=1
-# streak
-d=sorted(days); best=cur=1
-for a,b in zip(d,d[1:]): cur=cur+1 if (b-a).days==1 else 1; best=max(best,cur)
-cat=lambda names: sum(tools[n] for n in tools if any(k in (n or '').lower() for k in names))
-cowork_tools={'Bash','Write','Edit','Read','SendUserFile','Artifact','TaskCreate'}
-cowork_chats=sum(1 for c in conv if any(b['type']=='tool_use' and b.get('name') in cowork_tools for m in c['chat_messages'] for b in m['content']))
-out={
- 'chats':len(conv),'your_messages':hmsg,'claude_messages':amsg,
- 'active_days':len(days),'longest_streak_days':best,
- 'est_tokens_visible':round((hchars+achars+tchars)/4),'your_words':round(hchars/5.5),'claude_words':round(achars/5.5),
- 'thinking_blocks':thinking,'tool_calls':sum(tools.values()),
- 'web_searches':cat(['search']) - tools.get('conversation_search',0),'code_runs':cat(['bash']),'files_created':cat(['create_file','write','present_files','senduserfile']),
- 'memory_lookups':cat(['memory','conversation_search','recent_chats']),
- 'agent_style_chats':cowork_chats,'files_uploaded':attach,
- 'by_month':{datetime(2026,k,1).strftime('%b'):v for k,v in sorted(months.items())},
- 'by_hour':dict(sorted(hours.items())),'by_weekday':dict(wd),
- 'languages_first_msg':dict(langs),
- 'longest_chat':max(lens),
- 'top_tools':tools.most_common(8),
-}
-# other surfaces
-dz=[json.load(open(f)) for f in glob.glob(base+'/*design_chats*/design_chats/*.json')]
-out['design_chats']=len(dz); out['design_chats_with_msgs']=sum(1 for x in dz if x['messages']); out['design_projects']=len({x['project']['name'] for x in dz if x.get('project')})
-pj=[json.load(open(f)) for f in glob.glob(base+'/*projects*/projects/*.json')]
-out['projects_total']=len(pj); out['projects_created_2026']=sum(1 for p in pj if ts(p['created_at']).year==YEAR)
-fa=glob.glob(base+'/*frames*/artifacts/*/artifact.json'); out['artifacts']=len(fa)
-rr=glob.glob(base+'/*claude_code_cloud*/claude_code_cloud/routine_runs.json')
-if rr: out['scheduled_runs']=len(json.load(open(rr[0]))['claude_code_cloud'])
-stop={'que','de','a','o','e','the','to','and','i','é','do','da','em','um','para','of','in','is','it','me','com','os','no','na','se','what','for','this','you','my','on','with','be','as','that','la','le','les','des','et','en','un','une','du','eu','não','mas','as','uma','te','can','are','an','or','if','so','at','by','have','how','also','all','just','we','from','but','was','not','there','it\'s','ao','há','mais','por','sobre','pelo','pela','ser','tem','well','will','any','one','them','your','which','into','nos','esta','este','isso','como','meu','minha','are','would','could','should','about','like','want','need','make','use','using'}
-out['your_top_words']=[w for w,_ in words.most_common(300) if w not in stop and len(w)>3][:15]
-# --- story-card extras ---
-day=collections.Counter(); daytopics=collections.defaultdict(set); kids=collections.Counter(); thanks=em=0; oneshot=0
-for c in conv:
-    hm=0
-    for m in c['chat_messages']:
-        kids[(c['uuid'],m.get('parent_message_uuid'),m['sender'])]+=1
-        if m['sender']=='human':
-            hm+=1; d=ts(m['created_at']).date(); day[d]+=1; daytopics[d].add(c.get('name') or '')
-            thanks+=len(re.findall(r"\b(thanks|thank you|obrigad[oa]|merci|gracias|danke)\b",(m.get('text') or '').lower()))
-        else:
-            em+=sum((b.get('text') or '').count('\u2014') for b in m['content'] if b['type']=='text')
-    oneshot+= hm==1
-if day:
-    d,n=day.most_common(1)[0]
-    out['chattiest_day']={'date':d.isoformat(),'messages':n,'topics':len(daytopics[d])}
-out['avg_messages_per_active_day']=round(hmsg/max(1,len(days)),1)
-out['retries']=sum(v-1 for v in kids.values() if v>1)   # edits + regenerations (sibling branches)
-out['thanks']=thanks; out['em_dashes_from_claude']=em; out['one_shot_chats']=oneshot
-night=sum(v for h,v in hours.items() if h>=22 or h<5)
-out['night_share']=round(night/max(1,hmsg),3)
-out['weekend_share']=round((wd.get('Sat',0)+wd.get('Sun',0))/max(1,hmsg),3)
-# AI Club v1: highest score wins. Thresholds are placeholders, recalibrate with Wall data.
-n=max(1,len(conv))
-scores={'Researchers':out['web_searches']/n/2.0,'Builders':(out['files_created']+out.get('artifacts',0))/n/0.7,
-        'Coders':out['code_runs']/n/0.8,'Night Shift':out['night_share']/0.15,
-        'Polyglots':len([k for k,v in langs.items() if v>=3])/3,'Talkers':(hmsg/n)/6}
-out['club']=max(scores,key=scores.get); out['club_scores']={k:round(v,2) for k,v in scores.items()}
-out['chat_titles']=[c['name'] for c in conv if c.get('name')]
-print(json.dumps(out,ensure_ascii=False,indent=1))
+"""AI Wrapped CLI: your year with Claude, computed locally.
+
+Runs the same SQL as the website (sql/) on an unzipped Claude data export, using DuckDB.
+
+Usage:
+    python scripts/wrapped.py <folder with unzipped export> [IANA timezone] [--year 2026]
+
+Reads only conversations, projects, design_chats, claude_code_cloud and the *names* of
+artifact folders in frames. Never opens light_metadata, memories or artifact_data.
+"""
+
+from __future__ import annotations
+
+import argparse
+import glob
+import json
+import os
+import re
+import sys
+from pathlib import Path
+from typing import Any
+
+import duckdb
+
+SQL_DIR = Path(__file__).resolve().parent.parent / "sql"
+TZ_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_+\-/]{0,63}$")
+
+
+class ExportError(Exception):
+    """The folder doesn't look like a Claude export."""
+
+
+def _read_json(path: str) -> Any:
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _first(base: str, pattern: str) -> str | None:
+    hits = sorted(glob.glob(os.path.join(base, pattern)))
+    return hits[0] if hits else None
+
+
+def render(sql: str, *, conversations: str, tz: str, year: int) -> str:
+    """Fill the {{placeholders}} shared with the browser runner. Inputs are validated first."""
+    if not TZ_RE.match(tz):
+        raise ValueError(f"invalid timezone: {tz!r}")
+    literal = "'" + conversations.replace("\\", "/").replace("'", "''") + "'"
+    return sql.replace("{{conversations}}", literal).replace("{{tz}}", tz).replace("{{year}}", str(int(year)))
+
+
+def load_sources(con: duckdb.DuckDBPyConnection, base: str) -> None:
+    """Create the src_* tables from the non-conversation ZIPs (counts and dates only)."""
+    projects = [
+        _read_json(f).get("created_at")
+        for f in sorted(glob.glob(os.path.join(base, "*projects*", "projects", "*.json")))
+    ]
+    design = []
+    for f in sorted(glob.glob(os.path.join(base, "*design_chats*", "design_chats", "*.json"))):
+        x = _read_json(f)
+        proj = x.get("project")
+        design.append((bool(x.get("messages")), proj.get("name") if proj else None, bool(proj)))
+    artifacts = len(glob.glob(os.path.join(base, "*frames*", "artifacts", "*", "artifact.json")))
+    runs_file = _first(base, os.path.join("*claude_code_cloud*", "claude_code_cloud", "routine_runs.json"))
+    runs = len(_read_json(runs_file)["claude_code_cloud"]) if runs_file else None
+
+    con.execute("CREATE OR REPLACE TABLE src_projects(created_at TIMESTAMPTZ)")
+    if projects:
+        con.executemany("INSERT INTO src_projects VALUES (?)", [(p,) for p in projects])
+    con.execute(
+        "CREATE OR REPLACE TABLE src_design_chats("
+        "has_messages BOOLEAN, project_name VARCHAR, has_project BOOLEAN)"
+    )
+    if design:
+        con.executemany("INSERT INTO src_design_chats VALUES (?, ?, ?)", design)
+    con.execute("CREATE OR REPLACE TABLE src_counts(artifacts INTEGER, scheduled_runs INTEGER)")
+    con.execute("INSERT INTO src_counts VALUES (?, ?)", [artifacts, runs])
+
+
+def build_model(
+    base: str, tz: str = "UTC", year: int = 2026
+) -> tuple[duckdb.DuckDBPyConnection, dict[str, Any]]:
+    """Load an export folder into a fresh DuckDB connection. Returns (connection, render params)."""
+    conversations = _first(base, os.path.join("*conversations*", "conversations.json"))
+    if not conversations:
+        raise ExportError(f"no */conversations.json found in {base}")
+    params: dict[str, Any] = {"conversations": conversations, "tz": tz, "year": year}
+    load_sql = render((SQL_DIR / "00_load.sql").read_text(encoding="utf-8"), **params)
+    con = duckdb.connect()
+    try:
+        load_sources(con, base)
+        con.execute(load_sql)
+    except Exception:
+        con.close()
+        raise
+    return con, params
+
+
+def compute(base: str, tz: str = "UTC", year: int = 2026) -> dict[str, Any]:
+    """Return the full stats dict for an unzipped export folder."""
+    con, params = build_model(base, tz, year)
+    try:
+        out: dict[str, Any] = {}
+        for f in sorted((SQL_DIR / "metrics").glob("*.sql")):
+            row = con.execute(render(f.read_text(encoding="utf-8"), **params)).fetchone()
+            if row is None:
+                raise RuntimeError(f"{f.name} returned no row")
+            out.update(json.loads(row[0]))
+        return out
+    finally:
+        con.close()
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description="AI Wrapped: your year with Claude, computed locally.")
+    p.add_argument("export", help="folder containing the unzipped export ZIPs")
+    p.add_argument("tz", nargs="?", default="UTC", help="IANA timezone, e.g. Europe/Lisbon")
+    p.add_argument("--year", type=int, default=2026)
+    a = p.parse_args(argv)
+    try:
+        stats = compute(a.export, a.tz, a.year)
+    except (ExportError, ValueError) as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 2
+    sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
+    print(json.dumps(stats, ensure_ascii=False, indent=1))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

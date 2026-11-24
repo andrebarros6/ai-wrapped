@@ -8,7 +8,7 @@ Read these first, in order:
 1. `docs/SPEC.md` — product, user flows, cards, virality mechanics, infra
 2. `docs/DATA.md` — the Claude export format (verified on a real export) and the data model
 3. `docs/PLAN.md` — build plan and current step
-4. `sql/` — **source of truth for every metric** (once Step 2 lands; until then `scripts/wrapped.py`)
+4. `sql/` — **source of truth for every metric**; `scripts/wrapped.py` runs it in Python, the site runs it in DuckDB-WASM
 5. `design/` — the card designs to reproduce (see "Design references" below)
 
 ## Architecture: local-first, no backend
@@ -32,9 +32,10 @@ ZIPs ─► JSZip (browser, Web Worker) ─► DuckDB-WASM tables: chats, messag
 - **No backend, no database, no accounts, nothing stored.** Nothing about a visitor's data reaches any server.
 - **Privacy first.** The export ZIP is parsed **in the browser only**. Never send raw chats, titles or message text anywhere. Share/compare links put stats in the URL **fragment** (`#…`), which browsers never send to a server.
 - Never read `light_metadata` (email, phone, login IPs), `memories` or `artifact_data`; never open `frames` contents — count artifacts by entry names only. There is a test that enforces this.
+- `chat_titles`, the title in `longest_chat` and `your_top_words` are **local-only** (see `docs/DATA.md`): never in a card, link or Wall entry. Shared stats use an allow-list.
 - Before anything is shared, show an editable preview. Text fields generated from chat titles (opener, prediction, chattiest-day example) are off by default and must be user-confirmed.
 - Every card carries the "Get yours → barrosbuilds.com/wrapped" line and the user's group tag.
-- Browser and CLI must produce identical `WrappedStats` on `fixtures/` (Playwright + pytest check this). Any change from the v0 script (`scripts/legacy/wrapped_v0.py`) is deliberate and documented in `docs/DATA.md`.
+- Browser and CLI must produce identical `WrappedStats` on `fixtures/` (Playwright + pytest check this). Any change from the v0 script (`scripts/legacy/wrapped_v0.py`) is deliberate and documented in `docs/DATA.md`. Dev setup: `python -m venv .venv`, `pip install -r requirements-dev.txt`; checks: `ruff check .`, `ruff format --check .`, `mypy`, `pytest`. After a deliberate metric change: `UPDATE_GOLDEN=1 pytest tests/test_golden.py`.
 - Wall entries enter only through a pull request the user opens themselves.
 
 ## Build order (ship each step before starting the next — details in `docs/PLAN.md`)

@@ -1,0 +1,157 @@
+{
+ "chats": 18,
+ "your_messages": 24,
+ "claude_messages": 22,
+ "files_uploaded": 3,
+ "one_shot_chats": 12,
+ "active_days": 16,
+ "longest_streak_days": 3,
+ "by_month": {
+  "Jan": 1,
+  "Feb": 2,
+  "Mar": 2,
+  "Apr": 2,
+  "May": 3,
+  "Jun": 3,
+  "Jul": 6,
+  "Aug": 3,
+  "Sep": 1,
+  "Oct": 1
+ },
+ "by_hour": {
+  "2": 6,
+  "8": 2,
+  "9": 1,
+  "10": 3,
+  "11": 3,
+  "14": 3,
+  "20": 3,
+  "22": 3
+ },
+ "by_weekday": {
+  "Thu": 2,
+  "Tue": 2,
+  "Sun": 5,
+  "Fri": 3,
+  "Sat": 3,
+  "Mon": 2,
+  "Wed": 7
+ },
+ "avg_messages_per_active_day": 1.5,
+ "night_share": 0.375,
+ "weekend_share": 0.333,
+ "chattiest_day": {
+  "date": "2026-07-08",
+  "messages": 6,
+  "topics": 2
+ },
+ "est_tokens_visible": 490,
+ "your_words": 298,
+ "claude_words": 54,
+ "thinking_blocks": 1,
+ "thanks": 9,
+ "em_dashes_from_claude": 5,
+ "retries": 3,
+ "tool_calls": 11,
+ "web_searches": 1,
+ "code_runs": 2,
+ "files_created": 3,
+ "memory_lookups": 3,
+ "agent_style_chats": 1,
+ "top_tools": [
+  [
+   "web_search",
+   1
+  ],
+  [
+   "bash_tool",
+   1
+  ],
+  [
+   "conversation_search",
+   1
+  ],
+  [
+   "create_file",
+   1
+  ],
+  [
+   "Bash",
+   1
+  ],
+  [
+   "Write",
+   1
+  ],
+  [
+   "Edit",
+   1
+  ],
+  [
+   null,
+   1
+  ]
+ ],
+ "languages_first_msg": {
+  "en": 7,
+  "pt": 2,
+  "fr": 3,
+  "es": 3
+ },
+ "your_top_words": [
+  "thanks",
+  "dashboard",
+  "metrics",
+  "pipeline",
+  "thank",
+  "cherche",
+  "appartement",
+  "pour",
+  "travail",
+  "avec",
+  "vous",
+  "hola",
+  "tengo",
+  "pregunta",
+  "pero"
+ ],
+ "longest_chat": [
+  6,
+  "Zeta metrics"
+ ],
+ "chat_titles": [
+  "Last minute 2025",
+  "Obrigada 😀",
+  "Fix my SQL query",
+  "Build the landing page",
+  "Receita de bacalhau",
+  "Trouver un appartement 0",
+  "Trouver un appartement 1",
+  "Trouver un appartement 2",
+  "Viaje a Almería 0",
+  "Viaje a Almería 1",
+  "Viaje a Almería 2",
+  "Alpha metrics",
+  "Zeta metrics",
+  "Daily note 08",
+  "Daily note 09",
+  "Daily note 10",
+  "Empty chat"
+ ],
+ "design_chats": 4,
+ "design_chats_with_msgs": 3,
+ "design_projects": 2,
+ "projects_total": 3,
+ "projects_created_2026": 3,
+ "artifacts": 3,
+ "scheduled_runs": 5,
+ "club": "Night Shift",
+ "club_scores": {
+  "Researchers": 0.03,
+  "Builders": 0.48,
+  "Coders": 0.14,
+  "Night Shift": 2.5,
+  "Polyglots": 1.0,
+  "Talkers": 0.22
+ }
+}

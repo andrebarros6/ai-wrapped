@@ -1,0 +1,1071 @@
+[
+ {
+  "uuid": "c-0003",
+  "name": "New year's eve plan",
+  "summary": "",
+  "created_at": "2026-12-31T23:30:00Z",
+  "updated_at": "2026-12-31T23:30:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0001",
+    "text": "what can I cook for new year with friends",
+    "sender": "human",
+    "created_at": "2026-12-31T23:30:00Z",
+    "updated_at": "2026-12-31T23:30:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "what can I cook for new year with friends"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0002",
+    "text": "A few ideas — quick ones — and one slow one.",
+    "sender": "assistant",
+    "created_at": "2026-12-31T23:31:00Z",
+    "updated_at": "2026-12-31T23:31:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0001",
+    "content": [
+     {
+      "type": "text",
+      "text": "A few ideas — quick ones — and one slow one."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0006",
+  "name": "Last minute 2025",
+  "summary": "",
+  "created_at": "2025-12-31T20:30:00Z",
+  "updated_at": "2025-12-31T20:30:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0004",
+    "text": "how do I write a good retro for this year",
+    "sender": "human",
+    "created_at": "2025-12-31T20:30:00Z",
+    "updated_at": "2025-12-31T20:30:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "how do I write a good retro for this year"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0005",
+    "text": "Start with what went well.",
+    "sender": "assistant",
+    "created_at": "2025-12-31T20:31:00Z",
+    "updated_at": "2025-12-31T20:31:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0004",
+    "content": [
+     {
+      "type": "text",
+      "text": "Start with what went well."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0010",
+  "name": "Obrigada 😀",
+  "summary": "",
+  "created_at": "2026-02-10T09:00:00Z",
+  "updated_at": "2026-02-10T09:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0007",
+    "text": "Obrigada! Não sei como 😀 thank you, thanks!thanks éthanks _thanks thanks2 merci. gracias—danke",
+    "sender": "human",
+    "created_at": "2026-02-10T09:00:00Z",
+    "updated_at": "2026-02-10T09:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "Obrigada! Não sei como 😀 thank you, thanks!thanks éthanks _thanks thanks2 merci. gracias—danke"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0008",
+    "text": "De nada — sempre — às ordens.",
+    "sender": "assistant",
+    "created_at": "2026-02-10T09:01:00Z",
+    "updated_at": "2026-02-10T09:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0007",
+    "content": [
+     {
+      "type": "text",
+      "text": "De nada — sempre — às ordens."
+     }
+    ]
+   },
+   {
+    "uuid": "m-0009",
+    "text": "thank  you (two spaces) and Thank You and OBRIGADO",
+    "sender": "human",
+    "created_at": "2026-02-10T09:02:00Z",
+    "updated_at": "2026-02-10T09:02:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0008",
+    "content": [
+     {
+      "type": "text",
+      "text": "thank  you (two spaces) and Thank You and OBRIGADO"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0015",
+  "name": "Fix my SQL query",
+  "summary": "",
+  "created_at": "2026-03-29T01:30:00Z",
+  "updated_at": "2026-03-29T01:30:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-root",
+    "text": "why is my join slow",
+    "sender": "human",
+    "created_at": "2026-03-29T01:30:00Z",
+    "updated_at": "2026-03-29T01:30:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "why is my join slow"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0011",
+    "text": "",
+    "sender": "assistant",
+    "created_at": "2026-03-29T01:31:00Z",
+    "updated_at": "2026-03-29T01:31:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-root",
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "Probably a missing index."
+     },
+     {
+      "type": "tool_use",
+      "name": "web_search",
+      "input": {}
+     },
+     {
+      "type": "tool_result",
+      "content": []
+     },
+     {
+      "type": "text",
+      "text": "Add an index — then check the plan."
+     }
+    ]
+   },
+   {
+    "uuid": "m-0012",
+    "text": "",
+    "sender": "assistant",
+    "created_at": "2026-03-29T01:32:00Z",
+    "updated_at": "2026-03-29T01:32:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-root",
+    "content": [
+     {
+      "type": "tool_use",
+      "name": "bash_tool",
+      "input": {}
+     },
+     {
+      "type": "text",
+      "text": "Regenerated — same answer."
+     }
+    ]
+   },
+   {
+    "uuid": "m-0013",
+    "text": "",
+    "sender": "assistant",
+    "created_at": "2026-03-29T01:33:00Z",
+    "updated_at": "2026-03-29T01:33:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-root",
+    "content": [
+     {
+      "type": "tool_use",
+      "name": "conversation_search",
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": "create_file",
+      "input": {}
+     },
+     {
+      "type": "text",
+      "text": "Third try."
+     }
+    ]
+   },
+   {
+    "uuid": "m-0014",
+    "text": "why is my join so slow (edited)",
+    "sender": "human",
+    "created_at": "2026-03-29T01:34:00Z",
+    "updated_at": "2026-03-29T01:34:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "why is my join so slow (edited)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0018",
+  "name": "Build the landing page",
+  "summary": "",
+  "created_at": "2026-10-25T01:30:00Z",
+  "updated_at": "2026-10-25T01:30:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0016",
+    "text": "build the landing page for the product",
+    "sender": "human",
+    "created_at": "2026-10-25T01:30:00Z",
+    "updated_at": "2026-10-25T01:30:00Z",
+    "attachments": [
+     {
+      "file_name": "a0.txt"
+     }
+    ],
+    "files": [
+     {
+      "file_name": "f0.png"
+     },
+     {
+      "file_name": "f1.png"
+     }
+    ],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "build the landing page for the product"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0017",
+    "text": "",
+    "sender": "assistant",
+    "created_at": "2026-10-25T01:31:00Z",
+    "updated_at": "2026-10-25T01:31:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0016",
+    "content": [
+     {
+      "type": "tool_use",
+      "name": "Bash",
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": "Write",
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": "Edit",
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": null,
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": "memory_user_edits",
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": "recent_chats",
+      "input": {}
+     },
+     {
+      "type": "tool_use",
+      "name": "present_files",
+      "input": {}
+     },
+     {
+      "type": "text",
+      "text": "Done."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0022",
+  "name": "Receita de bacalhau",
+  "summary": "",
+  "created_at": "2026-04-02T19:00:00Z",
+  "updated_at": "2026-04-02T19:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0019",
+    "text": "",
+    "sender": "human",
+    "created_at": "2026-04-02T19:00:00Z",
+    "updated_at": "2026-04-02T19:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": ""
+     }
+    ]
+   },
+   {
+    "uuid": "m-0020",
+    "text": "como é que faço bacalhau para uma festa? não tenho forno",
+    "sender": "human",
+    "created_at": "2026-04-02T19:01:00Z",
+    "updated_at": "2026-04-02T19:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0019",
+    "content": [
+     {
+      "type": "text",
+      "text": "como é que faço bacalhau para uma festa? não tenho forno"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0021",
+    "text": "Bacalhau à Brás — sem forno.",
+    "sender": "assistant",
+    "created_at": "2026-04-02T19:02:00Z",
+    "updated_at": "2026-04-02T19:02:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0020",
+    "content": [
+     {
+      "type": "text",
+      "text": "Bacalhau à Brás — sem forno."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0025",
+  "name": "Trouver un appartement 0",
+  "summary": "",
+  "created_at": "2026-05-01T22:15:00Z",
+  "updated_at": "2026-05-01T22:15:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0023",
+    "text": "je cherche un appartement pour mon travail avec vous",
+    "sender": "human",
+    "created_at": "2026-05-01T22:15:00Z",
+    "updated_at": "2026-05-01T22:15:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "je cherche un appartement pour mon travail avec vous"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0024",
+    "text": "Voici quelques pistes.",
+    "sender": "assistant",
+    "created_at": "2026-05-01T22:16:00Z",
+    "updated_at": "2026-05-01T22:16:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0023",
+    "content": [
+     {
+      "type": "text",
+      "text": "Voici quelques pistes."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0028",
+  "name": "Trouver un appartement 1",
+  "summary": "",
+  "created_at": "2026-05-02T22:15:00Z",
+  "updated_at": "2026-05-02T22:15:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0026",
+    "text": "je cherche un appartement pour mon travail avec vous",
+    "sender": "human",
+    "created_at": "2026-05-02T22:15:00Z",
+    "updated_at": "2026-05-02T22:15:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "je cherche un appartement pour mon travail avec vous"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0027",
+    "text": "Voici quelques pistes.",
+    "sender": "assistant",
+    "created_at": "2026-05-02T22:16:00Z",
+    "updated_at": "2026-05-02T22:16:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0026",
+    "content": [
+     {
+      "type": "text",
+      "text": "Voici quelques pistes."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0031",
+  "name": "Trouver un appartement 2",
+  "summary": "",
+  "created_at": "2026-05-03T22:15:00Z",
+  "updated_at": "2026-05-03T22:15:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0029",
+    "text": "je cherche un appartement pour mon travail avec vous",
+    "sender": "human",
+    "created_at": "2026-05-03T22:15:00Z",
+    "updated_at": "2026-05-03T22:15:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "je cherche un appartement pour mon travail avec vous"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0030",
+    "text": "Voici quelques pistes.",
+    "sender": "assistant",
+    "created_at": "2026-05-03T22:16:00Z",
+    "updated_at": "2026-05-03T22:16:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0029",
+    "content": [
+     {
+      "type": "text",
+      "text": "Voici quelques pistes."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0034",
+  "name": "Viaje a Almería 0",
+  "summary": "",
+  "created_at": "2026-06-10T23:40:00Z",
+  "updated_at": "2026-06-10T23:40:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0032",
+    "text": "hola, tengo una pregunta pero estoy muy cansado",
+    "sender": "human",
+    "created_at": "2026-06-10T23:40:00Z",
+    "updated_at": "2026-06-10T23:40:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "hola, tengo una pregunta pero estoy muy cansado"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0033",
+    "text": "Claro.",
+    "sender": "assistant",
+    "created_at": "2026-06-10T23:41:00Z",
+    "updated_at": "2026-06-10T23:41:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0032",
+    "content": [
+     {
+      "type": "text",
+      "text": "Claro."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0037",
+  "name": "Viaje a Almería 1",
+  "summary": "",
+  "created_at": "2026-06-11T23:40:00Z",
+  "updated_at": "2026-06-11T23:40:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0035",
+    "text": "hola, tengo una pregunta pero estoy muy cansado",
+    "sender": "human",
+    "created_at": "2026-06-11T23:40:00Z",
+    "updated_at": "2026-06-11T23:40:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "hola, tengo una pregunta pero estoy muy cansado"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0036",
+    "text": "Claro.",
+    "sender": "assistant",
+    "created_at": "2026-06-11T23:41:00Z",
+    "updated_at": "2026-06-11T23:41:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0035",
+    "content": [
+     {
+      "type": "text",
+      "text": "Claro."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0040",
+  "name": "Viaje a Almería 2",
+  "summary": "",
+  "created_at": "2026-06-12T23:40:00Z",
+  "updated_at": "2026-06-12T23:40:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0038",
+    "text": "hola, tengo una pregunta pero estoy muy cansado",
+    "sender": "human",
+    "created_at": "2026-06-12T23:40:00Z",
+    "updated_at": "2026-06-12T23:40:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "hola, tengo una pregunta pero estoy muy cansado"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0039",
+    "text": "Claro.",
+    "sender": "assistant",
+    "created_at": "2026-06-12T23:41:00Z",
+    "updated_at": "2026-06-12T23:41:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0038",
+    "content": [
+     {
+      "type": "text",
+      "text": "Claro."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0047",
+  "name": "Alpha metrics",
+  "summary": "",
+  "created_at": "2026-07-07T14:00:00Z",
+  "updated_at": "2026-07-07T14:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0041",
+    "text": "dashboard metrics dashboard pipeline",
+    "sender": "human",
+    "created_at": "2026-07-07T14:00:00Z",
+    "updated_at": "2026-07-07T14:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "dashboard metrics dashboard pipeline"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0042",
+    "text": "ok",
+    "sender": "assistant",
+    "created_at": "2026-07-07T14:01:00Z",
+    "updated_at": "2026-07-07T14:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0041",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0043",
+    "text": "dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ",
+    "sender": "human",
+    "created_at": "2026-07-07T14:02:00Z",
+    "updated_at": "2026-07-07T14:02:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0042",
+    "content": [
+     {
+      "type": "text",
+      "text": "dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard "
+     }
+    ]
+   },
+   {
+    "uuid": "m-0044",
+    "text": "ok",
+    "sender": "assistant",
+    "created_at": "2026-07-07T14:03:00Z",
+    "updated_at": "2026-07-07T14:03:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0043",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0045",
+    "text": "pipeline metrics",
+    "sender": "human",
+    "created_at": "2026-07-07T14:04:00Z",
+    "updated_at": "2026-07-07T14:04:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0044",
+    "content": [
+     {
+      "type": "text",
+      "text": "pipeline metrics"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0046",
+    "text": "ok",
+    "sender": "assistant",
+    "created_at": "2026-07-07T14:05:00Z",
+    "updated_at": "2026-07-07T14:05:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0045",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0054",
+  "name": "Zeta metrics",
+  "summary": "",
+  "created_at": "2026-07-07T14:00:00Z",
+  "updated_at": "2026-07-07T14:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0048",
+    "text": "dashboard metrics dashboard pipeline",
+    "sender": "human",
+    "created_at": "2026-07-07T14:00:00Z",
+    "updated_at": "2026-07-07T14:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "dashboard metrics dashboard pipeline"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0049",
+    "text": "ok",
+    "sender": "assistant",
+    "created_at": "2026-07-07T14:01:00Z",
+    "updated_at": "2026-07-07T14:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0048",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0050",
+    "text": "dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ",
+    "sender": "human",
+    "created_at": "2026-07-07T14:02:00Z",
+    "updated_at": "2026-07-07T14:02:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0049",
+    "content": [
+     {
+      "type": "text",
+      "text": "dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard "
+     }
+    ]
+   },
+   {
+    "uuid": "m-0051",
+    "text": "ok",
+    "sender": "assistant",
+    "created_at": "2026-07-07T14:03:00Z",
+    "updated_at": "2026-07-07T14:03:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0050",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0052",
+    "text": "pipeline metrics",
+    "sender": "human",
+    "created_at": "2026-07-07T14:04:00Z",
+    "updated_at": "2026-07-07T14:04:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0051",
+    "content": [
+     {
+      "type": "text",
+      "text": "pipeline metrics"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0053",
+    "text": "ok",
+    "sender": "assistant",
+    "created_at": "2026-07-07T14:05:00Z",
+    "updated_at": "2026-07-07T14:05:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0052",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0057",
+  "name": "Daily note 08",
+  "summary": "",
+  "created_at": "2026-08-08T08:00:00Z",
+  "updated_at": "2026-08-08T08:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0055",
+    "text": "plan my day with focus blocks",
+    "sender": "human",
+    "created_at": "2026-08-08T08:00:00Z",
+    "updated_at": "2026-08-08T08:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "plan my day with focus blocks"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0056",
+    "text": "Here's a plan.",
+    "sender": "assistant",
+    "created_at": "2026-08-08T08:01:00Z",
+    "updated_at": "2026-08-08T08:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0055",
+    "content": [
+     {
+      "type": "text",
+      "text": "Here's a plan."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0060",
+  "name": "Daily note 09",
+  "summary": "",
+  "created_at": "2026-08-09T08:00:00Z",
+  "updated_at": "2026-08-09T08:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0058",
+    "text": "plan my day with focus blocks",
+    "sender": "human",
+    "created_at": "2026-08-09T08:00:00Z",
+    "updated_at": "2026-08-09T08:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "plan my day with focus blocks"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0059",
+    "text": "Here's a plan.",
+    "sender": "assistant",
+    "created_at": "2026-08-09T08:01:00Z",
+    "updated_at": "2026-08-09T08:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0058",
+    "content": [
+     {
+      "type": "text",
+      "text": "Here's a plan."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0063",
+  "name": "Daily note 10",
+  "summary": "",
+  "created_at": "2026-08-10T08:00:00Z",
+  "updated_at": "2026-08-10T08:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0061",
+    "text": "plan my day with focus blocks",
+    "sender": "human",
+    "created_at": "2026-08-10T08:00:00Z",
+    "updated_at": "2026-08-10T08:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "plan my day with focus blocks"
+     }
+    ]
+   },
+   {
+    "uuid": "m-0062",
+    "text": "Here's a plan.",
+    "sender": "assistant",
+    "created_at": "2026-08-10T08:01:00Z",
+    "updated_at": "2026-08-10T08:01:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": "m-0061",
+    "content": [
+     {
+      "type": "text",
+      "text": "Here's a plan."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "uuid": "c-0064",
+  "name": "Empty chat",
+  "summary": "",
+  "created_at": "2026-09-01T10:00:00Z",
+  "updated_at": "2026-09-01T10:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": []
+ },
+ {
+  "uuid": "c-0066",
+  "name": null,
+  "summary": "",
+  "created_at": "2026-09-02T10:00:00Z",
+  "updated_at": "2026-09-02T10:00:00Z",
+  "account": {
+   "uuid": "fake"
+  },
+  "chat_messages": [
+   {
+    "uuid": "m-0065",
+    "text": "the and you for with",
+    "sender": "human",
+    "created_at": "2026-09-02T10:00:00Z",
+    "updated_at": "2026-09-02T10:00:00Z",
+    "attachments": [],
+    "files": [],
+    "parent_message_uuid": null,
+    "content": [
+     {
+      "type": "text",
+      "text": "the and you for with"
+     }
+    ]
+   }
+  ]
+ }
+]

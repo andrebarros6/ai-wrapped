@@ -25,38 +25,61 @@ Requested in claude.ai → Settings → Privacy → Export data (web/desktop onl
 Not available: real token counts, % of plan used, model per message. Tokens are estimated.
 
 ## Metric definitions
-Source of truth: `sql/metrics/*.sql` (from Step 2; until then `scripts/wrapped.py`, kept afterwards as `scripts/legacy/wrapped_v0.py`). The same SQL runs in the browser (DuckDB-WASM) and in the CLI (Python `duckdb`).
-Timezone: user's IANA zone. Year filter: chats whose `created_at` is in the year.
+**Source of truth: `sql/metrics/*.sql`** — one file per group, each with a header comment defining its metrics. The same SQL runs in the browser (DuckDB-WASM) and in the CLI (`scripts/wrapped.py`, Python `duckdb`). Summary:
+
+Timezone: user's IANA zone. Year filter: chats whose `created_at` is in the year (local time); all messages of those chats count.
 - `chats` — conversations created in the year
 - `your_messages` / `claude_messages` — messages by sender
 - `active_days`, `longest_streak_days` — distinct local dates with ≥1 human message; longest run of consecutive dates
 - `by_month`, `by_hour`, `by_weekday` — human messages by local time
-- `your_words`, `claude_words` — characters / 5.5 (human `text`; assistant `text` blocks)
+- `your_words`, `claude_words` — characters / 5.5 (human `text`; assistant `text` blocks). Characters = Unicode code points
 - `est_tokens_visible` — (human + assistant text + thinking characters) / 4. Excludes tool results and system text, so it's a floor
 - `web_searches` — tool_use names containing "search", minus `conversation_search`
 - `code_runs` — names containing "bash"; `files_created` — create_file / write / present_files / senduserfile
-- `languages` — stop-word vote on the first human message of each chat (pt, fr, es, en; extend)
+- `languages_first_msg` — stop-word vote on the first non-empty human message of each chat (pt, fr, es, en; extend in `chat_language`)
 - `chattiest_day` — {date, messages, topics = distinct chat titles that day}
 - `retries` — sibling branches: for each (chat, parent, sender) with k>1 children, add k−1 (edits + regenerations)
-- `thanks` — regex over human text: thanks|thank you|obrigad[oa]|merci|gracias|danke
+- `thanks` — whole words in human text: thanks|thank you|obrigad[oa]|merci|gracias|danke
 - `em_dashes_from_claude` — count of "—" in assistant text blocks
 - `night_share` — human messages 22:00–04:59 / all; `weekend_share`
-- `club` — argmax of normalized scores (see script); placeholders until Wall data exists
-- `projects`, `design_chats`, `scheduled_runs`, `artifacts` — counts from the other ZIPs
+- `club` — argmax of normalized scores (`90_club.sql`); placeholders until Wall data exists
+- `projects_total`, `projects_created_<year>`, `design_chats`, `scheduled_runs`, `artifacts` — counts from the other ZIPs
 
-## WrappedStats JSON (what the parser outputs and the cards consume)
-Exactly the keys printed by the CLI, minus `chat_titles` (local only, never leaves the browser worker), plus:
+Rounding is Python-style (half to even) via the `py_round` macro, so the SQL reproduces v0 exactly.
+
+## Local-only fields (never shared)
+These are computed for the user's own screen and must never appear in a card, share link or Wall entry:
+- `chat_titles` — all titles (used only for opt-in, user-confirmed text suggestions)
+- `longest_chat[1]` — the title of the longest chat (only the count `longest_chat[0]` may be shared)
+- `your_top_words` — words from the user's own messages
+
+## WrappedStats JSON (what cards, share links and Wall entries carry)
+The CLI keys **minus the local-only fields above**, plus:
 ```
 { "version": 1, "source": "claude-export" | "full-prompt" | "lite-prompt", "year": 2026, "tz": "Europe/Lisbon",
   "display_name": "", "tag": "", "opener": "", "prediction": "", "chattiest_day_example": "" }
 ```
-`fixtures/sample-export/` is synthetic data for tests (no real chats).
+The share codec uses an explicit allow-list of keys, not a deny-list.
 
 ## Data model (DuckDB, built by `sql/00_load.sql`)
-- `chats(uuid, name, created_at, created_local)` — filtered to the year in the user's timezone
-- `messages(chat_uuid, uuid, parent_uuid, sender, created_at, created_local, text, n_files)`
-- `blocks(message_uuid, sender, type, name, text_len, emdash_count)` — one row per content block
-- `surfaces(projects_total, projects_created, design_chats, design_chats_with_msgs, design_projects, artifacts, scheduled_runs)` — counts computed by the loader from the other ZIPs
+- `raw_chats` — conversations.json read with an explicit typed schema (unknown keys ignored)
+- `chats(chat_idx, uuid, name, created_at, chat_messages)` — chats started in the year, local time
+- `messages(chat_idx, chat_uuid, msg_idx, uuid, parent_uuid, sender, created_local, msg_text, n_files, content)`
+- `blocks(chat_idx, chat_uuid, msg_idx, block_idx, sender, block_type, tool_name, text_len, emdash_count, thinking_len)`
+- views: `human` (human messages + local date/hour/month/weekday), `tool_counts`, `chat_language`
+- `src_projects`, `src_design_chats`, `src_counts` — created by the runner from the other ZIPs (dates and counts only)
+
+`*_idx` columns keep file order, because v0 breaks ties by first-seen order (Python's `Counter`).
+
+## Fixtures
+- `fixtures/sample-export/` — 40 synthetic chats, conversations only (tests the "other ZIPs missing" path)
+- `fixtures/edge-cases/` — generated by `scripts/make_fixtures.py`: timezone year boundaries, DST switches, emoji and accents, whole-word thanks, edits/regenerations, empty first messages, ties, unnamed tools, all other ZIPs
+- `fixtures/expected/` — golden outputs per fixture × timezone (UTC, Lisbon, Los Angeles, Kolkata, Auckland). The browser engine must produce the same files.
+- Private-file decoys (`light_metadata`, `memories`, `artifact_data`, frames contents) are created at test time only; the repo guard forbids committing them.
 
 ## Changes from v0
-Deliberate differences between the SQL engine and `scripts/legacy/wrapped_v0.py` are listed here, each with a test case. (Filled in during Step 2.)
+Verified: 0 differences on all 41 keys across both fixtures × 5 timezones, and on a real 405-chat export in 3 timezones. Deliberate differences:
+- `scheduled_runs` is `null` when the `claude_code_cloud` ZIP is absent (v0 omitted the key).
+- Files are read as UTF-8 everywhere. v0 used the platform encoding (cp1252 on Windows), which miscounts characters for non-ASCII text; parity tests run v0 with `python -X utf8`.
+- A folder without `conversations.json`, or an invalid timezone, exits with a clear error (code 2) instead of a traceback. With zero chats, `longest_chat` is `null` (v0 crashed).
+- Minimum Python is 3.10 (v0 needed 3.9). Windows needs the `tzdata` package for v0's `zoneinfo`; the SQL engine uses DuckDB's own ICU time zones.

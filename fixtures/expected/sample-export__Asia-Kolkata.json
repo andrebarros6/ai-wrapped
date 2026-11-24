@@ -1,0 +1,152 @@
+{
+ "chats": 40,
+ "your_messages": 134,
+ "claude_messages": 134,
+ "files_uploaded": 0,
+ "one_shot_chats": 6,
+ "active_days": 40,
+ "longest_streak_days": 3,
+ "by_month": {
+  "Jan": 10,
+  "Feb": 12,
+  "Mar": 11,
+  "Apr": 10,
+  "May": 1,
+  "Jun": 27,
+  "Jul": 14,
+  "Aug": 12,
+  "Sep": 12,
+  "Oct": 23,
+  "Nov": 2
+ },
+ "by_hour": {
+  "0": 17,
+  "1": 4,
+  "4": 3,
+  "11": 11,
+  "12": 4,
+  "13": 11,
+  "14": 8,
+  "15": 2,
+  "16": 4,
+  "17": 10,
+  "18": 14,
+  "19": 17,
+  "20": 5,
+  "21": 2,
+  "23": 22
+ },
+ "by_weekday": {
+  "Tue": 30,
+  "Mon": 36,
+  "Wed": 14,
+  "Thu": 12,
+  "Fri": 6,
+  "Sun": 19,
+  "Sat": 17
+ },
+ "avg_messages_per_active_day": 3.4,
+ "night_share": 0.343,
+ "weekend_share": 0.269,
+ "chattiest_day": {
+  "date": "2026-01-05",
+  "messages": 6,
+  "topics": 1
+ },
+ "est_tokens_visible": 1233,
+ "your_words": 263,
+ "claude_words": 633,
+ "thinking_blocks": 0,
+ "thanks": 32,
+ "em_dashes_from_claude": 268,
+ "retries": 0,
+ "tool_calls": 75,
+ "web_searches": 29,
+ "code_runs": 24,
+ "files_created": 22,
+ "memory_lookups": 0,
+ "agent_style_chats": 0,
+ "top_tools": [
+  [
+   "web_search",
+   29
+  ],
+  [
+   "bash_tool",
+   24
+  ],
+  [
+   "create_file",
+   22
+  ]
+ ],
+ "languages_first_msg": {
+  "en": 22
+ },
+ "your_top_words": [
+  "wrong",
+  "thanks"
+ ],
+ "longest_chat": [
+  12,
+  "Write a cover letter"
+ ],
+ "chat_titles": [
+  "Receita de bacalhau",
+  "Budget spreadsheet help",
+  "Explain transformers",
+  "Trouver un appartement",
+  "Receita de bacalhau",
+  "Fix my SQL query",
+  "Receita de bacalhau",
+  "Budget spreadsheet help",
+  "Budget spreadsheet help",
+  "Receita de bacalhau",
+  "Explain transformers",
+  "Fix my SQL query",
+  "Trouver un appartement",
+  "Fix my SQL query",
+  "Explain transformers",
+  "Write a cover letter",
+  "Budget spreadsheet help",
+  "Plan a trip to Lisbon",
+  "Receita de bacalhau",
+  "Budget spreadsheet help",
+  "Receita de bacalhau",
+  "Receita de bacalhau",
+  "Fix my SQL query",
+  "Receita de bacalhau",
+  "Plan a trip to Lisbon",
+  "Explain transformers",
+  "Write a cover letter",
+  "Trouver un appartement",
+  "Receita de bacalhau",
+  "Plan a trip to Lisbon",
+  "Write a cover letter",
+  "Trouver un appartement",
+  "Budget spreadsheet help",
+  "Fix my SQL query",
+  "Trouver un appartement",
+  "Write a cover letter",
+  "Budget spreadsheet help",
+  "Trouver un appartement",
+  "Budget spreadsheet help",
+  "Explain transformers"
+ ],
+ "design_chats": 0,
+ "design_chats_with_msgs": 0,
+ "design_projects": 0,
+ "projects_total": 0,
+ "projects_created_2026": 0,
+ "artifacts": 0,
+ "scheduled_runs": null,
+ "club": "Night Shift",
+ "club_scores": {
+  "Researchers": 0.36,
+  "Builders": 0.79,
+  "Coders": 0.75,
+  "Night Shift": 2.29,
+  "Polyglots": 0.33,
+  "Talkers": 0.56
+ }
+}
