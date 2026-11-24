@@ -13,7 +13,8 @@
     "typecheck": "npm run gen:sql && next typegen && tsc --noEmit",
     "pretest": "npm run gen:sql",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:live": "playwright test -c playwright.live.config.ts"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "1.33.1-dev57.0",
