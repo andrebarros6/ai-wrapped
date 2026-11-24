@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "year": 2026,
+  "display_name": "André",
+  "tag": "barrosbuilds",
+  "source": "claude-export",
+  "stats": {
+    "chats": 405,
+    "your_messages": 1699,
+    "active_days": 227,
+    "longest_streak_days": 17,
+    "web_searches": 1151,
+    "code_runs": 442,
+    "files_created": 320,
+    "artifacts": 35,
+    "projects_total": 27,
+    "design_chats": 19,
+    "est_tokens_visible": 1019687,
+    "your_words": 98869,
+    "thanks": 30,
+    "retries": 84,
+    "tool_calls": 3269,
+    "night_share": 0.145,
+    "weekend_share": 0.18,
+    "club": "Researchers",
+    "languages": 4
+  }
+}
