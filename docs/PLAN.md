@@ -175,6 +175,14 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 - After launch: an `analysis/state-of-claude-2026` notebook built from the open dataset, as LinkedIn and portfolio content.
 
 ## Step 8: Deploy + launch
+**Status (2026-11-24): deployed, waiting on the main-site merge.**
+- Vercel project `ai-wrapped` (team andres-projects), production at https://ai-wrapped-tau.vercel.app/wrapped, deployed with `vercel deploy --prod` from the CLI. Git auto-deploys need the Vercel GitHub app to be given access to this repo.
+- `vercel.json`: a CSP with `connect-src 'self'` (the browser blocks sending data to any other site; a test proves it), nosniff, no-referrer, a strict Permissions-Policy and `frame-ancestors 'none'`. DuckDB is served from `/duckdb/<version>/` with an immutable cache. The local test server applies the same headers, so all browser tests run under the production policy.
+- Smoke test against production passes (`npm run test:live`): real stats equal the golden files, story, 1080×1350 PNG, and all 58 requests go to the site's own origin.
+- Main site: PR andrebarros6/barrosbuilds#2 adds the `/wrapped` rewrites. Tested locally through `next dev`: the full flow works with 62 requests, all to the main site's origin, and the main site's 46 tests pass. The Vercel preview built.
+- Performance: landing JS cut from 604 KB to 497 KB raw. Blocking time on first load at 4× CPU went from about 710 ms to about 270 ms, and repeat visits are 0. Local Lighthouse, mobile: accessibility 100, best practices 96–100, SEO 100. Performance is unreliable on this machine (59–83, depending on its CPU benchmark). **Still to do: a PageSpeed Insights run** (the API quota was exhausted).
+- Still to do: merge PR #2, then run `LIVE_URL=https://www.barrosbuilds.com/wrapped/ npm run test:live` and check where analytics page views land; run the `test-app` pass; polish the README; make the repo public (Wall joining needs it).
+
 - Vercel project for `ai-wrapped` (static output) with Analytics page views on.
 - In the main site repo (`andrebarros6/barrosbuilds`, `homepage/`):
   - On a new branch off `main` (that repo is currently on `learning-log-weekly-drip`, which I'll leave alone), add `async rewrites()` to `next.config.ts` for `/wrapped` and `/wrapped/:path*` pointing to `https://<ai-wrapped-prod>.vercel.app/wrapped/:path*`.
