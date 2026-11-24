@@ -122,7 +122,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: {e}", file=sys.stderr)
         return 2
     sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
-    print(json.dumps(stats, ensure_ascii=False, indent=1))
+    meta = {"version": 1, "source": "cli", "year": a.year, "tz": a.tz}
+    print(json.dumps({**meta, **stats}, ensure_ascii=False, indent=1))
     return 0
 
 

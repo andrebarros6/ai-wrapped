@@ -12,6 +12,12 @@ def test_cli_prints_stats(capsys: pytest.CaptureFixture[str]) -> None:
     assert wrapped.main([fixture_dir("sample-export"), "Europe/Lisbon"]) == 0
     out = json.loads(capsys.readouterr().out)
     assert out["chats"] == 40
+    assert {k: out[k] for k in ("version", "source", "year", "tz")} == {
+        "version": 1,
+        "source": "cli",
+        "year": 2026,
+        "tz": "Europe/Lisbon",
+    }
     assert out["club"]
 
 
