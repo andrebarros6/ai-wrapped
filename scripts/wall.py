@@ -255,10 +255,13 @@ def build(out_public: Path = ROOT / "public" / "wall", out_data: Path = ROOT / "
             metrics[m] = [round(float(v), 4) for v in row[0]] if row else []
     distribution = {"version": 1, "count": n, "min_entries": min_n, "metrics": metrics}
 
+    # LF everywhere, so files built on Windows and in CI are byte-identical.
     (out_public / "wall.json").write_text(
-        json.dumps(wall, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
+        json.dumps(wall, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
     )
-    (out_public / "distribution.json").write_text(json.dumps(distribution, indent=1) + "\n", encoding="utf-8")
+    (out_public / "distribution.json").write_text(
+        json.dumps(distribution, indent=1) + "\n", encoding="utf-8", newline="\n"
+    )
     parquet = (out_data / "wall.parquet").as_posix().replace("'", "''")
     con.execute(f"COPY (SELECT * FROM wall ORDER BY id) TO '{parquet}' (FORMAT parquet)")
     con.close()
