@@ -3,7 +3,7 @@
 import type { AsyncDuckDB, AsyncDuckDBConnection } from "@duckdb/duckdb-wasm";
 
 import { withBase } from "../site";
-import { DUCKDB_DIR } from "./duckdb-assets.generated";
+import { DUCKDB_DIR, DUCKDB_EXT_DIR } from "./duckdb-assets.generated";
 import { render, YEAR } from "./render";
 import { LOAD_SQL, METRICS } from "./sql.generated";
 import type { FullStats } from "./stats";
@@ -15,6 +15,27 @@ export class MissingConversationsError extends Error {}
 export class TooBigError extends Error {}
 /** conversations.json exists but isn't in Claude's export format. */
 export class ExportFormatError extends Error {}
+/** DuckDB's files couldn't be downloaded or started (network, proxy, blocker). */
+export class EngineLoadError extends Error {}
+
+/** Generous: the engine is ~9 MB, which takes a while on a slow phone connection. */
+const ENGINE_START_TIMEOUT_MS = 120_000;
+
+function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`timed out after ${ms} ms`)), ms);
+    p.then(
+      (v) => {
+        clearTimeout(timer);
+        resolve(v);
+      },
+      (e) => {
+        clearTimeout(timer);
+        reject(e);
+      },
+    );
+  });
+}
 
 export type Stage = "reading" | "engine" | "loading" | "computing";
 
@@ -65,17 +86,43 @@ export class WrappedEngine {
     const duckdb = await import("@duckdb/duckdb-wasm");
     const features = await duckdb.getPlatformFeatures();
     if (!features.wasmExceptions) throw new UnsupportedBrowserError("browser too old for WebAssembly exceptions");
-    const worker = new Worker(withBase(`${DUCKDB_DIR}/duckdb-browser-eh.worker.js`));
+
+    const workerUrl = withBase(`${DUCKDB_DIR}/duckdb-browser-eh.worker.js`);
+    const wasmUrl = withBase(`${DUCKDB_DIR}/duckdb-eh.wasm`);
+    // DuckDB doesn't report a file that fails to download: it just never finishes. So check the
+    // files are reachable first (cheap HEAD requests, cached afterwards) to fail fast and clearly.
+    await Promise.all(
+      [workerUrl, wasmUrl, withBase(`${DUCKDB_EXT_DIR}/json.duckdb_extension.wasm`), withBase(`${DUCKDB_EXT_DIR}/icu.duckdb_extension.wasm`)].map(
+        async (url) => {
+          const res = await fetch(url, { method: "HEAD" }).catch(() => null);
+          if (!res?.ok) throw new EngineLoadError(`${url} is unreachable`);
+        },
+      ),
+    );
+
+    const worker = new Worker(workerUrl);
     const db = new duckdb.AsyncDuckDB(new duckdb.VoidLogger(), worker);
-    await db.instantiate(withBase(`${DUCKDB_DIR}/duckdb-eh.wasm`));
-    const conn = await db.connect();
-    // Extensions come from our own origin, never from extensions.duckdb.org.
-    const repo = `${location.origin}${withBase(`${DUCKDB_DIR}/ext`)}`.replace(/'/g, "");
-    await conn.query(`SET custom_extension_repository = '${repo}'`);
-    await conn.query(`SET autoinstall_extension_repository = '${repo}'`);
-    await conn.query("LOAD json");
-    await conn.query("LOAD icu");
-    return new WrappedEngine(db, conn);
+    try {
+      // Last resort if a download stalls midway: give up rather than spin forever.
+      return await withTimeout(
+        (async () => {
+          await db.instantiate(wasmUrl);
+          const conn = await db.connect();
+          // Extensions come from our own origin, never from extensions.duckdb.org.
+          const repo = `${location.origin}${withBase(`${DUCKDB_DIR}/ext`)}`.replace(/'/g, "");
+          await conn.query(`SET custom_extension_repository = '${repo}'`);
+          await conn.query(`SET autoinstall_extension_repository = '${repo}'`);
+          await conn.query("LOAD json");
+          await conn.query("LOAD icu");
+          return new WrappedEngine(db, conn);
+        })(),
+        ENGINE_START_TIMEOUT_MS,
+      );
+    } catch (err) {
+      worker.terminate();
+      console.error("AI Wrapped: the analysis engine didn't start", err);
+      throw new EngineLoadError("the analysis engine didn't start");
+    }
   }
 
   /** Register the export with DuckDB. Must be called before compute(). */

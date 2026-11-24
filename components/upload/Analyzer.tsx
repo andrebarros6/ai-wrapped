@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useId, useRef, useState, useSyncExternalStore } from "react";
 
 import {
+  EngineLoadError,
   ExportFormatError,
   MissingConversationsError,
   TooBigError,
@@ -303,6 +304,9 @@ function Summary({ stats }: { stats: SessionStats }) {
 function errorMessage(err: unknown): string {
   if (err instanceof MissingConversationsError) {
     return "We couldn't find conversations.json. Drop conversations-000.zip (the other ZIPs are optional).";
+  }
+  if (err instanceof EngineLoadError) {
+    return "We couldn't load the analysis engine (about 9 MB). Check your connection, then drop your files again.";
   }
   if (err instanceof TooBigError) {
     return "That export is too big to analyse in a browser (over 600 MB). The command-line version on GitHub has no limit.";
