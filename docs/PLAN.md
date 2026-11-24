@@ -140,6 +140,9 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 - Demo: `/story#demo` uses your real 2026 numbers from the designs.
 
 ## Step 5: PNG + share/compare (no server)
+**Status: done (2026-11-24).** Cards export to 1080×1350 PNGs in the browser (`html-to-image`, fonts embedded): one card, all 8 as a ZIP, or the phone share sheet. Share links `/s#…` (~1 KB) and compare links `/vs#a.b` carry stats only in the fragment; decoding is size-capped, bomb-proof and sanitised. Shared stories are read-only with "Compare with mine". 118 unit tests, 30 browser tests (PNG dimensions read from the file, no token in any request URL), green on repeat.
+- Dropped the LinkedIn share-intent button: LinkedIn can't preview a fragment link (no server-rendered image), and its share URL would send the stats to LinkedIn as a query parameter. Posting the PNG plus pasting the link is the better flow.
+
 - PNGs are rendered in the browser (`html-to-image`, fonts embedded, 1080×1350). There's a "Download all" option and, on mobile, Web Share API with files.
 - `lib/share/codec.ts`: `WrappedStats` (no titles) → JSON → deflate → base64url, placed in the **fragment**. `decode` validates with zod and clamps every field. Covered by round-trip and malicious-input tests.
 - `/s#<data>` is a read-only story. `/vs#<a>.<b>` shows two people side by side with a winner per stat; paste a friend's link to compare.

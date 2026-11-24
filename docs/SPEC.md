@@ -35,7 +35,7 @@ Every card: progress bar, "AI WRAPPED 2026 · n/8", one hero number, a compariso
 
 ## Virality mechanics (the point of the project)
 - **Comparison CTA on every card** ("Which club is your team in?").
-- **PNG first:** people post the card image itself on LinkedIn; no server-rendered link previews.
+- **PNG first:** people post the card image itself on LinkedIn (one card, all 8 as a ZIP, or the phone share sheet) and paste their share link in the text. No server-rendered link previews and no LinkedIn share-intent button: its URL would hand the stats to LinkedIn as a query parameter.
 - **Compare link** `/vs#a.b`: paste a friend's share link, see who wins each stat. The "Prove it" loop. Stats live in the URL fragment.
 - **Group tags**: user adds `#acme`, `#lisbon-builders` → `/wall/acme` leaderboard.
 - **The Wall (GitHub)**: opt-in. The site prepares `wall/entries/<slug>.json` and opens a prefilled GitHub "new file" page; the user opens the PR. An Action validates it; on merge another Action rebuilds static leaderboards, percentile distributions and an open dataset (`data/wall.parquet`). Contributors star repos.
