@@ -5,13 +5,13 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   resolve: { alias: { "@": fileURLToPath(new URL("./", import.meta.url)) } },
   test: {
-    include: ["lib/**/*.test.ts"],
+    include: ["lib/**/*.test.ts", "components/**/*.test.tsx"],
     environment: "node",
     coverage: {
       provider: "v8",
-      include: ["lib/**/*.ts"],
+      include: ["lib/**/*.ts", "components/cards/**/*.tsx"],
       // Browser-only orchestration (Workers, DuckDB-WASM) is covered by the Playwright suite.
-      exclude: ["lib/**/*.test.ts", "lib/engine/sql.generated.ts", "lib/engine/unzip.worker.ts"],
+      exclude: ["lib/**/*.test.ts", "components/**/*.test.tsx", "lib/engine/sql.generated.ts", "lib/engine/unzip.worker.ts"],
     },
   },
 });

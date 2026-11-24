@@ -39,3 +39,13 @@ a:hover {
   outline: 2px solid var(--color-amber);
   outline-offset: 3px;
 }
+
+/* Story progress: the current card's segment fills over its duration. */
+@keyframes wrapped-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
