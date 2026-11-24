@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Barros Builds "Outono Quente" — the default theme (see CLAUDE.md, design/story-brand). */
+@theme inline {
+  --color-ink: #1c1a17;
+  --color-panel: #26231f;
+  --color-line: #3a352e;
+  --color-cream: #e8dcc8;
+  --color-muted: #9a8e78;
+  --color-amber: #d4882b;
+  --color-amber-hi: #e8a54a;
+  --color-terracotta: #c4593a;
+  --color-coral: #e07a57;
+  --font-display: var(--font-syne);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+a {
+  color: var(--color-coral);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--color-amber-hi);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+}

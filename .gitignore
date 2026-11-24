@@ -26,3 +26,13 @@ __pycache__/
 Thumbs.db
 .claude/settings.local.json
 .coverage
+
+# next / node
+.next/
+next-env.d.ts
+*.tsbuildinfo
+test-results/
+playwright-report/
+# generated at build time
+public/duckdb/
+lib/engine/sql.generated.ts
