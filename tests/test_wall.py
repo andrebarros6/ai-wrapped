@@ -171,15 +171,16 @@ def test_build_computes_percentiles_and_open_dataset(tmp_path: Path, monkeypatch
     assert rows.fetchone() == (25, 24)
 
 
-def test_committed_wall_files_are_up_to_date(tmp_path: Path) -> None:
-    """public/wall/*.json must match the entries (the build-wall Action keeps them in sync)."""
-    wall.build(tmp_path / "public", tmp_path / "data")
-    for name in ("wall.json", "distribution.json"):
-        got = json.loads((tmp_path / "public" / name).read_text(encoding="utf-8"))
-        committed = json.loads((ROOT / "public" / "wall" / name).read_text(encoding="utf-8"))
-        got.pop("generated", None)
-        committed.pop("generated", None)
-        assert got == committed, f"public/wall/{name} is stale: run python scripts/wall.py build"
+def test_committed_wall_files_are_consistent_with_entries() -> None:
+    """The committed leaderboard may lag behind the entries (Wall PRs add only an entry; the build
+    Action rebuilds after merge), but it must be valid built output and never list a removed entry."""
+    built = json.loads((ROOT / "public" / "wall" / "wall.json").read_text(encoding="utf-8"))
+    dist = json.loads((ROOT / "public" / "wall" / "distribution.json").read_text(encoding="utf-8"))
+    entry_ids = {p.stem for p in wall.ENTRIES.glob("*.json")}
+    assert built["count"] == len(built["entries"])
+    assert {e["id"] for e in built["entries"]} <= entry_ids, "public/wall lists a removed entry"
+    assert dist["count"] == built["count"]
+    assert (dist["metrics"] is None) == (built["count"] < dist["min_entries"])
 
 
 def test_validate_command_on_a_real_git_branch(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
