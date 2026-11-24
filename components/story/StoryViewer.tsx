@@ -10,6 +10,7 @@ import { THEMES } from "@/lib/story/theme";
 import { EditPanel } from "./EditPanel";
 import { QueryPanel } from "./QueryPanel";
 import { ScaledCard } from "./ScaledCard";
+import { SharePanel } from "./SharePanel";
 
 const DURATION_MS = 6000;
 const HOLD_MS = 220;
@@ -22,17 +23,19 @@ const subscribeMotion = (cb: () => void) => {
   return () => mq.removeEventListener("change", cb);
 };
 
-type Panel = "none" | "edit" | "query";
+type Panel = "none" | "edit" | "query" | "share";
 
 interface Props {
   stats: CardStats;
   initialEdits: StoryEdits;
   titleSuggestions: string[];
-  /** Save edits to this tab's session (off for the demo). */
+  /** Save edits to this tab's session (off for the demo and shared links). */
   persist: boolean;
+  /** Someone else's story from a link: no editing or sharing. */
+  readOnly?: boolean;
 }
 
-export function StoryViewer({ stats, initialEdits, titleSuggestions, persist }: Props) {
+export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, readOnly = false }: Props) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [holding, setHolding] = useState(false);
@@ -152,9 +155,20 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist }: 
 
       <aside className="flex flex-col gap-4">
         <div className="flex gap-2 font-mono text-sm">
-          <PanelTab active={panel === "edit"} onClick={() => setPanel(panel === "edit" ? "none" : "edit")} testId="edit-toggle">
-            Edit before sharing
-          </PanelTab>
+          {!readOnly && (
+            <PanelTab
+              active={panel === "share"}
+              onClick={() => setPanel(panel === "share" ? "none" : "share")}
+              testId="share-toggle"
+            >
+              Share
+            </PanelTab>
+          )}
+          {!readOnly && (
+            <PanelTab active={panel === "edit"} onClick={() => setPanel(panel === "edit" ? "none" : "edit")} testId="edit-toggle">
+              Edit
+            </PanelTab>
+          )}
           <PanelTab
             active={panel === "query"}
             onClick={() => setPanel(panel === "query" ? "none" : "query")}
@@ -172,10 +186,11 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist }: 
           />
         )}
         {panel === "query" && <QueryPanel files={card.sql} />}
+        {panel === "share" && <SharePanel stats={stats} edits={edits} index={index} />}
         {panel === "none" && (
           <p className="text-sm text-muted">
             Tap the right side of a card for the next one, the left side to go back, or hold to pause. Arrow keys and
-            space work too.
+            space work too.{!readOnly && " Edit the words, then share the images or a link."}
           </p>
         )}
       </aside>
