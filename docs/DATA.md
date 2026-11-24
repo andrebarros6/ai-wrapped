@@ -82,6 +82,7 @@ The share codec uses an explicit allow-list of keys, not a deny-list.
 Verified: 0 differences on all 41 keys across both fixtures × 5 timezones, and on a real 405-chat export in 3 timezones. Deliberate differences:
 - `scheduled_runs` is `null` when the `claude_code_cloud` ZIP is absent (v0 omitted the key).
 - New local-only key `chattiest_day_titles` (not in v0).
+- The CLI's printed JSON starts with `version`, `source: "cli"`, `year` and `tz`, so `/import` can label it.
 - Files are read as UTF-8 everywhere. v0 used the platform encoding (cp1252 on Windows), which miscounts characters for non-ASCII text; parity tests run v0 with `python -X utf8`.
 - A folder without `conversations.json`, or an invalid timezone, exits with a clear error (code 2) instead of a traceback. With zero chats, `longest_chat` is `null` (v0 crashed).
 - Minimum Python is 3.10 (v0 needed 3.9). Windows needs the `tzdata` package for v0's `zoneinfo`; the SQL engine uses DuckDB's own ICU time zones.

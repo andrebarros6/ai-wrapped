@@ -6,7 +6,7 @@ Your year with Claude, as story cards you can share and compare. Open source, pr
 
 ## Three ways
 - **Site** (5 min): export your data from Claude, drop the ZIPs on the site. Everything runs locally in your browser.
-- **Prompt kit**: run `prompts/full.md` (with your export) or `prompts/lite.md` (no export, estimates) in your own Claude account, paste the JSON at `/import`.
+- **Prompt kit**: run `prompts/full.md` (with your export: exact, same numbers as the site) or `prompts/lite.md` (no export: estimates) in your own Claude account, then paste the reply at barrosbuilds.com/wrapped/import.
 - **CLI** (devs): `pip install -r requirements.txt` then `python scripts/wrapped.py path/to/unzipped-export Europe/Lisbon` — the same SQL the site runs.
 
 ## Develop
