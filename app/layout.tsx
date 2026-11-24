@@ -44,8 +44,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </span>
           </div>
         </footer>
-        {/* Cookieless page views only. No custom events. */}
-        <Analytics />
+        {/* Cookieless page views only. No custom events. The standard path, so behind the
+            barrosbuilds.com rewrite the main site's analytics count /wrapped too (the default
+            project-specific path only exists on this project's own domain). */}
+        <Analytics scriptSrc="/_vercel/insights/script.js" endpoint="/_vercel/insights" />
       </body>
     </html>
   );
