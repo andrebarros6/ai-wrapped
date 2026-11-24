@@ -204,6 +204,8 @@ Analytics now uses Vercel's standard insights path, so `/wrapped` views count in
   - load: a 400-request burst and a 2-minute sustained run with 0 errors and a flat p50 of about 77 ms.
 
   Open: commit author emails are your personal Gmail (your main site repo is already public with the same); PageSpeed Insights still to run.
+- **Public (2026-11-24).** The repo is public, with a website URL, topics, auto-deleting merged branches and `main` protected against force-push and deletion. Issue #1 is "Add a ChatGPT loader" (good first issue). README with a demo GIF, and CONTRIBUTING. The em-dash house rule is enforced by a test.
+- **Wall tested end to end with the first real entry** (PR #2): the base-branch validator passed, merge, the bot rebuilt the Wall with DuckDB and pushed, deploy, and `/wall` and `/wall/barrosbuilds` went live; the README's DuckDB query works on the public Parquet. This found and fixed a test that would have failed every visitor's Wall PR.
 - Still to do: confirm page views in the main site's Analytics dashboard; run PageSpeed Insights; give the Vercel GitHub app access to this repo (until then, deploy with `vercel deploy --prod`); polish the README; make the repo public (Wall joining needs it). New commits here use the GitHub no-reply email.
 
 - Vercel project for `ai-wrapped` (static output) with Analytics page views on.
