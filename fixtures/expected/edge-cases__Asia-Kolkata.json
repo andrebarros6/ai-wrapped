@@ -46,6 +46,10 @@
   "messages": 6,
   "topics": 2
  },
+ "chattiest_day_titles": [
+  "Alpha metrics",
+  "Zeta metrics"
+ ],
  "est_tokens_visible": 490,
  "your_words": 298,
  "claude_words": 54,

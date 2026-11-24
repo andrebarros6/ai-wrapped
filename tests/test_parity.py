@@ -13,6 +13,8 @@ from conftest import FIXTURES, ROOT, TIMEZONES, fixture_dir
 
 # Deliberate changes from v0, each documented in docs/DATA.md.
 NULL_INSTEAD_OF_MISSING = {"scheduled_runs"}
+# New keys that v0 never produced (local-only helpers for the cards).
+NEW_KEYS = {"chattiest_day_titles"}
 
 
 def run_v0(base: str, tz: str) -> dict[str, Any]:
@@ -37,4 +39,7 @@ def test_matches_v0(fixture: str, tz: str) -> None:
         if key not in old:
             assert new.get(key) is None
             new.pop(key, None)
+    for key in NEW_KEYS:
+        assert key not in old
+        new.pop(key)
     assert new == json.loads(json.dumps(old))  # tuples -> lists

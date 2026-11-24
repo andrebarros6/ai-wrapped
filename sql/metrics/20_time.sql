@@ -7,6 +7,8 @@
 --   weekend_share                    share sent Sat/Sun, 3 decimals
 --   chattiest_day                    date with most messages (ties: the one reached first),
 --                                    its message count, and distinct chat titles that day
+--   chattiest_day_titles             the titles of that day's chats, in order. LOCAL ONLY: used for
+--                                    opt-in, user-confirmed card text; never shared. (Not in v0.)
 WITH
 days AS (SELECT DISTINCT local_date FROM human),
 islands AS (
@@ -17,6 +19,15 @@ per_day AS (
            count(DISTINCT coalesce(c.name, '')) AS topics
     FROM human h JOIN chats c USING (chat_idx)
     GROUP BY h.local_date
+),
+top_day AS (
+    SELECT local_date, n, topics FROM per_day ORDER BY n DESC, first_seen ASC LIMIT 1
+),
+top_day_titles AS (
+    SELECT c.name, min(ord3(h.chat_idx, h.msg_idx, 0)) AS first_seen
+    FROM human h JOIN chats c USING (chat_idx)
+    WHERE h.local_date = (SELECT local_date FROM top_day) AND coalesce(c.name, '') <> ''
+    GROUP BY c.name
 ),
 totals AS (
     SELECT count(*) AS hmsg,
@@ -46,6 +57,8 @@ SELECT json_object(
     'weekend_share', py_round((SELECT weekend FROM totals) / greatest(1, (SELECT hmsg FROM totals)), 3),
     'chattiest_day', (
         SELECT json_object('date', strftime(local_date, '%Y-%m-%d'), 'messages', n, 'topics', topics)
-        FROM per_day ORDER BY n DESC, first_seen ASC LIMIT 1
-    )
+        FROM top_day
+    ),
+    'chattiest_day_titles', coalesce(
+        (SELECT to_json(list(name ORDER BY first_seen)) FROM top_day_titles), '[]'::JSON)
 ) AS j;

@@ -54,6 +54,10 @@
   "messages": 7,
   "topics": 2
  },
+ "chattiest_day_titles": [
+  "Trouver un appartement",
+  "Receita de bacalhau"
+ ],
  "est_tokens_visible": 1233,
  "your_words": 263,
  "claude_words": 633,

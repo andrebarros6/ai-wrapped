@@ -77,3 +77,8 @@ def test_tools_and_languages(edge: dict[str, Any]) -> None:
     assert edge["languages_first_msg"] == {"en": 7, "pt": 2, "fr": 3, "es": 3}
     assert edge["longest_chat"] == [6, "Zeta metrics"]  # tie broken by title, like Python max()
     assert edge["longest_streak_days"] == 3
+
+
+def test_chattiest_day_titles_match_that_day(edge: dict[str, Any]) -> None:
+    assert edge["chattiest_day"] == {"date": "2026-07-07", "messages": 6, "topics": 2}
+    assert edge["chattiest_day_titles"] == ["Alpha metrics", "Zeta metrics"]

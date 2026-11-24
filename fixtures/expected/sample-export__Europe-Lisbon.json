@@ -53,6 +53,9 @@
   "messages": 6,
   "topics": 1
  },
+ "chattiest_day_titles": [
+  "Explain transformers"
+ ],
  "est_tokens_visible": 1233,
  "your_words": 263,
  "claude_words": 633,

@@ -47,6 +47,7 @@ export const SHAREABLE_METRICS = [
 
 export interface LocalOnly {
   chat_titles: string[];
+  chattiest_day_titles: string[];
   your_top_words: string[];
   longest_chat_title: string | null;
 }
@@ -71,6 +72,7 @@ export function splitStats(full: FullStats): SplitStats {
     },
     local: {
       chat_titles: Array.isArray(full.chat_titles) ? (full.chat_titles as string[]) : [],
+      chattiest_day_titles: Array.isArray(full.chattiest_day_titles) ? (full.chattiest_day_titles as string[]) : [],
       your_top_words: Array.isArray(full.your_top_words) ? (full.your_top_words as string[]) : [],
       longest_chat_title: typeof longest?.[1] === "string" ? longest[1] : null,
     },

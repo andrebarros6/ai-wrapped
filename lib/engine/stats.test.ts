@@ -26,6 +26,8 @@ describe("splitStats", () => {
       expect(shareable).not.toHaveProperty("longest_chat");
       expect(shareable.longest_chat_messages).toBe((full.longest_chat as [number, string])[0]);
       expect(local.chat_titles).toEqual(full.chat_titles);
+      expect(local.chattiest_day_titles).toEqual(full.chattiest_day_titles);
+      expect(shareable).not.toHaveProperty("chattiest_day_titles");
       expect(local.longest_chat_title).toBe((full.longest_chat as [number, string])[1]);
     },
   );
@@ -37,7 +39,7 @@ describe("splitStats", () => {
 
   it("covers every metric the engine produces except local-only ones", () => {
     const keys = Object.keys(golden("edge-cases", "UTC")).filter(
-      (k) => !["chat_titles", "your_top_words", "longest_chat"].includes(k),
+      (k) => !["chat_titles", "chattiest_day_titles", "your_top_words", "longest_chat"].includes(k),
     );
     expect([...keys].sort()).toEqual([...SHAREABLE_METRICS].sort());
   });
