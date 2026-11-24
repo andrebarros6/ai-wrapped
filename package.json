@@ -18,6 +18,8 @@
   "dependencies": {
     "@duckdb/duckdb-wasm": "1.33.1-dev57.0",
     "@vercel/analytics": "2.0.1",
+    "fflate": "^0.8.3",
+    "html-to-image": "^1.11.13",
     "jszip": "3.10.2",
     "next": "16.4.6",
     "react": "19.3.0",
