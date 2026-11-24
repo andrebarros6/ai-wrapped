@@ -2,8 +2,41 @@
  "version": 1,
  "year": 2026,
  "generated": "2026-11-24",
- "count": 0,
- "tags": [],
- "clubs": {},
- "entries": []
+ "count": 1,
+ "tags": [
+  {
+   "tag": "barrosbuilds",
+   "members": 1,
+   "chats": 405
+  }
+ ],
+ "clubs": {
+  "Researchers": 1
+ },
+ "entries": [
+  {
+   "id": "andre-b24d87",
+   "display_name": "André",
+   "tag": "barrosbuilds",
+   "club": "Researchers",
+   "languages": 4,
+   "chats": 405,
+   "your_messages": 1699,
+   "active_days": 227,
+   "longest_streak_days": 17,
+   "web_searches": 1151,
+   "code_runs": 442,
+   "files_created": 320,
+   "artifacts": 35,
+   "projects_total": 27,
+   "design_chats": 19,
+   "est_tokens_visible": 1019687,
+   "your_words": 98869,
+   "thanks": 30,
+   "retries": 84,
+   "tool_calls": 3269,
+   "night_share": 0.145,
+   "weekend_share": 0.18
+  }
+ ]
 }
