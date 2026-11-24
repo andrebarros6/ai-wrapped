@@ -1,0 +1,62 @@
+name: wall
+
+# The Wall is built from pull requests. Two jobs:
+#  - validate: on PRs touching wall/, run the BASE branch's validator against the PR's files,
+#    so a PR can't change the rules it is checked against. No secrets, read-only token.
+#  - build: after a merge to main, rebuild the static leaderboards and the open dataset.
+on:
+  pull_request:
+    paths: ["wall/**"]
+  push:
+    branches: [main]
+    paths: ["wall/entries/**"]
+
+concurrency:
+  group: wall-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the rules (base branch)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.base_ref }}
+          path: rules
+      - name: Check out the pull request
+        uses: actions/checkout@v4
+        with:
+          path: pr
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r rules/requirements.txt
+      - name: Validate the entry
+        run: python rules/scripts/wall.py validate --repo pr --base origin/${{ github.base_ref }}
+
+  build:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Build the Wall (DuckDB)
+        run: python scripts/wall.py build
+      - name: Commit the static files
+        run: |
+          git config user.name "wall-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/wall data/wall.parquet
+          if git diff --cached --quiet; then echo "Nothing changed."; exit 0; fi
+          git commit -m "Rebuild the Wall"
+          git push
