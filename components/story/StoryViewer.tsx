@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 
-import { CARDS, StoryCard } from "@/components/cards/cards";
+import { deckFor, StoryCard } from "@/components/cards/cards";
 import { defaultEdits, saveEdits, type StoryEdits } from "@/lib/story/edits";
 import type { CardStats } from "@/lib/story/schema";
 import { THEMES } from "@/lib/story/theme";
@@ -44,7 +44,8 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
   const reducedMotion = useSyncExternalStore(subscribeMotion, () => matchMedia(reducedMotionQuery).matches, () => false);
   const pointer = useRef<{ x: number; timer: number; held: boolean } | null>(null);
 
-  const last = CARDS.length - 1;
+  const deck = useMemo(() => deckFor(stats), [stats]);
+  const last = deck.length - 1;
   const go = useCallback((i: number) => setIndex(Math.max(0, Math.min(last, i))), [last]);
   const next = useCallback(() => go(index + 1), [go, index]);
   const prev = useCallback(() => go(index - 1), [go, index]);
@@ -74,14 +75,14 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
 
   const effectivePaused = paused || holding || panel !== "none" || reducedMotion;
   const theme = THEMES[edits.theme];
-  const card = CARDS[index];
+  const card = deck[index];
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-start">
       <div className="mx-auto flex w-full flex-col gap-4" style={{ maxWidth: "min(100%, calc((100dvh - 170px) * 0.8))" }}>
         <section
           aria-roledescription="slide"
-          aria-label={`Card ${index + 1} of ${CARDS.length}: ${card.label}`}
+          aria-label={`Card ${index + 1} of ${deck.length}: ${card.label}`}
           data-testid="story-card"
           data-index={index}
           className="cursor-pointer touch-pan-y overflow-hidden rounded-2xl select-none"
@@ -114,7 +115,9 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
           <ScaledCard>
             <StoryCard
               key={`${index}-${edits.theme}`}
-              index={index}
+              def={card}
+              n={index + 1}
+              total={deck.length}
               s={stats}
               e={edits}
               t={theme}
@@ -140,7 +143,7 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
             </Ctrl>
           </div>
           <span aria-live="polite" className="text-muted" data-testid="card-counter">
-            {index + 1} / {CARDS.length}
+            {index + 1} / {deck.length}
           </span>
           <button
             type="button"
@@ -186,7 +189,7 @@ export function StoryViewer({ stats, initialEdits, titleSuggestions, persist, re
           />
         )}
         {panel === "query" && <QueryPanel files={card.sql} />}
-        {panel === "share" && <SharePanel stats={stats} edits={edits} index={index} />}
+        {panel === "share" && <SharePanel stats={stats} edits={edits} deck={deck} index={index} />}
         {panel === "none" && (
           <p className="text-sm text-muted">
             Tap the right side of a card for the next one, the left side to go back, or hold to pause. Arrow keys and

@@ -4,7 +4,7 @@ import JSZip from "jszip";
 import { useRouter } from "next/navigation";
 import { useMemo, useRef, useState } from "react";
 
-import { CARDS, StoryCard } from "@/components/cards/cards";
+import { type CardDef, StoryCard } from "@/components/cards/cards";
 import { encodeShare, tokenFromInput } from "@/lib/share/codec";
 import { cardFileName, cardToPng, saveBlob } from "@/lib/share/png";
 import { BASE_PATH } from "@/lib/site";
@@ -15,6 +15,7 @@ import { THEMES } from "@/lib/story/theme";
 interface Props {
   stats: CardStats;
   edits: StoryEdits;
+  deck: CardDef[];
   index: number;
 }
 
@@ -27,7 +28,7 @@ const canShareFiles = (): boolean => {
   }
 };
 
-export function SharePanel({ stats, edits, index }: Props) {
+export function SharePanel({ stats, edits, deck, index }: Props) {
   const router = useRouter();
   const refs = useRef<(HTMLDivElement | null)[]>([]);
   const [busy, setBusy] = useState<string | null>(null);
@@ -70,7 +71,7 @@ export function SharePanel({ stats, edits, index }: Props) {
           <Btn
             testId="download-card"
             disabled={!!busy}
-            onClick={() => run("card", async () => saveBlob(await render(index), cardFileName(index, CARDS[index].key)))}
+            onClick={() => run("card", async () => saveBlob(await render(index), cardFileName(index, deck[index].key)))}
           >
             {busy === "card" ? "Making image…" : `Download card ${index + 1}`}
           </Btn>
@@ -80,12 +81,12 @@ export function SharePanel({ stats, edits, index }: Props) {
             onClick={() =>
               run("all", async () => {
                 const zip = new JSZip();
-                for (let i = 0; i < CARDS.length; i++) zip.file(cardFileName(i, CARDS[i].key), await render(i));
+                for (let i = 0; i < deck.length; i++) zip.file(cardFileName(i, deck[i].key), await render(i));
                 saveBlob(await zip.generateAsync({ type: "blob" }), "ai-wrapped-2026.zip");
               })
             }
           >
-            {busy === "all" ? "Making 8 images…" : "Download all 8 (.zip)"}
+            {busy === "all" ? `Making ${deck.length} images…` : `Download all ${deck.length} (.zip)`}
           </Btn>
           {shareable && (
             <Btn
@@ -93,7 +94,7 @@ export function SharePanel({ stats, edits, index }: Props) {
               disabled={!!busy}
               onClick={() =>
                 run("share", async () => {
-                  const file = new File([await render(index)], cardFileName(index, CARDS[index].key), {
+                  const file = new File([await render(index)], cardFileName(index, deck[index].key), {
                     type: "image/png",
                   });
                   await navigator.share({ files: [file], title: "My AI Wrapped 2026" });
@@ -170,14 +171,14 @@ export function SharePanel({ stats, edits, index }: Props) {
 
       {/* Full-size copies of every card, off screen, used as the source for the images. */}
       <div aria-hidden style={{ position: "fixed", left: -20000, top: 0, pointerEvents: "none" }}>
-        {CARDS.map((c, i) => (
+        {deck.map((c, i) => (
           <div
             key={c.key}
             ref={(el) => {
               refs.current[i] = el;
             }}
           >
-            <StoryCard index={i} s={stats} e={edits} t={theme} />
+            <StoryCard def={c} n={i + 1} total={deck.length} s={stats} e={edits} t={theme} />
           </div>
         ))}
       </div>

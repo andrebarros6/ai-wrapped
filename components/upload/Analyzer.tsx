@@ -13,6 +13,7 @@ import {
 import { detectTimeZone, isValidTimeZone } from "@/lib/engine/render";
 import { saveSession, type SessionStats } from "@/lib/engine/session";
 import { splitStats } from "@/lib/engine/stats";
+import { clearEdits } from "@/lib/story/edits";
 import type { ExportInput, FoundKind, IgnoredKind } from "@/lib/engine/zip";
 
 type Phase =
@@ -119,6 +120,7 @@ export function Analyzer() {
       setPhase({ kind: "working", stage: "computing" });
       const full = await engine.compute(zone);
       const stats = saveSession(splitStats(full), zone);
+      if (!alreadyLoaded) clearEdits(); // a new export is a new story; a timezone change keeps edits
       setPhase({ kind: "done", stats });
     },
     [warmUp],

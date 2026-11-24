@@ -81,6 +81,15 @@ export function loadEdits(s: CardStats): StoryEdits {
   }
 }
 
+/** A new export or import starts a new story: forget the previous one's edits. */
+export function clearEdits(): void {
+  try {
+    sessionStorage.removeItem(EDITS_KEY);
+  } catch {
+    // nothing to clear
+  }
+}
+
 export function saveEdits(e: StoryEdits): void {
   try {
     sessionStorage.setItem(EDITS_KEY, JSON.stringify(e));

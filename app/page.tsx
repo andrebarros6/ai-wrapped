@@ -72,8 +72,8 @@ export default function Home() {
           <div className="rounded-2xl bg-panel p-5">
             <dt className="font-mono text-sm text-amber">PROMPT KIT</dt>
             <dd className="mt-2 text-cream/85">
-              Rather not use a website? Run a prompt in your own Claude account and paste the result here.
-              Coming soon.
+              Rather not drop your export on a website? Run a prompt in your own Claude account and paste the
+              result here. <Link href="/import">Open the prompt kit →</Link>
             </dd>
           </div>
           <div className="rounded-2xl bg-panel p-5">

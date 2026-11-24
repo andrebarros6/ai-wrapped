@@ -38,6 +38,13 @@ export default function Privacy() {
         </li>
       </ul>
 
+      <h2>The prompt kit</h2>
+      <p>
+        If you use the prompt kit, the analysis runs in your own Claude (or ChatGPT) account, under that
+        provider&apos;s terms. The script we give you prints totals only, never titles or message text. The JSON you
+        paste back into this site is read in your browser and kept in this tab, like an uploaded export.
+      </p>
+
       <h2>When you share</h2>
       <ul>
         <li>
