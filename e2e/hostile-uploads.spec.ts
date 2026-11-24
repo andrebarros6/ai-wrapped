@@ -39,7 +39,7 @@ async function drop(page: Page, files: ZipFile[]) {
 
 const alertText = (page: Page) => page.getByTestId("status").getByRole("alert").textContent();
 
-test("a ZIP bomb is refused with a clear message, and the page survives", async ({ page }) => {
+test("a ZIP bomb is refused with a clear message, and the page survives @heavy", async ({ page }) => {
   test.setTimeout(180_000);
   const bomb = await bombZip(1024);
   expect(bomb.buffer.length).toBeLessThan(3_000_000);
