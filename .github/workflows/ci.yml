@@ -24,3 +24,23 @@ jobs:
         run: mypy
       - name: Tests (SQL engine vs v0 parity, golden outputs, privacy)
         run: pytest -q --cov --cov-report=term
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test -- --coverage
+      - name: Build static export (vendors DuckDB, checksum-pinned)
+        run: npm run build
+      - name: Browser tests (browser engine == CLI golden outputs, privacy)
+        run: npx playwright install --with-deps chromium && npm run test:e2e
