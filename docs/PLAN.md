@@ -123,6 +123,11 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
   - **Playwright:** drop the fixture ZIPs and check that the browser's JSON equals `fixtures/expected/*.json`. This is the browser-vs-CLI parity check.
 
 ## Step 4: Story + visualisation
+**Status: done (2026-11-24).** `/story` with the 8 cards rebuilt from `design/` (brand + dark), AI Clock, tap/hold/swipe/keyboard navigation, auto-advance (off with reduced motion), edit panel, "show the query", `/story#demo` with André's real aggregates. Checked visually side by side against the design files. 96 unit tests (cards render for every golden × timezone with no title leaking), 24 browser tests.
+- New local-only metric `chattiest_day_titles` feeds the opt-in example suggestion; suggestions pass `lib/story/safety.ts` and are off by default.
+- Design data bugs not carried over: the clock's peak hour (designs say 3pm; data says 4pm), average day 7 vs 7.5, night share 11% vs 15%. "Researchers Club" overflowed the card in the design; sized to fit.
+- Fixed while testing: arrow keys ignored after clicking a control; tag separators couldn't be typed.
+
 - `components/cards/Card01…08` take `(stats, theme, n)` and lay out at a fixed 1080×1350 in SVG and HTML with inline styles. They are scaled to fit the viewport.
   - Themes come from `lib/theme.ts`: brand "Outono Quente" (default) and dark.
   - A shared `CardFrame` holds the progress bar, the "n/8" label, the CTA question, and "Get yours → barrosbuilds.com/wrapped · #tag".
