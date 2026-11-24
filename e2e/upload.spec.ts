@@ -108,3 +108,17 @@ test("legal pages are reachable", async ({ page }) => {
   await page.goto("./terms");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Terms of use");
 });
+
+test("the browser itself blocks sending data to any other site (CSP)", async ({ page }) => {
+  const res = await page.goto("./");
+  expect(res?.headers()["content-security-policy"]).toContain("connect-src 'self'");
+  const outcome = await page.evaluate(async () => {
+    try {
+      await fetch("https://example.com/collect", { method: "POST", body: "stats" });
+      return "sent";
+    } catch {
+      return "blocked";
+    }
+  });
+  expect(outcome).toBe("blocked");
+});
