@@ -60,6 +60,30 @@ Prove the risky parts in a throwaway page before committing to the architecture:
 - ICU doesn't work in WASM → compute local-time columns in JS with `Intl` before loading the data.
 - JSON loading is too heavy → stream-parse in JS into Arrow or Parquet, then hand that to DuckDB.
 
+### Results (2026-11-24): GO ✅
+Tested in headless Chromium with DuckDB-WASM 1.33 (engine v1.5.4), the `eh` bundle, on a real heavy-user export: 62 MB `conversations.json`, 14.5 MB zipped, 405 chats in 2026, 3,381 messages, 12,108 content blocks. Only aggregates were inspected.
+
+| Measure | Desktop | CPU throttled 4× | 6× |
+|---|---|---|---|
+| DuckDB instantiate | 1.2 s | 1.3 s | 1.9 s |
+| Unzip (JSZip) | 0.9 s | 3.9 s | 5.0 s |
+| Load ICU + set timezone | 0.5 s | 0.7 s | 0.6 s |
+| `read_json` (typed) | 0.7 s | 1.1 s | 0.8 s |
+| Flatten to messages/blocks | 0.08 s | 0.1 s | 0.1 s |
+| Metrics | 0.1 s | 0.2 s | 0.1 s |
+| **Total** | **3.7 s** | **7.6 s** | **9.2 s** |
+
+CDP throttling slows the main thread more than DuckDB's worker, so expect real phones to be somewhat slower; budget ~15 s with a progress UI. Memory: JS heap ~81 MB, DuckDB ~35 MB, plus the WASM module.
+
+**Findings that shape Step 2–3:**
+1. **Parity:** browser `by_hour`, chats (405), human messages (1,699) and tool calls (3,269) match `wrapped_v0.py` exactly for Europe/Lisbon.
+2. **Timezones:** the ICU extension works and is DST-correct. For Lisbon, 2026-03-29 01:30 UTC → hour 2, and 2026-10-25 01:30 UTC → hour 1.
+3. **Self-host the DuckDB extensions.** By default `icu` and `json` are fetched from `extensions.duckdb.org`, a third-party request. Setting `custom_extension_repository` and `autoinstall_extension_repository` to our own origin, and serving `/<engine-version>/wasm_eh/{icu,json}.duckdb_extension.wasm`, brings this to **zero external requests**. A build script must vendor these files, pinned to the engine version.
+4. **Load with an explicit typed schema.** Declaring `chat_messages` as `STRUCT(...)[]`, with `content` as `STRUCT(type, name, text, thinking)[]` (unknown keys are ignored), is about **170× faster** than `JSON` + `from_json` (14.3 s → 0.08 s for flattening).
+5. **Reserved words:** `text`, `type` and `name` must be quoted as column aliases in DuckDB SQL.
+6. **Download size** (Brotli): duckdb-eh.wasm 5.5 MB, ICU 1.3 MB, JSON 0.1 MB, worker 0.2 MB, about **7.2 MB total**. This loads only after the user drops files (start prefetching on drop-zone hover or focus), so it doesn't affect Lighthouse for `/`.
+7. **Design data bug:** the AI Clock design shows "15h · 223 / 3pm", but 223 is the 16h bucket. The real peak is 4pm (Lisbon). Cards must be computed from the data, never copied from the designs.
+
 ## Step 2: SQL metrics engine (the core data-engineering piece)
 - `sql/00_load.sql` builds a flat model from the raw export: `chats(uuid, name, created_at)`, `messages(chat_uuid, uuid, parent_uuid, sender, created_at, text, n_files)` and `blocks(message_uuid, type, name, text_len, emdash_count)`. Local-time columns come from a `tz` parameter. The year filter applies here.
 - `sql/metrics/*.sql` holds one file per metric group: volume, time (by_month, by_hour, by_weekday, streak, night/weekend share), words and tokens, tools, languages, chattiest_day, retries, thanks, club. Each file is readable on its own, with a header comment giving the definition. These files replace the definitions in `DATA.md` as the single source of truth.
