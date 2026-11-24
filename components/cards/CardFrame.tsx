@@ -7,7 +7,6 @@ import type { CardTheme } from "@/lib/story/theme";
 
 export const CARD_W = 1080;
 export const CARD_H = 1350;
-export const TOTAL_CARDS = 8;
 
 export interface ProgressAnimation {
   durationMs: number;
@@ -17,6 +16,9 @@ export interface ProgressAnimation {
 
 interface Props {
   n: number;
+  total: number;
+  /** Lite-prompt numbers are estimates: say so on every card. */
+  estimated?: boolean;
   label: string;
   cta: string;
   tag: string;
@@ -27,7 +29,7 @@ interface Props {
   children: ReactNode;
 }
 
-export function CardFrame({ n, label, cta, tag, t, variant = "default", progress, children }: Props) {
+export function CardFrame({ n, total, estimated, label, cta, tag, t, variant = "default", progress, children }: Props) {
   const club = variant === "club";
   const bg = club ? t.club.bg : t.bg;
   const fg = club ? t.club.fg : t.fg;
@@ -77,7 +79,7 @@ export function CardFrame({ n, label, cta, tag, t, variant = "default", progress
         overflow: "hidden",
       }}
     >
-      <div style={{ display: "flex", gap: 10 }}>{Array.from({ length: TOTAL_CARDS }, (_, i) => segment(i))}</div>
+      <div style={{ display: "flex", gap: 10 }}>{Array.from({ length: total }, (_, i) => segment(i))}</div>
       <div
         style={{
           display: "flex",
@@ -88,9 +90,9 @@ export function CardFrame({ n, label, cta, tag, t, variant = "default", progress
           opacity: 0.7,
         }}
       >
-        <span>AI WRAPPED 2026</span>
+        <span>AI WRAPPED 2026{estimated ? " · ESTIMATED" : ""}</span>
         <span>
-          {n} / {TOTAL_CARDS} · {label.toUpperCase()}
+          {n} / {total} · {label.toUpperCase()}
         </span>
       </div>
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 28, minHeight: 0 }}>

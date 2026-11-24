@@ -32,13 +32,15 @@ export interface CardProps {
   progress?: ProgressAnimation | null;
 }
 
-interface CardDef {
+export interface CardDef {
   key: string;
   label: string;
   cta: string;
   /** sql/metrics files behind this card's numbers ("show the query"). */
   sql: string[];
   variant?: "default" | "club";
+  /** Hide the card when the stats can't fill it (e.g. lite-prompt estimates). Default: always shown. */
+  available?: (s: CardStats) => boolean;
   Body: (p: CardProps) => ReactNode;
 }
 
@@ -135,6 +137,7 @@ export const CARDS: CardDef[] = [
     label: "Chattiest day",
     cta: "What was your busiest day?",
     sql: ["20_time.sql"],
+    available: (s) => s.chattiest_day !== null,
     Body: ({ s, e, t }) => {
       const d = s.chattiest_day;
       if (!d) return <span style={{ fontSize: 72, fontWeight: 800 }}>No chats this year. Yet.</span>;
@@ -204,6 +207,7 @@ export const CARDS: CardDef[] = [
     label: "Your AI clock",
     cta: "When does your team talk to AI?",
     sql: ["20_time.sql"],
+    available: (s) => Object.values(s.by_hour).some((n) => n > 0),
     Body: ({ s, t }) => {
       const peak = peakHour(s.by_hour);
       const arch = clockArchetype(peak?.hour ?? null);
@@ -236,6 +240,7 @@ export const CARDS: CardDef[] = [
     label: "Try again",
     cta: "Are you nicer to your AI?",
     sql: ["30_text.sql"],
+    available: (s) => s.source !== "lite-prompt",
     Body: ({ s, t }) => (
       <>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -273,14 +278,19 @@ export const CARDS: CardDef[] = [
   },
 ];
 
-/** Render card `index` (0-based) as a full 1080×1350 frame. */
-export function StoryCard({ index, ...p }: CardProps & { index: number }) {
-  const def = CARDS[index];
-  if (!def) return null;
+/** The cards this person's stats can fill, in order. */
+export function deckFor(s: CardStats): CardDef[] {
+  return CARDS.filter((c) => c.available?.(s) ?? true);
+}
+
+/** Render one card of a deck as a full 1080×1350 frame. `n` is 1-based. */
+export function StoryCard({ def, n, total, ...p }: CardProps & { def: CardDef; n: number; total: number }) {
   const { Body } = def;
   return (
     <CardFrame
-      n={index + 1}
+      n={n}
+      total={total}
+      estimated={p.s.source === "lite-prompt"}
       label={def.label}
       cta={def.cta}
       tag={cleanTag(p.e.tag)}

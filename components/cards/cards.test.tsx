@@ -8,10 +8,10 @@ import { defaultEdits } from "@/lib/story/edits";
 import { toCardStats } from "@/lib/story/schema";
 import { THEMES } from "@/lib/story/theme";
 
-import { CARDS, StoryCard } from "./cards";
+import { CARDS, deckFor, StoryCard } from "./cards";
 
 const render = (index: number, s = DEMO_STATS, e = DEMO_EDITS, theme: "brand" | "dark" = "brand") =>
-  renderToStaticMarkup(<StoryCard index={index} s={s} e={e} t={THEMES[theme]} />);
+  renderToStaticMarkup(<StoryCard def={CARDS[index]} n={index + 1} total={CARDS.length} s={s} e={e} t={THEMES[theme]} />);
 
 describe("cards", () => {
   it("there are eight, each with SQL behind it", () => {
@@ -53,6 +53,18 @@ describe("cards", () => {
       for (const title of full.chat_titles as string[]) expect(html).not.toContain(title);
     },
   );
+
+  it("lite estimates get a shorter deck, each card marked ESTIMATED", () => {
+    const lite = toCardStats({ source: "lite-prompt", chats: 120, your_messages: 900, club: "Builders" });
+    const deck = deckFor(lite);
+    expect(deck.map((c) => c.key)).toEqual(["opener", "numbers", "work", "club", "prediction"]);
+    const html = renderToStaticMarkup(
+      <StoryCard def={deck[1]} n={2} total={deck.length} s={lite} e={defaultEdits(lite)} t={THEMES.brand} />,
+    );
+    expect(html).toContain("AI WRAPPED 2026 · ESTIMATED");
+    expect(html).toContain("2 / 5");
+    expect(deckFor(DEMO_STATS)).toHaveLength(8);
+  });
 
   it("survives empty stats", () => {
     const empty = toCardStats({});
