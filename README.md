@@ -9,11 +9,19 @@ Your year with Claude, as story cards you can share and compare. Open source, pr
 - **Prompt kit**: run `prompts/full.md` (with your export) or `prompts/lite.md` (no export, estimates) in your own Claude account, paste the JSON at `/import`.
 - **CLI** (devs): `pip install -r requirements.txt` then `python scripts/wrapped.py path/to/unzipped-export Europe/Lisbon` — the same SQL the site runs.
 
+## Develop
+```
+npm ci && npm run dev            # site at http://localhost:3000/wrapped
+npm run build && npm run test:e2e
+python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt && pytest
+```
+
 ## Repo
 - `CLAUDE.md`: build brief for Claude Code
 - `docs/SPEC.md`, `docs/DATA.md`, `docs/PLAN.md`: product spec, export format and data model, build plan
 - `sql/`: every metric as SQL — the single source of truth for site and CLI
 - `scripts/wrapped.py`: CLI runner (Python 3.10+, DuckDB)
+- `app/`, `components/`, `lib/engine/`: the static site and its in-browser DuckDB engine
 - `design/`: card designs (brand theme and dark theme)
 - `fixtures/`: synthetic sample export for tests
 

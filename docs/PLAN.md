@@ -101,6 +101,10 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 - **Tooling:** `ruff` + `mypy` for Python, pytest + coverage, and a CI job running Python 3.12.
 
 ## Step 3: App scaffold + upload `/`
+**Status: done (2026-11-24).** Next.js 16.4 static export at `/wrapped`; DuckDB-WASM runs the bundled `sql/` in the browser; extensions self-hosted and SHA-256-pinned (`scripts/vendor-duckdb.mjs`). Browser output equals the CLI golden files for 2 fixtures × 5 timezones (Playwright), with zero cross-origin requests and no request bodies. 47 unit tests (ZIP privacy spy, allow-list, render), 15 browser tests, 120/120 green on repeat runs.
+- Found and fixed two real UX races while hardening the tests: a stale timezone committed on blur, and input typed before hydration being lost (inputs now enable after hydration).
+- Lighthouse (local, mobile): accessibility 96 → link underline fix applied; best practices 96 (only the `/_vercel/insights` 404, which exists on Vercel). Performance is dominated by the framework's hydration (~78 ms blocking at 1× CPU, ~710 ms at 4×); local scores swing 42–56 because this machine benchmarks at 370–760. **Re-measure with PageSpeed Insights on the deployed URL in Step 8**; if below 90, lazy-load the Analyzer island.
+
 - Next.js 16 (App Router) with `output: 'export'` (fully static), `basePath: '/wrapped'`, TypeScript strict, Tailwind and shadcn/ui.
 - Tooling: ESLint, `tsc --noEmit`, Vitest, Playwright. Libraries: `@duckdb/duckdb-wasm`, `jszip`, `fflate`, `zod`, `@vercel/analytics` (page views only).
 - `lib/engine/`:
