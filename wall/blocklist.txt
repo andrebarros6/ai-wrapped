@@ -1,0 +1,39 @@
+# Names and tags matching these can't join the Wall. Text is lower-cased, accents removed and
+# leetspeak undone first. Plain lines match anywhere ("sh1thead"); lines starting with "=" match whole
+# words only, to avoid blocking innocent names ("badminton" contains "admin"). Maintainers review
+# every pull request too, so this list is deliberately short.
+# Impersonation (whole words)
+=anthropic
+=openai
+=official
+=admin
+=moderator
+=claude
+# Profanity and slurs (EN, PT, ES, FR)
+fuck
+shit
+cunt
+bitch
+nigger
+nigga
+faggot
+retard
+whore
+=slut
+=nazi
+hitler
+=porn
+caralho
+=foda
+=puta
+merda
+=cabrao
+mierda
+=cabron
+pendejo
+=cono
+putain
+=merde
+connard
+salope
+encule

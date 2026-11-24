@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "year": 2026,
+  "min_entries_for_ranks": 20,
+  "counts": {
+    "chats": "chats started",
+    "your_messages": "messages sent",
+    "active_days": "active days",
+    "longest_streak_days": "day streak",
+    "web_searches": "web searches",
+    "code_runs": "code runs",
+    "files_created": "files created",
+    "artifacts": "artifacts made",
+    "projects_total": "projects",
+    "design_chats": "design chats",
+    "est_tokens_visible": "tokens (estimated)",
+    "your_words": "words written",
+    "thanks": "thank-yous",
+    "retries": "retries",
+    "tool_calls": "tool calls"
+  },
+  "shares": {
+    "night_share": "share after 10pm",
+    "weekend_share": "share on weekends"
+  },
+  "rank_metrics": [
+    "chats",
+    "your_messages",
+    "active_days",
+    "longest_streak_days",
+    "web_searches",
+    "code_runs",
+    "artifacts",
+    "est_tokens_visible",
+    "thanks",
+    "night_share"
+  ],
+  "clubs": ["Researchers", "Builders", "Coders", "Night Shift", "Polyglots", "Talkers"],
+  "sources": ["claude-export", "full-prompt", "cli"]
+}
