@@ -1,4 +1,4 @@
--- 60_chats.sql — individual chats.
+-- 60_chats.sql: individual chats.
 --   longest_chat  [message count, title] of the chat with most messages (ties: higher title wins, as
 --                 Python's max() over (n, title) tuples). The title is LOCAL ONLY.
 --   chat_titles   all non-empty titles in file order. LOCAL ONLY: used in the browser for opt-in

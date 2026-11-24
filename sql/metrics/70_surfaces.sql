@@ -1,4 +1,4 @@
--- 70_surfaces.sql — the rest of Claude, from the other export ZIPs (counts only).
+-- 70_surfaces.sql: the rest of Claude, from the other export ZIPs (counts only).
 --   design_chats            design chats (design_chats ZIP)
 --   design_chats_with_msgs  design chats with at least one message
 --   design_projects         distinct design projects

@@ -1,4 +1,4 @@
--- 40_tools.sql — what Claude did for you (tool_use blocks).
+-- 40_tools.sql: what Claude did for you (tool_use blocks).
 -- Categories match on the lower-cased tool name containing a keyword:
 --   web_searches       "search", minus conversation_search (that's memory, not the web)
 --   code_runs          "bash"

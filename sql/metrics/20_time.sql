@@ -1,4 +1,4 @@
--- 20_time.sql — when you talk to Claude. All times are local (user's timezone), human messages only.
+-- 20_time.sql: when you talk to Claude. All times are local (user's timezone), human messages only.
 --   active_days                      distinct local dates with at least one message
 --   longest_streak_days              longest run of consecutive active dates (1 if none, as in v0)
 --   by_month / by_hour / by_weekday  message counts

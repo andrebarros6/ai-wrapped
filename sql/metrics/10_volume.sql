@@ -1,4 +1,4 @@
--- 10_volume.sql — how much you used Claude.
+-- 10_volume.sql: how much you used Claude.
 --   chats            conversations created in the year (user's timezone)
 --   your_messages    messages you sent in those chats
 --   claude_messages  messages from any other sender

@@ -1,4 +1,4 @@
--- 50_language.sql — the languages and words you use.
+-- 50_language.sql: the languages and words you use.
 --   languages_first_msg  chats per language (stop-word vote on your first message; see chat_language)
 --   your_top_words       15 most frequent words (4+ letters, not stop words) in your messages under
 --                        300 characters. Computed from the top 300 words, then filtered, as in v0.

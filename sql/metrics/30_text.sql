@@ -1,4 +1,4 @@
--- 30_text.sql — words, tokens and tone.
+-- 30_text.sql: words, tokens and tone.
 --   your_words / claude_words  characters / 5.5 (your message text; Claude's text blocks)
 --   est_tokens_visible         (your chars + Claude's text chars + thinking chars) / 4.
 --                              Excludes tool results and system text, so it's a floor.

@@ -1,4 +1,4 @@
--- 90_club.sql — your AI Club: the highest normalised score wins (ties: earlier club in this list).
+-- 90_club.sql: your AI Club: the highest normalised score wins (ties: earlier club in this list).
 -- v1 placeholder thresholds; recalibrate from the open Wall dataset.
 --   Researchers  web searches per chat / 2.0
 --   Builders     (files created + artifacts) per chat / 0.7

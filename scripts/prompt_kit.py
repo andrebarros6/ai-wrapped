@@ -124,7 +124,7 @@ def compute(conv, projects, design, artifacts, runs, tz_name):
             for b in m["content"]:
                 if b["type"] == "text" and m["sender"] != "human":
                     achars += len(b.get("text") or "")
-                    em += (b.get("text") or "").count("—")
+                    em += (b.get("text") or "").count("\u2014")
                 elif b["type"] == "thinking":
                     thinking += 1
                     tchars += len(b.get("thinking") or "")
