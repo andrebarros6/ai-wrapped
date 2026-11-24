@@ -21,4 +21,4 @@ Look back through my past chats from this year using your chat history. Build my
 Rules: everything must be safe to post publicly. No names, health, money, legal, family or job-rejection topics. Where you can't count exactly, give your best estimate.
 ```
 
-Paste the JSON at wrapped.barrosbuilds.com/lite.
+Paste the JSON at barrosbuilds.com/wrapped/import.

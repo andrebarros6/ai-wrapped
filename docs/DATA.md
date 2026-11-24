@@ -24,7 +24,8 @@ Requested in claude.ai → Settings → Privacy → Export data (web/desktop onl
 ```
 Not available: real token counts, % of plan used, model per message. Tokens are estimated.
 
-## Metric definitions (source of truth: `scripts/wrapped.py`)
+## Metric definitions
+Source of truth: `sql/metrics/*.sql` (from Step 2; until then `scripts/wrapped.py`, kept afterwards as `scripts/legacy/wrapped_v0.py`). The same SQL runs in the browser (DuckDB-WASM) and in the CLI (Python `duckdb`).
 Timezone: user's IANA zone. Year filter: chats whose `created_at` is in the year.
 - `chats` — conversations created in the year
 - `your_messages` / `claude_messages` — messages by sender
@@ -44,9 +45,18 @@ Timezone: user's IANA zone. Year filter: chats whose `created_at` is in the year
 - `projects`, `design_chats`, `scheduled_runs`, `artifacts` — counts from the other ZIPs
 
 ## WrappedStats JSON (what the parser outputs and the cards consume)
-Exactly the keys printed by `scripts/wrapped.py`, minus `chat_titles` (local only, never shared), plus:
+Exactly the keys printed by the CLI, minus `chat_titles` (local only, never leaves the browser worker), plus:
 ```
-{ "version": 1, "source": "claude-export" | "lite-prompt", "year": 2026, "tz": "Europe/Lisbon",
+{ "version": 1, "source": "claude-export" | "full-prompt" | "lite-prompt", "year": 2026, "tz": "Europe/Lisbon",
   "display_name": "", "tag": "", "opener": "", "prediction": "", "chattiest_day_example": "" }
 ```
 `fixtures/sample-export/` is synthetic data for tests (no real chats).
+
+## Data model (DuckDB, built by `sql/00_load.sql`)
+- `chats(uuid, name, created_at, created_local)` — filtered to the year in the user's timezone
+- `messages(chat_uuid, uuid, parent_uuid, sender, created_at, created_local, text, n_files)`
+- `blocks(message_uuid, sender, type, name, text_len, emdash_count)` — one row per content block
+- `surfaces(projects_total, projects_created, design_chats, design_chats_with_msgs, design_projects, artifacts, scheduled_runs)` — counts computed by the loader from the other ZIPs
+
+## Changes from v0
+Deliberate differences between the SQL engine and `scripts/legacy/wrapped_v0.py` are listed here, each with a test case. (Filled in during Step 2.)

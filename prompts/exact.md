@@ -33,4 +33,4 @@ Reply with ONE JSON code block and nothing else, using these keys:
 chats, your_messages, claude_messages, active_days, longest_streak_days, your_words, claude_words, est_tokens, web_searches, code_runs, files_created, by_month, by_hour, by_weekday, languages, longest_chat, projects, design_chats, scheduled_runs, personality, personality_why, top_themes, funniest_ask, one_word_year
 ```
 
-Paste the JSON at wrapped.barrosbuilds.com to get your cards.
+Paste the JSON at barrosbuilds.com/wrapped/import to get your cards.
