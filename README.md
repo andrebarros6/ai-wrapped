@@ -23,6 +23,8 @@ python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt && pyt
 - `scripts/wrapped.py`: CLI runner (Python 3.10+, DuckDB)
 - `app/`, `components/`, `lib/engine/`: the static site and its in-browser DuckDB engine
 - `design/`: card designs (brand theme and dark theme)
+- `wall/`: the opt-in Wall: entries, rules and how to join or leave
+- `data/wall.parquet`: the open dataset of Wall entries
 - `fixtures/`: synthetic sample export for tests
 
 Built by André Barros · BarrosBuilds 2026

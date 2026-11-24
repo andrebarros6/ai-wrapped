@@ -159,6 +159,9 @@ CDP throttling slows the main thread more than DuckDB's worker, so expect real p
 - Following your Claude API rule, no part of this calls the API: everything runs in the user's account.
 
 ## Step 7: GitHub Wall + open dataset
+**Status: done (2026-11-24).** Entries are `wall/entries/*.json` with fields from `wall/fields.json` (shared by site and Python): name, tag, source and aggregate numbers only. `scripts/wall.py validate` (strict schema, bounds, plausibility, normalised blocklist with whole-word rules, one entry per PR, no other paths, no duplicate name+tag) runs in the `wall` Action from the **base branch** against the PR checkout, so a PR can't loosen its own rules. `scripts/wall.py build` uses DuckDB to write `public/wall/wall.json`, `distribution.json` (101 percentiles per rank metric, once ≥20 entries) and `data/wall.parquet`; the Action commits them after merge. Site: Wall tab in the story (rank lines computed in the browser; join form with exact preview, consent, prefilled GitHub new-file PR), `/wall` and `/wall/<tag>` (always includes `/wall/everyone`). Entries built by the site pass the real Python validator in unit and browser tests. Dry run with 30 synthetic entries checked visually, then reverted. 140 unit, 97 Python, 40 browser tests.
+- Joining needs the repo to be public (Step 8).
+
 - From the story, a "Join the Wall" button builds an entry: `{display_name, tag, stats}`, previewed and editable. It then opens a prefilled GitHub "new file" URL for `wall/entries/<slug>.json`, so the user creates the pull request themselves.
 - The `validate-wall` Action checks the schema, field caps, a simple name/tag blocklist, and one file per pull request. You review and merge.
 - On merge, the `build-wall` Action aggregates the entries with DuckDB into:
