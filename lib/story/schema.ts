@@ -2,12 +2,9 @@
 // missing or malformed input (older share links, prompt-kit JSON, hand-edited data).
 import { z } from "zod";
 
-export const CLUBS = ["Researchers", "Builders", "Coders", "Night Shift", "Polyglots", "Talkers"] as const;
-export type Club = (typeof CLUBS)[number];
+import { CLUBS, SOURCES } from "./constants";
 
-/** Where the numbers came from. "lite-prompt" numbers are estimates and the cards say so. */
-export const SOURCES = ["claude-export", "full-prompt", "cli", "lite-prompt"] as const;
-export type Source = (typeof SOURCES)[number];
+export { type Club, CLUBS, type Source, SOURCES } from "./constants";
 
 const MAX = 1e9;
 const count = z.number().finite().min(0).max(MAX).catch(0);

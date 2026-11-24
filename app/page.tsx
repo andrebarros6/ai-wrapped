@@ -15,7 +15,7 @@ export default function Home() {
           Drop your Claude export. We count the chats, the 2am questions and the thank-yous, right here in your
           browser. Nothing is uploaded. There&apos;s no server to upload it to.
         </p>
-        <Link href="/story#demo" className="font-mono text-sm">
+        <Link href="/story#demo" prefetch={false} className="font-mono text-sm">
           See an example story first →
         </Link>
       </header>
@@ -73,7 +73,10 @@ export default function Home() {
             <dt className="font-mono text-sm text-amber">PROMPT KIT</dt>
             <dd className="mt-2 text-cream/85">
               Rather not drop your export on a website? Run a prompt in your own Claude account and paste the
-              result here. <Link href="/import">Open the prompt kit →</Link>
+              result here.{" "}
+              <Link href="/import" prefetch={false}>
+                Open the prompt kit →
+              </Link>
             </dd>
           </div>
           <div className="rounded-2xl bg-panel p-5">

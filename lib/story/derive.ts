@@ -1,5 +1,6 @@
 // Turns stats into the words on the cards. Pure functions, unit-tested.
-import { CLUBS, type CardStats, type Club } from "./schema";
+import { CLUBS, type Club } from "./constants";
+import type { CardStats } from "./schema";
 
 const nf = new Intl.NumberFormat("en");
 export const fmt = (n: number): string => nf.format(Math.round(n));

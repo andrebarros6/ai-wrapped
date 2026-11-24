@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 
 import { deckFor, StoryCard } from "@/components/cards/cards";
@@ -10,8 +11,10 @@ import { THEMES } from "@/lib/story/theme";
 import { EditPanel } from "./EditPanel";
 import { QueryPanel } from "./QueryPanel";
 import { ScaledCard } from "./ScaledCard";
-import { SharePanel } from "./SharePanel";
-import { WallPanel } from "@/components/wall/WallPanel";
+// Loaded only when opened: PNG export (html-to-image, JSZip) and the Wall data aren't needed to view a story.
+const loading = () => <p className="font-mono text-sm text-muted">Loading…</p>;
+const SharePanel = dynamic(() => import("./SharePanel").then((m) => m.SharePanel), { ssr: false, loading });
+const WallPanel = dynamic(() => import("@/components/wall/WallPanel").then((m) => m.WallPanel), { ssr: false, loading });
 
 const DURATION_MS = 6000;
 const HOLD_MS = 220;
