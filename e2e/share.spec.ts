@@ -6,9 +6,8 @@ import JSZip from "jszip";
 
 import { encodeShare } from "../lib/share/codec";
 import { DEMO_EDITS, DEMO_STATS } from "../lib/story/demo";
-import { fixtureZips, golden } from "./fixtures";
+import { fixtureZips, golden, isLocal } from "./fixtures";
 
-const ORIGIN = "http://127.0.0.1:4317";
 
 /** Width and height from a PNG's IHDR chunk. */
 function pngSize(buf: Buffer | Uint8Array): { w: number; h: number } {
@@ -38,7 +37,7 @@ test("downloads one card as a 1080×1350 PNG made in the browser", async ({ page
   const file = readFileSync((await download.path())!);
   expect(pngSize(file)).toEqual({ w: 1080, h: 1350 });
   expect(file.length).toBeGreaterThan(20_000);
-  expect(requests.filter((r) => !r.split(" ")[1].startsWith(ORIGIN))).toEqual([]);
+  expect(requests.filter((r) => !isLocal(r.split(" ")[1]))).toEqual([]);
   expect(requests.filter((r) => !/^(GET|HEAD) /.test(r))).toEqual([]);
 });
 
@@ -76,7 +75,7 @@ test("share link opens the same story, and its stats never reach a server", asyn
   await expect(other.getByTestId("share-toggle")).toHaveCount(0);
   // The fragment is never part of a request.
   expect(requests.some((u) => u.includes(token.slice(0, 40)))).toBe(false);
-  expect(requests.filter((u) => !u.startsWith(ORIGIN))).toEqual([]);
+  expect(requests.filter((u) => !isLocal(u))).toEqual([]);
 });
 
 test("compare a friend's link with yours", async ({ page }) => {

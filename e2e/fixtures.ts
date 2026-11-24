@@ -55,3 +55,8 @@ export function golden(fixture: string, tz: string): Record<string, unknown> {
   const file = join(ROOT, "fixtures", "expected", `${fixture}__${tz.replace(/\//g, "-")}.json`);
   return JSON.parse(readFileSync(file, "utf8")) as Record<string, unknown>;
 }
+
+/** Same-origin URLs, including in-memory blob: URLs (WebKit reports reading a dropped file as one). */
+export function isLocal(url: string, origin = "http://127.0.0.1:4317"): boolean {
+  return url.startsWith(origin) || url.startsWith(`blob:${origin}/`);
+}

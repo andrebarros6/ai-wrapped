@@ -14,7 +14,8 @@
     "pretest": "npm run gen:sql",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:live": "playwright test -c playwright.live.config.ts"
+    "test:live": "playwright test -c playwright.live.config.ts",
+    "test:browsers": "playwright test -c playwright.browsers.config.ts"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "1.33.1-dev57.0",

@@ -3,9 +3,8 @@
 import { expect, type Page, test } from "@playwright/test";
 
 import { splitStats } from "../lib/engine/stats";
-import { decoyZips, FIXTURES, fixtureZips, golden, SENTINEL, TIMEZONES, type ZipFile } from "./fixtures";
+import { decoyZips, FIXTURES, fixtureZips, golden, isLocal, SENTINEL, TIMEZONES, type ZipFile } from "./fixtures";
 
-const ORIGIN = "http://127.0.0.1:4317";
 
 function trackRequests(page: Page): { url: string; method: string; body: string | null }[] {
   const seen: { url: string; method: string; body: string | null }[] = [];
@@ -51,7 +50,7 @@ for (const fixture of FIXTURES) {
       expect(await sessionStats(page)).toEqual(expected(fixture, tz));
 
       // Privacy: only GET/HEAD (page loads, prefetch) to our own origin; nothing sent with a body.
-      expect(requests.filter((r) => !r.url.startsWith(ORIGIN))).toEqual([]);
+      expect(requests.filter((r) => !isLocal(r.url))).toEqual([]);
       expect(requests.filter((r) => !["GET", "HEAD"].includes(r.method) || r.body)).toEqual([]);
     });
   }
@@ -89,7 +88,7 @@ test("private ZIPs are reported as ignored and never leak", async ({ page }) => 
   const stored = await page.evaluate(() => JSON.stringify(sessionStorage));
   expect(stored).not.toContain(SENTINEL);
   for (const title of golden("edge-cases", "UTC").chat_titles as string[]) expect(stored).not.toContain(title);
-  expect(requests.filter((r) => !r.url.startsWith(ORIGIN))).toEqual([]);
+  expect(requests.filter((r) => !isLocal(r.url))).toEqual([]);
   expect(await sessionStats(page)).toEqual(expected("edge-cases", "UTC"));
 });
 

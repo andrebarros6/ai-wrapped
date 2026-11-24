@@ -1,9 +1,8 @@
 // The story viewer: real export → story, navigation, themes, edits, "show the query", privacy.
 import { expect, type Page, test } from "@playwright/test";
 
-import { fixtureZips, golden } from "./fixtures";
+import { fixtureZips, golden, isLocal } from "./fixtures";
 
-const ORIGIN = "http://127.0.0.1:4317";
 
 async function analyse(page: Page, tz = "UTC") {
   await page.goto("./");
@@ -38,7 +37,7 @@ test("export → story: navigate all 8 cards with the keyboard", async ({ page }
   await page.keyboard.press("Home");
   await expect(page.getByTestId("card-counter")).toHaveText("1 / 8");
 
-  expect(requests.filter((u) => !u.startsWith(ORIGIN))).toEqual([]);
+  expect(requests.filter((u) => !isLocal(u))).toEqual([]);
 });
 
 test("cards show this export's numbers", async ({ page }) => {
