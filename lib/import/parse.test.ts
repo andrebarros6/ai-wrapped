@@ -61,6 +61,7 @@ describe("parseImport", () => {
       }),
     );
     expect(out.split.shareable).toMatchObject({
+      avg_messages_per_active_day: 11.3, // 900 messages / 80 active days
       thanks: 30,
       retries: 84,
       by_hour: { "9": 225, "16": 450, "23": 225 },

@@ -50,7 +50,10 @@ function spread(v: unknown, keys: readonly string[], total: number): Record<stri
 
 function estimatedRhythm(o: Record<string, unknown>) {
   const total = num(o.your_messages) ?? 0;
+  const days = num(o.active_days) ?? 0;
   const out: Record<string, unknown> = {
+    // Same definition as 20_time.sql (your_messages / active_days, 1 decimal); the chattiest-day card shows it.
+    avg_messages_per_active_day: days > 0 && total > 0 ? Math.round((total / days) * 10) / 10 : undefined,
     thanks: num(o.thanks),
     retries: num(o.retries),
     by_hour: spread(o.by_hour, Array.from({ length: 24 }, (_, h) => String(h)), total),
