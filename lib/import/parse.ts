@@ -65,6 +65,13 @@ function estimatedRhythm(o: Record<string, unknown>) {
   return Object.fromEntries(Object.entries(out).filter(([, v]) => v !== undefined));
 }
 
+/** The card's heading says "In 2027, you will…", so "You'll ship more" becomes "Ship more". */
+export function asContinuation(line: string): string {
+  const trimmed = line.trim();
+  const rest = trimmed.replace(/^(you['’]ll|you will)\s+/i, "");
+  return rest === trimmed ? rest : rest.charAt(0).toUpperCase() + rest.slice(1);
+}
+
 export function parseImport(text: string): Imported {
   const raw = extractJson(text);
   if (!raw || typeof raw !== "object" || Array.isArray(raw)) throw new ImportError("That isn't the prompt's JSON.");
@@ -92,7 +99,9 @@ export function parseImport(text: string): Imported {
       tz,
       edits: {
         opener: typeof o.opener === "string" ? o.opener : undefined,
-        prediction: Array.isArray(o.prediction) ? o.prediction.filter((x) => typeof x === "string") : undefined,
+        prediction: Array.isArray(o.prediction)
+          ? o.prediction.filter((x): x is string => typeof x === "string").map(asContinuation)
+          : undefined,
       },
     };
   }

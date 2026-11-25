@@ -89,6 +89,13 @@ describe("parseImport", () => {
     expect(parseImport(JSON.stringify({ ...LITE, chattiest_day })).split.shareable).not.toHaveProperty("chattiest_day");
   });
 
+  it("turns predictions written as \"You'll ...\" into lines that finish the card's heading", () => {
+    const out = parseImport(
+      JSON.stringify({ ...LITE, prediction: ["You'll ship product #10.", "you will sleep more", "Ship more."] }),
+    );
+    expect(out.edits.prediction).toEqual(["Ship product #10.", "Sleep more", "Ship more."]);
+  });
+
   it("accepts the old lite format's estimate fields", () => {
     const out = parseImport(JSON.stringify({ source: "lite-prompt", chats_estimate: 50, night_share_estimate: 0.1 }));
     expect(out.split.shareable).toMatchObject({ chats: 50, night_share: 0.1 });

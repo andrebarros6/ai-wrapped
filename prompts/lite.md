@@ -30,7 +30,7 @@ with this JSON in one code block, filling in every value:
   "chattiest_day": {"date": "2026-MM-DD", "messages": 0, "topics": 0},
   "club": "one of: Researchers, Builders, Coders, Night Shift, Polyglots, Talkers",
   "opener": "my 2026 in one sentence, under 140 characters",
-  "prediction": ["one playful line about my 2027", "another", "another"]
+  "prediction": ["first playful line about my 2027", "second line", "third line"]
 }
 
 Definitions: chats = conversations I started in 2026; your_messages = messages I sent;
@@ -41,7 +41,9 @@ my messages fell in each hour from 00:00 to 23:00, my local time; by_weekday = 7
 to Sunday; chattiest_day = the date I sent the most messages, how many, and how many different
 topics that day; club = the one that fits me best (Researchers: most web searches,
 Builders: most files and artifacts, Coders: most code runs, Night Shift: most messages after 10pm,
-Polyglots: 3+ languages, Talkers: longest chats).
+Polyglots: 3+ languages, Talkers: longest chats); prediction = each line completes the card's
+heading "In 2027, you will...", so start with a verb ("Ship product #10, then start a list."),
+not "You'll", and keep it under 60 characters or it gets cut.
 
 Rules: everything must be safe to post publicly. No names of people, companies or places that
 could identify me or anyone else, and no health, money, legal, family or job-rejection topics.

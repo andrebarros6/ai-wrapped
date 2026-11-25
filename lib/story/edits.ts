@@ -26,13 +26,23 @@ const INVISIBLE = new RegExp(`[${String.fromCodePoint(...INVISIBLE_CODEPOINTS)}]
 
 export const stripInvisible = (s: string): string => s.replace(INVISIBLE, "");
 
+/** Shorten to `max` characters at a word boundary, marking the cut with "…" (never mid-word). */
+export function fitWords(s: string, max: number): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max - 1);
+  const space = cut.lastIndexOf(" ");
+  return `${(space > max / 2 ? cut.slice(0, space) : cut).replace(/[\s,;:.-]+$/, "")}…`;
+}
+
 const clean = (s: unknown, max: number): string =>
   typeof s === "string"
-    ? stripInvisible(s)
-        .replace(/[\u0000-\u001f\u007f]/g, " ")
-        .replace(/\s+/g, " ")
-        .trim()
-        .slice(0, max)
+    ? fitWords(
+        stripInvisible(s)
+          .replace(/[\u0000-\u001f\u007f]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim(),
+        max,
+      )
     : "";
 
 /**

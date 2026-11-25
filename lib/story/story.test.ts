@@ -16,7 +16,7 @@ import {
   workHeadline,
   workTiles,
 } from "./derive";
-import { cleanTag, defaultEdits, LIMITS, sanitizeEdits, stripInvisible } from "./edits";
+import { cleanTag, defaultEdits, fitWords, LIMITS, sanitizeEdits, stripInvisible } from "./edits";
 import { isSafeTitle, safeTitles } from "./safety";
 import { toCardStats } from "./schema";
 
@@ -149,10 +149,22 @@ describe("edits", () => {
     expect(out.tag).toBe("team-a");
     expect(out.opener).toBe(defaultEdits(s).opener);
     expect(out.prediction[0]).toHaveLength(LIMITS.prediction);
+    expect(out.prediction[0].endsWith("…")).toBe(true);
     expect(out.prediction[1]).toBe(defaultEdits(s).prediction[1]);
     expect(out.chattiest_day_example).toBe("line break");
     expect(out.theme).toBe("brand");
     expect(sanitizeEdits(null, s)).toEqual(defaultEdits(s));
+  });
+});
+
+describe("long text", () => {
+  it("is cut at a word, with an ellipsis, never mid-word", () => {
+    const line = "You'll go a whole week without asking for a new hosting alternative";
+    const out = fitWords(line, LIMITS.prediction);
+    expect(out).toBe("You'll go a whole week without asking for a new hosting…");
+    expect(out.length).toBeLessThanOrEqual(LIMITS.prediction);
+    expect(fitWords("short", 60)).toBe("short");
+    expect(fitWords("x".repeat(80), 60)).toHaveLength(60);
   });
 });
 
