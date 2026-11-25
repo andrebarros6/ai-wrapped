@@ -1,5 +1,6 @@
 // The Wall: empty state, joining via a prefilled GitHub PR, eligibility.
 import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { expect, type Page, test } from "@playwright/test";
@@ -29,9 +30,19 @@ async function ownStory(page: Page) {
   await page.getByTestId("wall-toggle").click();
 }
 
-test("the empty Wall invites people in", async ({ page }) => {
+test("the Wall shows the committed entries, or invites people in when there are none", async ({ page }) => {
+  // The Wall grows with every merged entry, so check against the committed build, not a fixed state.
+  const built = JSON.parse(readFileSync(join(ROOT, "public", "wall", "wall.json"), "utf8")) as {
+    count: number;
+    entries: { display_name: string }[];
+  };
   await page.goto("./wall");
-  await expect(page.getByTestId("wall-empty")).toBeVisible();
+  if (built.count === 0) {
+    await expect(page.getByTestId("wall-empty")).toBeVisible();
+  } else {
+    await expect(page.getByTestId("wall-empty")).toHaveCount(0);
+    await expect(page.getByTestId("leaderboard").first()).toContainText(built.entries[0].display_name);
+  }
   await page.goto("./wall/everyone");
   await expect(page.getByTestId("tag-title")).toHaveText("Everyone");
 });
