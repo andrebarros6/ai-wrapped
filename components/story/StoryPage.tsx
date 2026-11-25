@@ -74,6 +74,13 @@ export function StoryPage() {
           DEMO · André&apos;s real 2026. <Link href="/">Make yours →</Link>
         </p>
       )}
+      {story.stats.source === "lite-prompt" && (
+        <p className="mb-4 max-w-2xl text-sm text-cream/80" data-testid="rough-banner">
+          <span className="font-mono text-amber">ROUGH ESTIMATE · </span>
+          Claude guessed these from the part of your history it can search, so they can be well off (often
+          30–60% low). <Link href="/">Get your exact numbers from your export →</Link>
+        </p>
+      )}
       <StoryViewer
         key={source.kind}
         stats={story.stats}

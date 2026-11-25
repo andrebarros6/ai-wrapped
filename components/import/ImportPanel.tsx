@@ -25,8 +25,9 @@ const KITS: Record<Kit, { title: string; blurb: string; steps: string[]; prompt:
     file: "full.md",
   },
   lite: {
-    title: "Lite · 30 seconds",
-    blurb: "No export. Claude or ChatGPT estimates your year from chat history, so your cards will say ESTIMATED.",
+    title: "Rough · 30 seconds",
+    blurb:
+      "No export. Claude or ChatGPT guesses your year from the chats it can search. It can't see chats inside Projects, regenerated replies or tool use, so expect numbers well off (often 30–60% low) and the wrong peak hour. Your cards will say ESTIMATED. For your real numbers, use Exact.",
     steps: ["Turn on chat-history search (memory) in Claude or ChatGPT.", "Paste the prompt in a new chat."],
     prompt: LITE_PROMPT,
     file: "lite.md",

@@ -35,6 +35,7 @@ test("CLI / full-kit JSON gives the full 8-card story with exact numbers", async
   await page.keyboard.press("ArrowRight");
   await expect(page.getByTestId("story-card")).toContainText(`${full.chats}chats started`);
   await expect(page.getByTestId("story-card")).not.toContainText("ESTIMATED");
+  await expect(page.getByTestId("rough-banner")).toHaveCount(0);
 
   const stored = await page.evaluate(() => sessionStorage.getItem("ai-wrapped:stats") ?? "");
   expect(JSON.parse(stored)).toMatchObject({ source: "cli", tz: "Europe/Lisbon", chats: full.chats });
@@ -75,6 +76,8 @@ test("lite JSON without the rhythm estimates gives five estimated cards and uses
   await page.getByTestId("play-pause").click();
   await expect(page.getByTestId("card-counter")).toHaveText("1 / 5");
   await expect(page.getByTestId("story-card")).toContainText("AI WRAPPED 2026 · ESTIMATED");
+  await expect(page.getByTestId("rough-banner")).toContainText("ROUGH ESTIMATE");
+  await expect(page.getByTestId("rough-banner").getByRole("link")).toHaveAttribute("href", "/wrapped");
   await expect(page.getByTestId("story-card")).toContainText(LITE.opener);
   await page.keyboard.press("End");
   await expect(page.getByTestId("story-card")).toContainText("Sleep a bit more.");

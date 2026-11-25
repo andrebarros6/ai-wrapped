@@ -1,8 +1,10 @@
-# AI Wrapped 2026: lite prompt (30 seconds, estimates)
+# AI Wrapped 2026: lite prompt (30 seconds, rough estimates)
 
 No export needed. Works in Claude or ChatGPT with chat-history search (memory) turned on.
-It only sees part of your history (in Claude, not chats inside Projects), so the numbers are
-**estimates**, and your cards will say so. For exact numbers, use the export or `full.md`.
+It only sees part of your history: not chats inside Projects, not regenerated replies, not tool
+use such as web searches, and only roughly when each message was sent. So the numbers are
+**rough estimates**, often 30–60% low, and your cards will say ESTIMATED. For exact numbers,
+use the export on the site, or `full.md`.
 
 Paste the JSON it replies with at **barrosbuilds.com/wrapped/import**.
 
