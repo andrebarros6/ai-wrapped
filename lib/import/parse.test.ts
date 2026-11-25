@@ -48,6 +48,47 @@ describe("parseImport", () => {
     expect(out.tz).toBe("UTC");
   });
 
+  it("turns the lite rhythm estimates into counts the clock, busiest-day and try-again cards use", () => {
+    const hours = Array.from({ length: 24 }, (_, h) => (h === 16 ? 0.5 : h === 9 ? 0.25 : h === 23 ? 0.25 : 0));
+    const out = parseImport(
+      JSON.stringify({
+        ...LITE,
+        thanks: 30,
+        retries: 84,
+        by_hour: hours,
+        by_weekday: [1, 1, 1, 1, 1, 0, 0],
+        chattiest_day: { date: "2026-02-25", messages: 36, topics: 6 },
+      }),
+    );
+    expect(out.split.shareable).toMatchObject({
+      thanks: 30,
+      retries: 84,
+      by_hour: { "9": 225, "16": 450, "23": 225 },
+      by_weekday: { Mon: 180, Tue: 180, Wed: 180, Thu: 180, Fri: 180 },
+      chattiest_day: { date: "2026-02-25", messages: 36, topics: 6 },
+    });
+  });
+
+  it.each([
+    ["wrong length", { by_hour: [1, 2, 3], by_weekday: [1] }],
+    ["all zero", { by_hour: Array(24).fill(0), by_weekday: Array(7).fill(0) }],
+    ["not arrays", { by_hour: { "16": 5 }, by_weekday: "Mon" }],
+  ])("drops a malformed rhythm estimate (%s)", (_name, bad) => {
+    const out = parseImport(JSON.stringify({ ...LITE, ...bad }));
+    expect(out.split.shareable).not.toHaveProperty("by_hour");
+    expect(out.split.shareable).not.toHaveProperty("by_weekday");
+  });
+
+  it.each([
+    ["placeholder date", { date: "2026-MM-DD", messages: 5, topics: 1 }],
+    ["another year", { date: "2025-12-31", messages: 5, topics: 1 }],
+    ["impossible date", { date: "2026-13-01", messages: 5, topics: 1 }],
+    ["no messages", { date: "2026-02-25", messages: 0, topics: 0 }],
+    ["not an object", "Feb 25"],
+  ])("drops a chattiest day that isn't usable (%s)", (_name, chattiest_day) => {
+    expect(parseImport(JSON.stringify({ ...LITE, chattiest_day })).split.shareable).not.toHaveProperty("chattiest_day");
+  });
+
   it("accepts the old lite format's estimate fields", () => {
     const out = parseImport(JSON.stringify({ source: "lite-prompt", chats_estimate: 50, night_share_estimate: 0.1 }));
     expect(out.split.shareable).toMatchObject({ chats: 50, night_share: 0.1 });

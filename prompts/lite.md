@@ -23,6 +23,11 @@ with this JSON in one code block, filling in every value:
   "projects_total": 0,
   "night_share": 0.0,
   "languages": 1,
+  "thanks": 0,
+  "retries": 0,
+  "by_hour": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  "by_weekday": [0, 0, 0, 0, 0, 0, 0],
+  "chattiest_day": {"date": "2026-MM-DD", "messages": 0, "topics": 0},
   "club": "one of: Researchers, Builders, Coders, Night Shift, Polyglots, Talkers",
   "opener": "my 2026 in one sentence, under 140 characters",
   "prediction": ["one playful line about my 2027", "another", "another"]
@@ -30,7 +35,11 @@ with this JSON in one code block, filling in every value:
 
 Definitions: chats = conversations I started in 2026; your_messages = messages I sent;
 night_share = share of my messages sent between 22:00 and 05:00 (0 to 1); languages = how many
-languages I chatted in; club = the one that fits me best (Researchers: most web searches,
+languages I chatted in; thanks = times I thanked you (thanks, thank you, obrigado, merci...);
+retries = times I asked you to redo, retry or fix an answer; by_hour = 24 numbers, how many of
+my messages fell in each hour from 00:00 to 23:00, my local time; by_weekday = 7 numbers, Monday
+to Sunday; chattiest_day = the date I sent the most messages, how many, and how many different
+topics that day; club = the one that fits me best (Researchers: most web searches,
 Builders: most files and artifacts, Coders: most code runs, Night Shift: most messages after 10pm,
 Polyglots: 3+ languages, Talkers: longest chats).
 

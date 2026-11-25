@@ -32,6 +32,39 @@ export function extractJson(text: string): unknown {
 const num = (v: unknown): number | undefined => (typeof v === "number" && Number.isFinite(v) ? v : undefined);
 const emptyLocal = { chat_titles: [], chattiest_day_titles: [], your_top_words: [], longest_chat_title: null };
 
+const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] as const;
+
+/**
+ * The lite prompt's rough activity profile (24 hourly or 7 daily weights, counts or shares) turned
+ * into message counts that add up to `your_messages`, so the clock card reads like the exact one.
+ * Anything malformed is dropped, and the card that needs it stays hidden.
+ */
+function spread(v: unknown, keys: readonly string[], total: number): Record<string, number> | undefined {
+  if (!Array.isArray(v) || v.length !== keys.length) return undefined;
+  const w = v.map((x) => Math.max(0, num(x) ?? 0));
+  const sum = w.reduce((a, b) => a + b, 0);
+  if (sum <= 0) return undefined;
+  const scale = total > 0 ? total / sum : 1;
+  return Object.fromEntries(keys.flatMap((k, i) => (w[i] > 0 ? [[k, Math.round(w[i] * scale)]] : [])));
+}
+
+function estimatedRhythm(o: Record<string, unknown>) {
+  const total = num(o.your_messages) ?? 0;
+  const out: Record<string, unknown> = {
+    thanks: num(o.thanks),
+    retries: num(o.retries),
+    by_hour: spread(o.by_hour, Array.from({ length: 24 }, (_, h) => String(h)), total),
+    by_weekday: spread(o.by_weekday, WEEKDAYS, total),
+  };
+  const d = o.chattiest_day as Record<string, unknown> | null | undefined;
+  const date = typeof d?.date === "string" ? d.date : "";
+  const messages = num(d?.messages) ?? 0;
+  if (/^2026-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(date) && !Number.isNaN(Date.parse(date)) && messages > 0) {
+    out.chattiest_day = { date, messages, topics: Math.max(1, num(d?.topics) ?? 1) };
+  }
+  return Object.fromEntries(Object.entries(out).filter(([, v]) => v !== undefined));
+}
+
 export function parseImport(text: string): Imported {
   const raw = extractJson(text);
   if (!raw || typeof raw !== "object" || Array.isArray(raw)) throw new ImportError("That isn't the prompt's JSON.");
@@ -51,6 +84,7 @@ export function parseImport(text: string): Imported {
       night_share: num(o.night_share ?? o.night_share_estimate),
       club: o.club,
       languages_first_msg: Object.fromEntries(Array.from({ length: languages }, (_, i) => [`lang${i + 1}`, 1])),
+      ...estimatedRhythm(o),
     };
     return {
       split: { shareable: { ...shareable, longest_chat_messages: null }, local: emptyLocal },

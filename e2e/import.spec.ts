@@ -41,7 +41,35 @@ test("CLI / full-kit JSON gives the full 8-card story with exact numbers", async
   for (const t of full.chat_titles) expect(stored).not.toContain(t);
 });
 
-test("lite JSON gives five estimated cards and uses its own words", async ({ page }) => {
+test("lite JSON with the rhythm estimates gives all eight estimated cards", async ({ page }) => {
+  const hours = Array.from({ length: 24 }, (_, h) => (h >= 14 && h <= 17 ? 10 : 1));
+  await importJson(
+    page,
+    JSON.stringify({
+      ...LITE,
+      thanks: 30,
+      retries: 84,
+      by_hour: hours,
+      by_weekday: [3, 5, 4, 4, 3, 1, 1],
+      chattiest_day: { date: "2026-02-25", messages: 36, topics: 6 },
+    }),
+  );
+  await expect(page.getByTestId("story-card")).toBeVisible();
+  await page.getByTestId("play-pause").click();
+  await expect(page.getByTestId("card-counter")).toHaveText("1 / 8");
+  const seen: string[] = [];
+  for (let i = 0; i < 8; i++) {
+    seen.push((await page.getByTestId("story-card").textContent()) ?? "");
+    await page.keyboard.press("ArrowRight");
+  }
+  const all = seen.join(" | ");
+  expect(all).toContain("36 messages. 6 topics.");
+  expect(all).toContain("made Claude try again");
+  expect(all).toContain("busiest day");
+  for (const card of seen) expect(card).toContain("ESTIMATED");
+});
+
+test("lite JSON without the rhythm estimates gives five estimated cards and uses its own words", async ({ page }) => {
   await importJson(page, JSON.stringify(LITE));
   await expect(page.getByTestId("story-card")).toBeVisible();
   await page.getByTestId("play-pause").click();

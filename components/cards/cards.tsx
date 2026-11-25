@@ -251,7 +251,8 @@ export const CARDS: CardDef[] = [
     label: "Try again",
     cta: "Are you nicer to your AI?",
     sql: ["30_text.sql"],
-    available: (s) => s.source !== "lite-prompt",
+    // Lite estimates fill it only when the reply included them.
+    available: (s) => s.source !== "lite-prompt" || s.retries + s.thanks > 0,
     Body: ({ s, t }) => (
       <>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
